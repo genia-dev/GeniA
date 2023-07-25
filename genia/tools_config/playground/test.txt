@@ -1,0 +1,100 @@
+lets print a plan of thoughts that specifies how you can list the aws regions using the function "list_aws_regions" and then filter those which starts with 'eu'. print those thoughts here below in a format i can save as a memory of text and in the future load 'as-is' so you will be able to immediately execute
+
+
+1. Use the `list_aws_regions` function to get a list of all AWS regions.
+2. Iterate through the list of regions and check if each region starts with 'us'.
+3. If a region starts with 'us', add it to a new list of filtered regions.
+4. Return the filtered list of regions.
+
+{
+  "steps": [
+    {
+      "action": "functions.list_aws_regions",
+      "parameters": {}
+    },
+    {
+      "action": "functions.aws_list_lambda_functions",
+      "parameters": {
+        "region_name": "user_input"
+      }
+    },
+    {
+      "action": "functions.invoke_lambda",
+      "parameters": {
+        "lambda_name": "lambda_foo",
+        "region_name": "user_input",
+        "payload": "{\"bar\":1, \"baz\":2}"
+      }
+    }
+  ]
+}
+----------------------------------------------------------------------------------------------------
+
+
+
+use the tools you have and the ability to find more tools to come up with a plan which i want you to print so it could be saved in the future to disk and loaded in the future so this plan can be executed again. 
+the goal is to invoke AWS lambda function with a certain name, lets say lambda_foo and its parametes bar=1 and baz=2. please reflect your thoughts, take it step by step and present a snippet of memory i can save
+
+lets add another step to the plan before those, we need to first ask the user what region name to use as a parameter for the functions.aws_list_lambda_functions using another function called 'list_aws_regions' which should be executed firs and presented to the user to validate from
+
+and how can you save to memory the thought that you should first ask the user for the input out of the valid results in the first step to be put to the second?
+
+
+
+1. Use 'functions.list_aws_regions' to get a list of valid AWS regions.
+2. Ask the user to select a region from this list.
+3. Use the selected region as a parameter in 'functions.aws_list_lambda_functions' to check if 'lambda_foo' exists.
+4. If 'lambda_foo' exists, use 'functions.invoke_lambda' to invoke it with parameters 'bar=1' and 'baz=2'
+
+
+
+----------------------------------------------------------------------------------------------------
+
+
+
+[{"function_name": "list_aws_regions_filter_eu_1", "parameters": {}},{"function_name": "aws_list_lambda_functions", "parameters": {"region_name": "us-east-1"}}]
+
+[{"function_name": "aws_list_lambda_functions", "parameters": {"region_name": "us-east-1"}},{"function_name": "aws_list_lambda_functions", "parameters": {"region_name": "us-west-1"}}]
+
+
+i want you to reflect your thoughts and take it step by step. we are going to reflect about calling aws lambda function, you can find a tool named invoke_lambda with the following parameters: lambda name is 'underutilized-resources' on region us-east-1 the function requires a parameter called threshold use the value 10 on the function invoke. do not run the function just plan and print a memory with me which can be stored and later be loaded so you will know exactly what function to call and with what parameters.
+write code which i can save and on a new session with you can load 'as-is' so you will know to execute exactly the last function call
+and how can you save to memory the thought that you should first ask the user for the input out of the valid results in the first step to be put to the second?
+
+no, i will save this skill myself, just print here a text or snippet i can use in the future to give you the entire context in the best way for you to understand all the steps you need to make in the most percise formal way to minimize misunderstanding
+
+
+
+----------------------------------------------------------------------------------------------------
+
+
+Here is the text that you can save and use in a new session to load the last function call:
+
+```
+{
+  "function_name": "invoke_lambda",
+    "parameters": {
+      "lambda_name": "find_underutilized_ec2_resources",
+      "region_name": "<User Selected AWS Region or User Mentioned AWS Region>",
+      "payload": "{\"threshold\":10}"
+    }
+}
+```
+
+
+
+Please copy and save this text. In a new session, you can provide this text to me, and I will know exactly how to execute the last function call. Let me know if you have any further questions or need assistance.
+
+No, you don't need to add any additional text. The provided text contains all the necessary information for me to know that it should be used to execute the last function call. Simply provide the saved text in a new session, and I will understand that it is the instruction to run the function. Let me know if there's anything else I can help you with!
+
+
+To call the AWS Lambda function 'underutilized-resources' in the 'us-east-1' region, we can use the 'invoke_lambda' tool. The function requires a parameter called 'threshold' with a value of 10.
+
+Plan:
+1. Use the 'invoke_lambda' tool.
+2. Set the 'lambda_name' parameter to 'underutilized-resources'.
+3. Set the 'region_name' parameter to 'us-east-1'.
+4. Set the 'payload' parameter to '{"threshold": 10}'.
+5. Print a memory that includes the function name, region, and parameter value.
+
+

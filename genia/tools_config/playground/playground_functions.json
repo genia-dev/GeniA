@@ -1,0 +1,64 @@
+[
+    {
+        "name": "get_current_weather",
+        "description": "get the current weather data in a specific location",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "latitude": {
+                    "type": "string",
+                    "description": "The location latitude"
+                },
+                "longitude": {
+                    "type": "string",
+                    "description": "The location latitude"
+                },
+                "unit": {
+                    "type": "string",
+                    "description": "The temperature unit to use. Infer this from the users location.",
+                    "enum": [
+                        "celsius",
+                        "fahrenheit"
+                    ]
+                }
+            },
+            "required": [
+                "latitude",
+                "longitude",
+                "valid"
+            ]
+        }
+    },
+    {
+        "name": "search_serp_api",
+        "description": "A search engine. Useful for when you need to answer questions about current events.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "query": {
+                    "type": "string",
+                    "description": "The search query"
+                }
+            },
+            "required": [
+                "query"
+            ]
+        }
+    },
+    {
+        "name": "get_pet_by_id",
+        "description": "get pet details by a given id number",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "petId": {
+                    "type": "number",
+                    "description": "the pet id"
+                }
+            },
+            "required": [
+                "petId"
+            ]
+        }
+    }
+]

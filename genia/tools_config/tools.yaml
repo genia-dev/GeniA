@@ -1,0 +1,271 @@
+- tool_name: github_fetcher
+  category: url
+  template: https://api.github.com/repos/{owner}/{repo}/commits?since={since}
+  
+- tool_name: get_top_available_tools
+  category: python
+  validate: false
+  class: genia.llm_function.llm_function_repository.LLMFunctionRepositoryAsAFunction
+  method: find_most_relevant_tools
+
+- tool_name: upsert_skill
+  title: keep a new AI skill in memory
+  category: python
+  class: genia.tools.skills.skills_repository.LLMSkillsRepository
+  method: upsert_skill
+
+- tool_name: read_skill
+  title: read an AI skill into memory
+  category: python
+  class: genia.tools.skills.skills_repository.LLMSkillsRepository
+  method: read_skill
+
+- tool_name: delete_skill
+  title: delete an AI skill from memory
+  category: python
+  class: genia.tools.skills.skills_repository.LLMSkillsRepository
+  method: delete_skill
+
+- tool_name: list_running_aws_ec2_instances
+  category: python
+  class: genia.tools.aws_client.ec2.aws_client_ec2.AWSClientEC2
+  method: get_running_instances
+
+- tool_name: terminate_aws_ec2_instance
+  category: python
+  class: genia.tools.aws_client.ec2.aws_client_ec2.AWSClientEC2
+  method: terminate_instance
+
+- tool_name: list_clusters
+  category: python
+  class: genia.tools.aws_client.ecs.aws_client_ecs.AWSClientECS
+  method: list_clusters
+
+- tool_name: restart_cluster
+  category: python
+  class: genia.tools.aws_client.ecs.aws_client_ecs.AWSClientECS
+  method: restart_cluster
+
+- tool_name: list_sqs_queues
+  category: python
+  title: list all AWS sqs queues
+  class: genia.tools.aws_client.sqs.aws_client_sqs.AWSClientSQS
+  method: list_sqs_queues
+
+- tool_name: create_lambda
+  category: python
+  title: create and deploy AWS lambda function
+  class: genia.tools.aws_client.lambdas.aws_client_lambda.AWSClientLambda
+  method: create_lambda
+
+- tool_name: delete_lambda
+  category: python
+  title: delete AWS lambda function
+  class: genia.tools.aws_client.lambdas.aws_client_lambda.AWSClientLambda
+  method: delete_lambda
+
+- tool_name: aws_list_lambda_functions
+  category: python
+  title: list all AWS lambdas functions
+  class: genia.tools.aws_client.lambdas.aws_client_lambda.AWSClientLambda
+  method: aws_list_lambda_functions
+
+- tool_name: invoke_lambda
+  category: python
+  title: invoke AWS lambda function
+  class: genia.tools.aws_client.lambdas.aws_client_lambda.AWSClientLambda
+  method: invoke_lambda
+
+- tool_name: get_lambda_function_code
+  category: python
+  title: get AWS lambda function code
+  class: genia.tools.aws_client.lambdas.aws_client_lambda.AWSClientLambda
+  method: get_lambda_function_code
+
+- tool_name: update_lambda
+  category: python
+  title: update AWS lambda function code
+  class: genia.tools.aws_client.lambdas.aws_client_lambda.AWSClientLambda
+  method: update_lambda
+
+- tool_name: create_scheduled_lambda
+  category: python
+  title: create AWS scheduled cron lambda
+  class: AWSClientEvents
+  method: create_scheduled_lambda
+
+- tool_name: list_scheduled_lambdas
+  category: python
+  title: list AWS scheduled cron lambdas
+  class: genia.tools.aws_client.events.aws_client_events.AWSClientEvents
+  method: list_scheduled_lambdas
+
+- tool_name: update_scheduled_lambda
+  category: python
+  title: update AWS scheduled cron lambda
+  class: genia.tools.aws_client.events.aws_client_events.AWSClientEvents
+  method: update_scheduled_lambda
+
+- tool_name: delete_scheduled_lambda
+  category: python
+  title: delete AWS scheduled cron lambda
+  class: genia.tools.aws_client.events.aws_client_events.AWSClientEvents
+  method: delete_scheduled_lambda
+
+- tool_name: list_users_in_group
+  category: python
+  title: list AWS IAM users in specific group
+  class: genia.tools.aws_client.iam.aws_client_iam.AWSClientIAM
+  method: list_users_in_group
+
+- tool_name: add_user_to_group
+  category: python
+  title: add AWS IAM user to specific group
+  class: genia.tools.aws_client.iam.aws_client_iam.AWSClientIAM
+  method: add_user_to_group
+
+- tool_name: remove_user_from_group
+  category: python
+  title: remove AWS IAM user from specific group
+  class: genia.tools.aws_client.iam.aws_client_iam.AWSClientIAM
+  method: remove_user_from_group
+
+- tool_name: list_users_in_group_more_than_x_time
+  category: python
+  title: list AWS IAM users which attached to IAM group more than X time
+  class: genia.tools.aws_client.cloudtrail.aws_client_cloudtrail.AWSClientCloudTrail
+  method: list_users_in_group_more_than_x_time
+
+- tool_name: get_org_repos_names
+  category: python
+  class: genia.tools.github_client.github_client.GithubClient
+  method: get_org_repos_names
+
+- tool_name: commit_and_create_new_pr
+  category: python
+  class: genia.tools.github_client.github_client.GithubClient
+  method: commit_and_create_new_pr
+
+- tool_name: list_namespaces
+  category: python
+  title: list all Kubernetes namespaces
+  class: genia.tools.kubernetes_client.namespace.KubernetesNamespace
+  method: list_namespaces
+
+- tool_name: list_namespaced_secret
+  category: python
+  title: list all Kubernetes namespaced secrets
+  class: genia.tools.kubernetes_client.secret.KubernetesSecret
+  method: list_namespaced_secret
+
+- tool_name: get_service_owner
+  category: python
+  class: genia.tools.kubernetes_client.pod.KubernetesPod
+  method: get_service_owner
+
+- tool_name: scale_deployment_resources
+  category: python
+  title: scale the kubernetes resources requests and limits of cpu and memory for a deployment container
+  class: genia.tools.kubernetes_client.deployment.KubernetesDeployment
+  method: scale_deployment_resources
+
+- tool_name: describe_deployment
+  category: python
+  title: describe the kubernetes resources requests and limits of cpu and memory and replicas and the container
+  class: genia.tools.kubernetes_client.deployment.KubernetesDeployment
+  method: describe_deployment
+
+- tool_name: list_deployment
+  category: python
+  title: list the kubernetes deployments for a given namespace
+  class: genia.tools.kubernetes_client.deployment.KubernetesDeployment
+  method: list_deployment
+
+- tool_name: opa_check_policy_rule
+  category: python
+  class: genia.tools.opa.opa.OpaClientWrapper
+  method: opa_check_policy_rule
+
+# - tool_name: reasoning_acting
+#   category: python
+#   validate: false
+#   class: ReAct
+#   method: plan
+
+- tool_name: get_oncall
+  category: python
+  class: genia.tools.pagerduty_client.pagerduty_client.PagerDutyClient
+  method: get_oncall
+
+- tool_name: trigger_incident
+  category: python
+  class: genia.tools.pagerduty_client.pagerduty_client.PagerDutyClient
+  method: trigger_incident
+
+- tool_name: list_services
+  category: python
+  class: genia.tools.pagerduty_client.pagerduty_client.PagerDutyClient
+  method: list_services
+
+- tool_name: get_info
+  category: python
+  class: genia.tools.jenkins.jenkins_client.JenkinsClient
+  method: get_info
+
+- tool_name: get_plugins_info
+  category: python
+  class: genia.tools.jenkins.jenkins_client.JenkinsClient
+  method: get_plugins_info
+
+- tool_name: build_job
+  category: python
+  class: genia.tools.jenkins.jenkins_client.JenkinsClient
+  method: build_job
+
+- tool_name: get_queue_info
+  category: python
+  class: genia.tools.jenkins.jenkins_client.JenkinsClient
+  method: get_queue_info
+
+- tool_name: cancel_job
+  category: python
+  class: genia.tools.jenkins.jenkins_client.JenkinsClient
+  method: cancel_job
+
+- tool_name: get_version
+  category: python
+  class: genia.tools.argo.argo_client.ArgoClient
+  method: get_version
+
+- tool_name: get_applications
+  category: python
+  class: genia.tools.argo.argo_client.ArgoClient
+  method: get_applications
+
+- tool_name: get_clusters
+  category: python
+  class: genia.tools.argo.argo_client.ArgoClient
+  method: get_clusters
+
+- tool_name: get_applications_logs_by_app
+  category: python
+  class: genia.tools.argo.argo_client.ArgoClient
+  method: get_applications_logs_by_app
+
+- tool_name: get_workflow_log
+  category: python
+  title: get argo workflow log
+  class: genia.tools.argo.argo_client.ArgoClient
+  method: get_workflow_log
+
+- tool_name: get_workflow
+  category: python
+  title: get argo workflow status and details
+  class: genia.tools.argo.argo_client.ArgoClient
+  method: get_workflow
+
+- tool_name: submit_workflow
+  category: python
+  title: submit new argo workflow with specific image container
+  class: genia.tools.argo.argo_client.ArgoClient
+  method: submit_workflow

@@ -1,0 +1,950 @@
+[
+    {
+        "name": "reasoning_acting",
+        "description": "use this tool before executing any other task, it will help the AI to break complex tasks to simpler steps and take it step by step.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "task_category": {
+                    "type": "string",
+                    "description": "a classification of the task",
+                    "enum": [
+                        "plan",
+                        "research",
+                        "design",
+                        "code",
+                        "other"
+                    ]
+                },
+                "thoughts": {
+                    "type": "string",
+                    "description": "The thoughts the AI have before executing a task an in the planning phase as a self reflection."
+                }
+            },
+            "required": ["task_category","thoughts"]
+        }
+    },
+    {
+        "name": "github_fetcher",
+        "description": "Gets the code commits for a github repository and a specific owner. if you don't have the required parameters in the specification, you need to ask the user to provide them",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "owner": {
+                    "type": "string",
+                    "description": "The owner of the github repository"
+                },
+                "repo": {
+                    "type": "string",
+                    "description": "The github repository name"
+                },
+                "since": {
+                    "type": "string",
+                    "description": "Only show notifications updated after the given time. This is a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ."
+                }
+            },
+            "required": [
+                "owner",
+                "repo"
+            ]
+        }
+    },
+    {
+        "name": "get_top_available_tools",
+        "description": "fetch top available functions for the AI assistant to be used, use this tool whenever you are not sure if a tool is available for the task you need to execute",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "filter": {
+                    "type": "string",
+                    "description": "capture the user intent to filter the list of tools. i.e 'amazon web services', 'cloud infrastructure', 'code deploy'"
+                }
+            },
+            "required": []
+        }
+    },
+    {
+        "name": "upsert_skill",
+        "description": "AI can learn a new skill by saving its thought as a text snippet and save it memory to to be used later",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "skill_name": {
+                    "type": "string",
+                    "description": "the unique name of the skill"
+                },
+                "skill_description": {
+                    "type": "string",
+                    "description": "a well defined description in natural language that specifies when this tool should be used by the AI assistant"
+                },
+                 "skill_text": {
+                    "type": "string",
+                    "description": "text snippet to capture the your thoughts into memory"
+                }
+            },
+            "required": ["skill_name", "skill_description", "skill_text"]
+        }
+    },
+    {
+        "name": "read_skill",
+        "description": "Load AI skill from long term memory",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "skill_name": {
+                    "type": "string",
+                    "description": "the unique name of the skill, should contain only letters, numbers or underscores"
+                }
+            },
+            "required": ["skill_name"]
+        }
+    },
+    {
+        "name": "delete_skill",
+        "description": "Delete AI skill from long term memory",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "skill_name": {
+                    "type": "string",
+                    "description": "the unique name of the skill"
+                }
+            },
+            "required": ["skill_name"]
+        }
+    },
+    {
+        "name": "list_running_aws_ec2_instances",
+        "description": "List running AWS EC2 instances",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "region_name": {
+                    "type": "string",
+                    "description": "The AWS Region"
+                }
+            },
+            "required": [
+                "region_name"
+            ]
+        }
+    },
+    {
+        "name": "terminate_aws_ec2_instance",
+        "description": "terminate an AWS EC2 instance",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "instance_id": {
+                    "type": "string",
+                    "description": "The AWS EC2 instance id"
+                },
+                "region_name": {
+                    "type": "string",
+                    "description": "The AWS Region"
+                }
+            },
+            "required": [
+                "instance_id",
+                "region_name"
+            ]
+        }
+    },
+    {
+        "name": "list_clusters",
+        "description": "Use the AWS API to list ECS clusters",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "region_name": {
+                    "type": "string",
+                    "description": "The AWS Region"
+                }
+            },
+            "required": [
+                "region_name"
+            ]
+        }
+    },
+    {
+        "name": "restart_cluster",
+        "description": "Use the AWS API to restart ECS cluster services",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "region_name": {
+                    "type": "string",
+                    "description": "The AWS Region"
+                },
+                "cluster_name": {
+                    "type": "string",
+                    "description": "The AWS ECS cluster name"
+                }
+            },
+            "required": [
+                "cluster_name",
+                "region_name"
+            ]
+        }
+    },
+    {
+        "name": "list_sqs_queues",
+        "description": "Use the AWS API to list SQS Queues",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "region_name": {
+                    "type": "string",
+                    "description": "The AWS Region"
+                }
+            },
+            "required": [
+                "region_name"
+            ]
+        }
+    },
+    {
+        "name": "create_lambda",
+        "description": "create and deploy new AWS Lambda function",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "lambda_code": {
+                    "type": "string",
+                    "description": "The AWS Lambda Code"
+                },
+                "lambda_name": {
+                    "type": "string",
+                    "description": "The AWS Lambda function name"
+                },
+                "function_handler": {
+                    "type": "string",
+                    "description": "The AWS Lambda function handler need to invoked"
+                },
+                "region_name": {
+                    "type": "string",
+                    "description": "The AWS Region"
+                }
+            },
+            "required": [
+                "function_handler",
+                "lambda_code",
+                "lambda_name",
+                "region_name"
+            ]
+        }
+    },
+    {
+        "name": "update_lambda",
+        "description": "udate and deploy AWS Lambda function",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "lambda_code": {
+                    "type": "string",
+                    "description": "The AWS Lambda updated code"
+                },
+                "lambda_name": {
+                    "type": "string",
+                    "description": "The AWS Lambda function name"
+                },
+                "region_name": {
+                    "type": "string",
+                    "description": "The AWS Region"
+                }
+            },
+            "required": [
+                "lambda_code",
+                "lambda_name",
+                "region_name"
+            ]
+        }
+    },
+    {
+        "name": "delete_lambda",
+        "description": "delete AWS Lambda function with all the associated resources",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "lambda_name": {
+                    "type": "string",
+                    "description": "The AWS Lambda function name"
+                },
+                "region_name": {
+                    "type": "string",
+                    "description": "The AWS Region"
+                }
+            },
+            "required": [
+                "lambda_name",
+                "region_name"
+            ]
+        }
+    },
+    {
+        "name": "aws_list_lambda_functions",
+        "description": "get a list of all the AWS Lambda functions in a region",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "region_name": {
+                    "type": "string",
+                    "description": "The AWS Region"
+                }
+            },
+            "required": [
+                "region_name"
+            ]
+        }
+    },
+    {
+        "name": "invoke_lambda",
+        "description": "invoke AWS lambda function",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "lambda_name": {
+                    "type": "string",
+                    "description": "The AWS Lambda function name"
+                },
+                "region_name": {
+                    "type": "string",
+                    "description": "The AWS Region"
+                },
+                "payload": {
+                    "type": "string",
+                    "description": "The AWS Lambda invocation payload"
+                }
+            },
+            "required": [
+                "lambda_name",
+                "region_name",
+                "payload"
+            ]
+        }
+    },
+    {
+        "name": "get_lambda_function_code",
+        "description": "get the AWS Lambda source code for a given lambda name to be presented to the user",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "lambda_name": {
+                    "type": "string",
+                    "description": "The AWS Lambda function name"
+                },
+                "region_name": {
+                    "type": "string",
+                    "description": "The AWS Region"
+                }
+            },
+            "required": [
+                "lambda_name",
+                "region_name"
+            ]
+        }
+    },
+    {
+        "name": "get_org_repos_names",
+        "description": "get the repositories names of a given organization",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "org": {
+                    "type": "string",
+                    "description": "the GitHub organization name"
+                }
+            },
+            "required": [
+                "org"
+            ]
+        }
+    },
+    {
+        "name": "commit_and_create_new_pr",
+        "description": "create a new Pull Request with the commit file content",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "owner": {
+                    "type": "string",
+                    "description": "The GitHub owner of the repository, can be organization or user"
+                },
+                "repository": {
+                    "type": "string",
+                    "description": "The GitHub repository name"
+                },
+                "branch": {
+                    "type": "string",
+                    "description": "The GitHub repository new branch name for the pull request"
+                },
+                "pull_request_message": {
+                    "type": "string",
+                    "description": "The GitHub pull request message in the commit"
+                },
+                "commit_message": {
+                    "type": "string",
+                    "description": "The GitHub commit message"
+                },
+                "file_path": {
+                    "type": "string",
+                    "description": "The GitHub commit file path to store the remote file"
+                },
+                "commit_content": {
+                    "type": "string",
+                    "description": "The GitHub commit file content"
+                }
+            },
+            "required": [
+                "owner",
+                "repository",
+                "branch",
+                "pull_request_message",
+                "commit_message",
+                "file_path",
+                "commit_content"
+            ]
+        }
+    },
+    {
+        "name": "list_namespaces",
+        "description": "List Kubernetes namespaces",
+        "parameters": {
+            "type": "object",
+            "properties": {},
+            "required": []
+        }
+    },
+    {
+        "name": "list_namespaced_secret",
+        "description": "List Kubernetes secret namespaced",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "namespace": {
+                    "type": "string",
+                    "description": "The Kubernetes namespace"
+                }
+            },
+            "required": [
+                "namespace"
+            ]
+        }
+    },
+    {
+        "name": "get_service_owner",
+        "description": "Get the service owner for a given service in Kubernetes",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "service": {
+                    "type": "string",
+                    "description": "The Kubernetes service name"
+                }
+            },
+            "required": [
+                "service"
+            ]
+        }
+    },
+    {
+        "name": "scale_deployment_resources",
+        "description": "scale the kubernetes resources requests and limits of cpu and memory for a deployment container",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "namespace": {
+                    "type": "string",
+                    "description": "The Kubernetes namespace"
+                },
+                "deployment_name": {
+                    "type": "string",
+                    "description": "The Kubernetes deployment name in specific namespace"
+                },
+                "container_name": {
+                    "type": "string",
+                    "description": "The Kubernetes container name in specific deployment and specific namespace"
+                },
+                "requests_cpu": {
+                    "type": "string",
+                    "description": "The Kubernetes requests cpu"
+                },
+                "requests_memory": {
+                    "type": "string",
+                    "description": "The Kubernetes requests memory"
+                },
+                "limits_cpu": {
+                    "type": "string",
+                    "description": "The Kubernetes limits cpu"
+                },
+                "limits_memory": {
+                    "type": "string",
+                    "description": "The Kubernetes limits memory"
+                }
+            },
+            "required": [
+                "namespace",
+                "deployment_name",
+                "requests",
+                "limits"
+            ]
+        }
+    },
+    {
+        "name": "describe_deployment",
+        "description": "describe the kubernetes resources requests and limits of cpu and memory and replicas and the container",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "namespace": {
+                    "type": "string",
+                    "description": "The Kubernetes namespace"
+                },
+                "deployment_name": {
+                    "type": "string",
+                    "description": "The Kubernetes deployment name in specific namespace"
+                }
+            },
+            "required": [
+                "namespace",
+                "deployment_name"
+            ]
+        }
+    },
+    {
+        "name": "list_deployment",
+        "description": "list the kubernetes deployments for a given namespace",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "namespace": {
+                    "type": "string",
+                    "description": "The Kubernetes namespace"
+                }
+            },
+            "required": [
+                "namespace"
+            ]
+        }
+    },
+    {
+        "name": "opa_check_policy_rule",
+        "description": "Check OPA policy rule against Kubernetes input",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "input_data": {
+                    "type": "string",
+                    "description": "The Kubernetes input data"
+                }
+            },
+            "required": [
+                "input_data"
+            ]
+        }
+    },
+    {
+        "name": "get_oncall",
+        "description": "Get the OnCall person from PagerDuty",
+        "parameters": {
+            "type": "object",
+            "properties": {
+            },
+            "required": [
+            ]
+        }
+    },
+    {
+        "name": "trigger_incident",
+        "description": "Trigger an incident to the OnCall in PagerDuty",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "service_id": {
+                    "type": "string",
+                    "description": "The service id that incident is belong"
+                },
+                "incident_title": {
+                    "type": "string",
+                    "description": "The incident title"
+                }
+            },
+            "required": [
+                "incident_title",
+                "service_id"
+            ]
+        }
+    },
+    {
+        "name": "list_services",
+        "description": "List the PagerDuty services",
+        "parameters": {
+            "type": "object",
+            "properties": {
+            },
+            "required": [
+            ]
+        }
+    },
+    {
+        "name": "get_info",
+        "description": "Get Jenkins main server info",
+        "parameters": {
+            "type": "object",
+            "properties": {
+            },
+            "required": [
+            ]
+        }
+    },
+    {
+        "name": "get_plugins_info",
+        "description": "Get Jenkins installed plugins info",
+        "parameters": {
+            "type": "object",
+            "properties": {
+            },
+            "required": [
+            ]
+        }
+    },
+    {
+        "name": "build_job",
+        "description": "Trigger Jenkins job by name",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "job_name": {
+                    "type": "string",
+                    "description": "The Jenkins job name to trigger"
+                }
+            },
+            "required": [
+                "job_name"
+            ]
+        }
+    },
+    {
+        "name": "get_queue_info",
+        "description": "Get Jenkins queue of jobs",
+        "parameters": {
+            "type": "object",
+            "properties": {
+            },
+            "required": [
+            ]
+        }
+    },
+    {
+        "name": "cancel_job",
+        "description": "Cancel Jenkins job by id",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "job_id": {
+                    "type": "string",
+                    "description": "The Jenkins job id to cancel"
+                }
+            },
+            "required": [
+                "job_id"
+            ]
+        }
+    },
+    {
+        "name": "get_version",
+        "description": "Get Argo version information",
+        "parameters": {
+            "type": "object",
+            "properties": {
+            },
+            "required": [
+            ]
+        }
+    },
+    {
+        "name": "get_applications",
+        "description": "Get Argo deployed applications",
+        "parameters": {
+            "type": "object",
+            "properties": {
+            },
+            "required": [
+            ]
+        }
+    },
+    {
+        "name": "get_clusters",
+        "description": "Get Argo clusters information",
+        "parameters": {
+            "type": "object",
+            "properties": {
+            },
+            "required": [
+            ]
+        }
+    },
+    {
+        "name": "get_applications_logs_by_app",
+        "description": "Get Argo application logs by application name",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "app": {
+                    "type": "string",
+                    "description": "The application name"
+                },
+                "sinceSeconds": {
+                    "type": "number",
+                    "description": "Since when show logs; seconds unit"
+                },
+                "tailLines": {
+                    "type": "number",
+                    "description": "Limit the number of log lines"
+                }
+            },
+            "required": [
+                "app"
+            ]
+        }
+    },
+    {
+        "name": "get_workflow_log",
+        "description": "get argo workflow log",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "namespace": {
+                    "type": "string",
+                    "description": "The workflow namespace"
+                },
+                "workflow_name": {
+                    "type": "string",
+                    "description": "the argo workflow name that was created"
+                },
+                "sinceSeconds": {
+                    "type": "number",
+                    "description": "Since when show logs; seconds unit"
+                },
+                "tailLines": {
+                    "type": "number",
+                    "description": "Limit the number of log lines"
+                }
+            },
+            "required": [
+                "namespace",
+                "workflow_name"
+            ]
+        }
+    },
+    {
+        "name": "get_workflow",
+        "description": "get argo workflow status and details",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "namespace": {
+                    "type": "string",
+                    "description": "the workflow namespace"
+                },
+                "workflow_name": {
+                    "type": "string",
+                    "description": "the argo workflow name that was created"
+                }
+            },
+            "required": [
+                "namespace",
+                "workflow_name"
+            ]
+        }
+    },
+    {
+        "name": "submit_workflow",
+        "description": "submit new argo workflow with specific image container",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "namespace": {
+                    "type": "string",
+                    "description": "the workflow namespace"
+                },
+                "workflow_name": {
+                    "type": "string",
+                    "description": "the argo workflow name that was created"
+                },
+                "image": {
+                    "type": "string",
+                    "description": "the image container to use in that workflow"
+                }
+            },
+            "required": [
+                "namespace",
+                "workflow_name",
+                "image"
+            ]
+        }
+    },
+    {
+        "name": "create_scheduled_lambda",
+        "description": "create AWS scheduled cron lambda",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "region_name": {
+                    "type": "string",
+                    "description": "The AWS Region"
+                },
+                "cron_expression": {
+                    "type": "string",
+                    "description": "The cron expression to be scheduled"
+                },
+                "lambda_function_name": {
+                    "type": "string",
+                    "description": "The AWS Region"
+                }
+            },
+            "required": [
+                "region_name",
+                "cron_expression",
+                "lambda_function_name"
+            ]
+        }
+    },
+    {
+        "name": "list_scheduled_lambdas",
+        "description": "list AWS scheduled cron lambdas",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "region_name": {
+                    "type": "string",
+                    "description": "The AWS Region"
+                }
+            },
+            "required": [
+                "region_name"
+            ]
+        }
+    },
+    {
+        "name": "update_scheduled_lambda",
+        "description": "update AWS scheduled cron lambda",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "region_name": {
+                    "type": "string",
+                    "description": "The AWS Region"
+                },
+                "cron_expression": {
+                    "type": "string",
+                    "description": "The cron expression to be scheduled"
+                }
+            },
+            "required": [
+                "region_name",
+                "cron_expression"
+            ]
+        }
+    },
+    {
+        "name": "delete_scheduled_lambda",
+        "description": "delete AWS scheduled cron lambda",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "region_name": {
+                    "type": "string",
+                    "description": "The AWS Region"
+                },
+                "lambda_function_name": {
+                    "type": "string",
+                    "description": "The AWS Region"
+                }
+            },
+            "required": [
+                "region_name",
+                "lambda_function_name"
+            ]
+        }
+    },
+    {
+        "name": "list_users_in_group",
+        "description": "list AWS IAM users in specific group",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "group_name": {
+                    "type": "string",
+                    "description": "The AWS IAM Group Name"
+                }
+            },
+            "required": [
+                "group_name"
+            ]
+        }
+    },
+    {
+        "name": "add_user_to_group",
+        "description": "add AWS IAM user to specific group",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "group_name": {
+                    "type": "string",
+                    "description": "The AWS IAM Group Name"
+                },
+                "user_name": {
+                    "type": "string",
+                    "description": "The AWS IAM Username"
+                }
+            },
+            "required": [
+                "group_name",
+                "user_name"
+            ]
+        }
+    },
+    {
+        "name": "remove_user_from_group",
+        "description": "remove AWS IAM user from specific group",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "group_name": {
+                    "type": "string",
+                    "description": "The AWS IAM Group Name"
+                },
+                "user_name": {
+                    "type": "string",
+                    "description": "The AWS IAM Username"
+                }
+            },
+            "required": [
+                "group_name",
+                "user_name"
+            ]
+        }
+    },
+    {
+        "name": "list_users_in_group_more_than_x_time",
+        "description": "list AWS IAM users which attached to IAM group more than X time",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "user_group": {
+                    "type": "string",
+                    "description": "The AWS IAM Group Name"
+                },
+                "age_seconds": {
+                    "type": "number",
+                    "description": "The age in seconds this username attached to the given group"
+                }
+            },
+            "required": [
+                "user_group",
+                "age_seconds"
+            ]
+        }
+    }
+]

@@ -1,0 +1,42 @@
+[openai]
+OPENAI_MODEL="gpt-3.5-turbo-0613"
+#OPENAI_MODEL="gpt-4-0613"
+function_call="auto"
+timeout=45
+temperature=0
+
+[chat]
+max_user_message_chain=10
+max_chat_tokens=3500
+# note the limit is in length, not number of tokens
+max_chat_function_len=2000
+max_function_chain_length=4
+# according to open ai, when using 3.5 turbo, validate tool usage with the user requires programmatic solution
+programmatic_user_tool_validation_required=true
+
+[logger_level]
+default_logging_level="ERROR"
+'genia.agents.chat'="INFO"
+'genia.token_limiter.token_limiter_openai'="INFO"
+'genia.main'="INFO"
+'genia.user_interface.slack_app'="INFO"
+
+[embeddings]
+cache_embeddings=false
+
+[skills]
+skills_repository_folder="data/skills"
+
+[slack]
+wait_message="Certainly, on it!"
+error_message="I can't provide a response. Encountered an error."
+
+[server]
+host="0.0.0.0"
+port=5001
+workers=4
+
+[tools_similarity]
+# tools list includes name and description which may cause token costs
+size_of_all_tools_request=10
+similarity_search_size=5

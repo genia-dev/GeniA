@@ -1,0 +1,33 @@
+{
+    "namespace": "argocd",
+    "serverDryRun": false,
+    "workflow": {
+      "metadata": {
+        "generateName": "{{ workflow_name }}-",
+        "namespace": "{{ namespace }}",
+        "labels": {
+          "workflows.argoproj.io/completed": "false"
+        }
+      },
+      "spec": {
+        "templates": [
+          {
+            "name": "{{ workflow_name }}",
+            "arguments": {},
+            "inputs": {},
+            "outputs": {},
+            "metadata": {},
+            "container": {
+              "name": "{{ workflow_name }}",
+              "image": "{{ image }}",
+              "command": [],
+              "args": [],
+              "resources": {}
+            }
+          }
+        ],
+        "entrypoint": "{{ workflow_name }}",
+        "arguments": {}
+      }
+    }
+  }

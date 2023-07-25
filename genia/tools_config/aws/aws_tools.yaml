@@ -1,0 +1,5 @@
+- tool_name: list_aws_regions
+  category: python
+  validate: false
+  class: genia.tools.aws_client.ec2.aws_client_ec2.AWSClientEC2
+  method: list_aws_regions

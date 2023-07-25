@@ -1,0 +1,16 @@
+
+- tool_name: get_current_weather
+  title: get the current weather details
+  category: url
+  template: https://api.open-meteo.com/v1/forecast?latitude={latitude}&longitude={longitude}&temperature_unit=celsius&current_weather=true
+
+- tool_name: search_serp_api
+  category: python
+  class: langchain.utilities.serpapi.SerpAPIWrapper
+  method: run
+
+- tool_name: get_pet_by_id
+  category: open_api
+  swagger_url: https://petstore.swagger.io/v2/swagger.json
+  tag: pet
+  function_name: getPetById
