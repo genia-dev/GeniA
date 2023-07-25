@@ -1,3 +1,7 @@
+![CI](https://github.com/genia-dev/GeniA/actions/workflows/ci.yml/badge.svg)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+
+
 # Meet GeniA 🧬🤖💻
 
 Your own engineering GenAI virtual superhero!
