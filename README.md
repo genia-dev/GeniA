@@ -65,21 +65,19 @@ GeniA can be taught new tools blazingly fast, one of our main goals was to simpl
      template: https://api.open-meteo.com/v1/forecast?latitude={latitude}&longitude={longitude}&temperature_unit=celsius&current_weather=true
    ```
 3. standard openapi swagger files
+
+   GeniA can invoke any standard openapi out there, easily integrated by a swagger file. this is a work in progress, there is a working example plugged in out of the box
 4. natural language skills
+
+   experimental capability of GeniA to keep steps he took to acomplish a task in memory, label and save them under a new skill he learned so it can be then loaded into memory and followed upon. all using natural language
 
 <TODO add tools icons here/>
 
 ### How is GeniA different from just using an LLM?
 
-Using tools that are taking actions in a live enviroment can be risky, you don't want to let the model run around and make his own decisions.... well, not just yet.
-
-we reimagine the way engineers are using LLMs. with ChatGPT you are asking the model for advice, and using chat, it guides you with the steps you need to take.
-
-the list of tools GeniA is familiar with will soon be THOUSANDS, but with the limited nature of the LLM context window and the cost per token, it makes most sense to only send the most relevant tools for the model to use.
-
-so we invented a tool that finds tools!
-
-we leverage the power of vector dbs (FAISS by default) to look for the tools with the description that matches your intent best and send only those to the model
+1. Using tools that are taking actions in a live enviroment can be risky, you don't want to let the model run around and make his own decisions.... well, not just yet.
+2. we reimagine the way engineers are using LLMs. currently with ChatGPT you are asking the model for advice, and using chat, it guides you with recommendations and the steps **you** need to take. GeniA on the other hand is more than happy to go ahead and actually do the work itself, for example you can write a code snippet and have genia deploy it to lambda. GeniA is connected to your production enviroment, CI/CD tools and everything else you need.
+3. the list of tools GeniA is familiar with will soon be THOUSANDS, but with the limited nature of the LLM context window and the cost per token, it makes most sense to only send the most relevant tools for the model to use. so we invented a tool that can find tools! we leverage the power of vector dbs (FAISS by default) to look for the tools with the description that matches your intent best and send only those to the model
 
 ### GeniA is rapidly learning new tools!
 
@@ -90,11 +88,9 @@ you can mix and match any of them and create your own company specific tools, co
 
 ## So what's next on the roadmap?
 
-we use the power of the community to further enrich the tools, skills and best practices GeniA is familiar with.
-
-RBAC
-
-OKTA integration
+- support open ai based on azure
+- support SSO with OKTA integration so your slack user identity can be used to invoke the tools with your user authentication and audit
+- RBAC support, so the tool usage permissions are enforced in a standard way using your company's standards
 
 ## Table of Contents
 
@@ -126,11 +122,11 @@ GeniA is stateless, it keeps its current conversations in memory but you can int
 we use Open AI API, and it can be easily connected to your own Azure Open AI enviroment
 GeniA is 100% open source so you can install it in your own cloud enviroment
 
-@uri - secret store
+[secret store] by using .evn.template but we are working on standard secret store providers integrations
 
 we currently recommend integrating GeniA to a specific private channel with permissions to a white list of engineers.
 
-we are currently working on RBAC support for GeniA, which will be available in the near future.
+we are currently working on SSO and RBAC support for GeniA, which will be available in the near future.
 
 ### So can GeniA connect to any API out there?
 

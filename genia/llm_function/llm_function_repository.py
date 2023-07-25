@@ -137,7 +137,7 @@ class LLMFunctionRepository:
                 self.FUNCTIONS_EMBEDDINGS_FILE_NAME,
             )
         else:
-            self._vector_store = self._init_vector_store(llm_functions_list)
+            self._init_vector_store(llm_functions_list)
             self._vector_store.save_local(self.FUNCTIONS_EMBEDDINGS_FILE_PATH, self.FUNCTIONS_EMBEDDINGS_FILE_NAME)
 
     def _init_vector_store(self, llm_functions_list):

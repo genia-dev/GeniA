@@ -3,7 +3,7 @@ import logging
 import openai
 from langchain import FAISS
 from langchain.embeddings import OpenAIEmbeddings
-from openai.error import APIError, InvalidRequestError, RateLimitError, ServiceUnavailableError, Timeout, TryAgain
+from openai.error import APIError, InvalidRequestError, RateLimitError, ServiceUnavailableError, Timeout, TryAgain, APIConnectionError
 from tenacity import retry, retry_if_exception_type, stop_after_attempt, wait_random_exponential
 
 from genia.agents.agent import Agent
@@ -149,7 +149,7 @@ class OpenAIChat(Agent):
 
     @retry(
         stop=stop_after_attempt(3),
-        retry=retry_if_exception_type((Timeout, TryAgain, APIError)),
+        retry=retry_if_exception_type((Timeout, TryAgain, APIError, APIConnectionError)),
     )
     def call_model(self, messages, functions):
         # split the actuall call to a retriable wraped function call
