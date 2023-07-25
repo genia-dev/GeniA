@@ -6,7 +6,7 @@ Imagine ChatGPT, empowered by your tools and apis, acting on your behalf, automa
 
 #### We introduce you to the future of software engineering with Tools 3.0!
 
-[warning] This is not just a visionary multi-agent project; we have set ourselves the goal of building a production-grade software right off the bat. Now, you can start working with Genia in production by installing the Genia container, integrating it into your team's Slack channel, and getting started.
+[warning] This is not just a visionary multi-agent project; we have set ourselves the goal of building a production-grade software right off the bat. Now, you can start working with GeniA in production by installing the GeniA container, integrating it into your team's Slack channel, and getting started.
 
 ### GeniA is fun!
 
@@ -25,20 +25,31 @@ Imagine a team member helping you:
 * add a cron to trigger a function
 * scale out your services
 
-### Genia is 100% open source!
+<p align="center">
+<br/>
+<br/>
+<br/>
+   <img src="media/GeniA.gif" />
+<br/>
+<br/>
+<br/>
+</p>
+
+
+### GeniA is 100% open source!
 
 Built with love by engineers for engineers, so you can now onboard your new engineering superhero to your team.
 
-### Genia is rapidly learning new tools!
+### GeniA is rapidly learning new tools!
 
-Genia can be taught new tools blazingly fast, one of our main goals was to simplify it as much as possible (WIP)
+GeniA can be taught new tools blazingly fast, one of our main goals was to simplify it as much as possible (WIP)
 
-1. code tools - genia can call any class+method you have by simply adding:
-
+1. code tools - GeniA can call any class+method you have by adding simple spec
+   this is an example of using a langchain tool, right out of the box, but can be any class
    ```
    - tool_name: search_serp_api
      category: python
-     class: SerpAPIWrapper
+     class: langchain.utilities.serpapi.SerpAPIWrapper
      method: run
    ```
 2. add any url - GET with either path or request parameters by simply adding:
@@ -54,28 +65,28 @@ Genia can be taught new tools blazingly fast, one of our main goals was to simpl
 
 <TODO add tools icons here/>
 
-### How is Genia different from just using an LLM?
+### How is GeniA different from just using an LLM?
 
 Using tools that are taking actions in a live enviroment can be risky, you don't want to let the model run around and make his own decisions.... well, not just yet.
 
 we reimagine the way engineers are using LLMs. with ChatGPT you are asking the model for advice, and using chat, it guides you with the steps you need to take.
 
-the list of tools genia is familiar with will soon be THOUSANDS, but with the limited nature of the LLM context window and the cost per token, it makes most sense to only send the most relevant tools for the model to use.
+the list of tools GeniA is familiar with will soon be THOUSANDS, but with the limited nature of the LLM context window and the cost per token, it makes most sense to only send the most relevant tools for the model to use.
 
 so we invented a tool that finds tools!
 
 we leverage the power of vector dbs (FAISS by default) to look for the tools with the description that matches your intent best and send only those to the model
 
-### Genia is rapidly learning new tools!
+### GeniA is rapidly learning new tools!
 
-we use the power of the community to further enrich the tools, skills and best practices Genia is familiar with.
+we use the power of the community to further enrich the tools, skills and best practices GeniA is familiar with.
 
 you can mix and match any of them and create your own company specific tools, contribute back to the community to help others!
 
 
 ## So what's next on the roadmap?
 
-we use the power of the community to further enrich the tools, skills and best practices Genia is familiar with.
+we use the power of the community to further enrich the tools, skills and best practices GeniA is familiar with.
 
 RBAC
 
@@ -93,23 +104,23 @@ OKTA integration
 
 ## Introduction
 
-Genia is an generative AI agent which is base on [OpenAI function calling capability](https://openai.com/blog/function-calling-and-other-api-updates) and is familiar with your tools and company policies
+GeniA is an generative AI agent which is base on [OpenAI function calling capability](https://openai.com/blog/function-calling-and-other-api-updates) and is familiar with your tools and company policies
 
 ### How does it work?
 
-### Genia can learn new skills
+### GeniA can learn new skills
 
-you can add new tools to genia and teach him additional new skills
+you can add new tools to GeniA and teach him additional new skills
 
 adding a new tool is based on [OpenAI json configuration](https://platform.openai.com/docs/api-reference/chat/create#chat/create-functions) file so we keep it standard to easily import any existing function calling project or any ChatGPT plugin
 
 the only thing missing is a short description for the model the describe when the function should be used and we prefered keeping it in a separated file - link to tools.yaml
 
-### Genia is secured
+### GeniA is secured
 
-Genia is stateless, it keeps its current conversations in memory but you can integrate it to one of your cloud dbs, so no worries of GDPR, SOC-2 and similar
+GeniA is stateless, it keeps its current conversations in memory but you can integrate it to one of your cloud dbs, so no worries of GDPR, SOC-2 and similar
 we use Open AI API, and it can be easily connected to your own Azure Open AI enviroment
-genia is 100% open source so you can install it in your own cloud enviroment
+GeniA is 100% open source so you can install it in your own cloud enviroment
 
 @uri - secret store
 
@@ -142,17 +153,17 @@ Handle secrets by copy the [.env.template](.env.template) into `.env`, and put i
 
 ### Build
 
-`git clone https://github.com/genia-dev/GeniA`
-`cd GeniA`
-`docker build -t genia:latest .`
+`git clone https://github.com/GeniA-dev/GeniA`   
+`cd GeniA`   
+`docker build -t GeniA:latest .`   
 
 ### Run in local mode (terminal)
 
-`docker run -p 5001:5001 --env-file ./.env -it genia:latest`
+`docker run -p 5001:5001 --env-file ./.env -it GeniA:latest`
 
 ### Run in slack bot mode
 
-`docker run -p 5001:5001 --env-file ./.env -it genia:latest slack`
+`docker run -p 5001:5001 --env-file ./.env -it GeniA:latest slack`
 
 ## Installation
 
@@ -160,19 +171,19 @@ Handle secrets by copy the [.env.template](.env.template) into `.env`, and put i
 
 `curl -sSL https://install.python-poetry.org | python3 -`
 
-## Run in local mode
+### Run in local mode
 
 `poetry run python main.py local`
 
-## Run in streamlit mode
+### Run in streamlit mode
 
-`pip install streamlit`
-`poetry shell`
-`streamlit run main.py streamlit`
+`pip install streamlit`    
+`poetry shell`    
+`streamlit run main.py streamlit`    
 
-## Run in Slack App Bot
+### Run in Slack App Bot
 
-### Create Slack App Bot
+#### Create Slack App Bot
 
 > **Note:**
 >
@@ -197,7 +208,7 @@ In order to operate the Slack GPT Bot, it is necessary to define the correct per
 
 # Contributing
 
-👩‍💻➕👨‍💻 Fork GeniA repository (🍴📂), make your changes (✏️🔄), and submit a pull request (📬🔁)! We appreciate your contributions! (🙌🌟💖)
+👩‍💻➕👨‍💻 Fork GeniA repository, make your changes, and submit a pull request! We appreciate your contributions! 🙌🌟💖
 
 # Developer Guide
 
@@ -219,4 +230,4 @@ Unless required by applicable law or agreed to in writing, software distributed 
 
 # Contact
 
-Got an idea to improve our project? We'd love to hear it and collaborate with you. Don't hesitate to reach out to us! Just open an [issue](https://github.com/genia-dev/GeniA/issues), and GeniA will respond to you 🦸‍♀️🦸‍♂️
+Got an idea to improve our project? We'd love to hear it and collaborate with you. Don't hesitate to reach out to us! Just open an [issue](https://github.com/GeniA-dev/GeniA/issues), and GeniA will respond to you 🦸‍♀️🦸‍♂️

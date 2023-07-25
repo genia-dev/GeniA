@@ -1,0 +1,55 @@
+[tool.poetry]
+name = "genia"
+version = "0.1.0"
+description = ""
+authors = ["Uri Shamay <cmpxchg16@gmail.com>", "Shlomi Shemesh <shlomosh@gmail.com>"]
+readme = "README.md"
+packages = [{include = "genia"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+beautifulsoup4 = "4.12.2"
+faiss-cpu = "1.7.4"
+langchain = "0.0.220"
+numpy = "1.25.0"
+pandas = "2.0.2"
+pytz = "2023.3"
+pyyaml = "6.0"
+requests = "2.31.0"
+streamlit = "1.24.0"
+tiktoken = "0.4.0"
+traitlets = "5.9.0"
+yfinance = "0.2.22"
+boto3 = "1.26.165"
+termcolor = "2.3.0"
+google-serp-api = "1.0.3"
+google-search-results = "2.4.2"
+jsonref = "^1.1.0"
+openai = "^0.27.8"
+pygithub = "^1.59.0"
+kubernetes = "^26.1.0"
+gcloud = "^0.18.3"
+opa-python-client = "^1.3.4"
+slack-bolt = "^1.18.0"
+slack-sdk = "^3.21.3"
+trafilatura = "^1.6.1"
+python-dotenv = "^1.0.0"
+dynaconf = "^3.1.12"
+flask = "^2.3.2"
+gunicorn = "^20.1.0"
+streamlit-chat = "^0.1.1"
+pdpyras = "^5.1.0"
+bravado = "^11.0.3"
+python-jenkins = "^1.8.0"
+docker = "^6.1.3"
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 119
