@@ -7,16 +7,16 @@ system="""
         If the AI does not know the answer to a question, it truthfully says it does not know.
 """
 
-user_validation_title="Wanted to quickly verify what you want me to do."
-user_validation_message="Should i go ahead and {function_title}"
+user_validation_message="Wanted to quickly verify what you want me to do.\nShould i go ahead and {function_title}"
+model_validation_message="I must confirm with you before i am allowed to proceed calling function {function_name}"
 error_message="I can't provide a response, encountered an error."
 
 [skill_template_prompt]
 template="""
-the function call finished successfully. 
-proceed with the following memory of yours loaded from disk and proceed with the following steps:
+the complete the function call you must proceed with the your following memory loaded from disk. 
+proceed according to those steps below, do not present them to the user, they are meant for you only!
 {skill}
-call the function get_top_available_tools if you do not find the exact function you need.
+if those steps mention a new funciton call you are not familiar with, call function.get_top_available_tools with the parameter 'filter' as the exact function name you need.
 """
 
 # playground using gpt-4:

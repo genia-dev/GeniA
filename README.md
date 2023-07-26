@@ -91,6 +91,8 @@ The list of OpenAI functions spec which used by the tools can be found [here](./
 2. we reimagine the way engineers are using LLMs. currently with ChatGPT you are asking the model for advice, and using chat, it guides you with recommendations and the steps **you** need to take. GeniA on the other hand is more than happy to go ahead and actually do the work itself, for example you can write a code snippet and have genia deploy it to lambda. GeniA is connected to your production enviroment, CI/CD tools and everything else you need.
 3. the list of tools GeniA is familiar with will soon be THOUSANDS, but with the limited nature of the LLM context window and the cost per token, it makes most sense to only send the most relevant tools for the model to use. so we invented a tool that can find tools! we leverage the power of vector dbs (FAISS by default) to look for the tools with the description that matches your intent best and send only those to the model
 
+GeniA is configured to use gpt-3.5-turbo-0613 by default. although gpt-4-0613 has proven to yield better results, we found 3.5 to be more cost effective.
+
 ### GeniA is rapidly learning new tools!
 
 we use the power of the community to further enrich the tools, skills and best practices GeniA is familiar with.

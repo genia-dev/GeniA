@@ -25,7 +25,7 @@ app = App(token=SLACK_BOT_TOKEN)
 
 def update_chat(channel_id, reply_message_ts, response_text: str):
     if settings.chat.programmatic_user_tool_validation_required and response_text.startswith(
-        settings.agent_prompt.user_validation_title
+        settings.agent_prompt.user_validation_message
     ):
         options = [
             {"text": "Yes", "value": USER_SELECTION_YES, "emoji": "👍"},

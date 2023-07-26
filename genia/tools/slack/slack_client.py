@@ -8,7 +8,7 @@ class SlackClient:
     logger = logging.getLogger(__name__)
 
     def __init__(self, default_webhook_url=None):
-        if default_webhook_url == None:
+        if default_webhook_url is None:
             self.default_webhook_url = os.getenv("SLACK_DEFAULT_WEBHOOK_URL")
 
     def send_slack_alert_for_url(self, message, webhook_url=None):
