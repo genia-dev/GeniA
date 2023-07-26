@@ -1,3 +1,4 @@
+# there are many good tips in the below openai example
 # https://github.com/openai/openai-cookbook/blob/main/examples/How_to_call_functions_with_chat_models.ipynb
 
 [agent_prompt]
@@ -13,9 +14,11 @@ error_message="I can't provide a response, encountered an error."
 
 [skill_template_prompt]
 template="""
-the complete the function call you must proceed with the your following memory loaded from disk. 
-proceed according to those steps below, do not present them to the user, they are meant for you only!
+to complete the function call you must proceed with the your following steps below, do not present them to the user, they are for you only!
+complete all the steps blow before you return the result to the user:
+
 {skill}
+
 if those steps mention a new funciton call you are not familiar with, call function.get_top_available_tools with the parameter 'filter' as the exact function name you need.
 """
 

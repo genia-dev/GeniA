@@ -23,10 +23,12 @@ chat_controller = OpenAIChat()
 app = App(token=SLACK_BOT_TOKEN)
 
 
+# Find the beginning of '{function_name}' using re.search()
+user_validation_idx = re.search(r"\{function_title\}", settings.agent_prompt.user_validation_message).start()
+user_validation_message = settings.agent_prompt.user_validation_message[:user_validation_idx]
+
 def update_chat(channel_id, reply_message_ts, response_text: str):
-    if settings.chat.programmatic_user_tool_validation_required and response_text.startswith(
-        settings.agent_prompt.user_validation_message
-    ):
+    if settings.chat.programmatic_user_tool_validation_required and response_text.startswith(user_validation_message):
         options = [
             {"text": "Yes", "value": USER_SELECTION_YES, "emoji": "👍"},
             {"text": "No", "value": "abort", "emoji": "👎"},
