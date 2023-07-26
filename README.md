@@ -113,7 +113,7 @@ you can mix and match any of them and create your own company specific tools, co
 - [License](#license)
 - [Contact](#contact)
 
-## Introduction
+# Introduction
 
 GeniA is an generative AI agent which is base on [OpenAI function calling capability](https://openai.com/blog/function-calling-and-other-api-updates) and is familiar with your tools and company policies
 
