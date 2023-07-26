@@ -172,40 +172,56 @@ class AWSClientLambda(AWSClient):
         iam_client.delete_role(RoleName=role_name)
         self.logger.info(f"successfully deleted IAM role: {role_name}")
 
-    def _delete_api_gateway_resources(self, aws_access_key_id, aws_secret_access_key, region_name, function_arn):
+    def _delete_api_gateway_resources_by_id(
+        self, aws_access_key_id, aws_secret_access_key, region_name, api_gateway_id
+    ):
         session = boto3.Session(
             region_name=region_name,
             aws_access_key_id=aws_access_key_id,
             aws_secret_access_key=aws_secret_access_key,
         )
+        client = session.client("apigateway")
+        resources = client.get_resources(restApiId=api_gateway_id)
 
-        apigw_client = session.client("apigateway")
-        apis = apigw_client.get_rest_apis()["items"]
-        for api in apis:
-            resources = apigw_client.get_resources(restApiId=api["id"])["items"]
-            for resource in resources:
-                try:
-                    methods = resource["resourceMethods"]
-                except KeyError:
-                    continue
+        for item in resources["items"]:
+            if item["path"] != "/":
+                client.delete_resource(restApiId=api_gateway_id, resourceId=item["id"])
 
-                for method in methods:
-                    try:
-                        integration = apigw_client.get_integration(
-                            restApiId=api["id"],
-                            resourceId=resource["id"],
-                            httpMethod=method,
+        client.delete_rest_api(restApiId=api_gateway_id)
+
+    def _find_and_delete_attached_api_gateway(
+        self, aws_access_key_id, aws_secret_access_key, region_name, function_name
+    ):
+        session = boto3.Session(
+            region_name=region_name,
+            aws_access_key_id=aws_access_key_id,
+            aws_secret_access_key=aws_secret_access_key,
+        )
+        client_apig = session.client("apigateway")
+        client_lambda = session.client("lambda")
+
+        response = client_lambda.get_function(FunctionName=function_name)
+        lambda_function_arn = response["Configuration"]["FunctionArn"]
+        apis_response = client_apig.get_rest_apis()
+
+        for api in apis_response["items"]:
+            resources_response = client_apig.get_resources(restApiId=api["id"])
+
+            for resource in resources_response["items"]:
+                resource_methods = resource.get("resourceMethods", {})
+
+                if resource_methods is not None:
+                    for method in resource_methods:
+                        integration_response = client_apig.get_integration(
+                            restApiId=api["id"], resourceId=resource["id"], httpMethod=method
                         )
-                    except apigw_client.exceptions.NotFoundException:
-                        continue
-
-                    if function_arn in integration["uri"]:
-                        apigw_client.delete_integration(
-                            restApiId=api["id"],
-                            resourceId=resource["id"],
-                            httpMethod=method,
-                        )
-            apigw_client.delete_rest_api(restApiId=api["id"])
+                        if lambda_function_arn in integration_response["uri"]:
+                            self.logger.info(
+                                f"API Gateway '{api['name']}' (ID: {api['id']}) is attached to the Lambda function '{lambda_function_arn}'"
+                            )
+                            self._delete_api_gateway_resources_by_id(
+                                aws_access_key_id, aws_secret_access_key, region_name, api["id"]
+                            )
 
     def _delete_lambda(self, aws_access_key_id, aws_secret_access_key, region_name, function_name):
         session = boto3.Session(
@@ -220,14 +236,13 @@ class AWSClientLambda(AWSClient):
         response = lambda_client.get_function(FunctionName=function_name)
         role_arn = response["Configuration"]["Role"]
         role_name = role_arn.split("/")[-1]
-        function_arn = response["Configuration"]["FunctionArn"]
         self.logger.info(f"successfully get function: {function_name}")
-
+        self._delete_iam_role(aws_access_key_id, aws_secret_access_key, region_name, role_name)
+        self._find_and_delete_attached_api_gateway(
+            aws_access_key_id, aws_secret_access_key, region_name, function_name
+        )
         response = lambda_client.delete_function(FunctionName=function_name)
         self.logger.info(f"successfully deleted lambda function: {function_name}")
-
-        self._delete_iam_role(aws_access_key_id, aws_secret_access_key, region_name, role_name)
-        self._delete_api_gateway_resources(aws_access_key_id, aws_secret_access_key, region_name, function_arn)
 
     def _create_lambda(
         self,
@@ -260,9 +275,7 @@ class AWSClientLambda(AWSClient):
             }
         )
 
-        fixed_function_name = (
-            function_name  #''.join(char for char in function_name if char.isalpha() and ord(char) < 128)
-        )
+        fixed_function_name = function_name
         create_role_response = iam.create_role(
             RoleName=f"lambda-execute-role-{fixed_function_name}",
             AssumeRolePolicyDocument=assume_role_policy_document,

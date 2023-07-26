@@ -43,8 +43,10 @@ class TestLambda(unittest.TestCase):
 
             function_name = generate_random_string()
             self.api_client_lambda.create_lambda(region_name, function_name, lambda_code, "lambda_handler")
+            self.api_client_lambda.invoke_lambda(region_name, function_name, '{"number": "2"}')
             self.api_client_lambda.get_lambda_function_code(region_name, function_name)
             self.api_client_lambda.update_lambda(region_name, function_name, lambda_code_update)
+            self.api_client_lambda.invoke_lambda(region_name, function_name, "{}")
             self.api_client_lambda.aws_list_lambda_functions(region_name)
             self.api_client_lambda.delete_lambda(region_name, function_name)
 
