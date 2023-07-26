@@ -10,7 +10,7 @@ Imagine ChatGPT, empowered by your tools and apis, acting on your behalf, automa
 
 #### We introduce you to the future of software engineering with Tools 3.0!
 
-[warning] This is not just a visionary multi-agent project; we have set ourselves the goal of building a production-grade software right off the bat. Now, you can start working with GeniA in production by installing the GeniA container, integrating it into your team's Slack channel, and getting started.
+**[note]** This is not just a visionary multi-agent project; we have set ourselves the goal of building a production-grade software right off the bat. Now, you can start working with GeniA in production by installing the GeniA container, integrating it into your team's Slack channel, and getting started.
 
 ### GeniA is fun!
 
@@ -71,7 +71,19 @@ GeniA can be taught new tools blazingly fast, one of our main goals was to simpl
 
    experimental capability of GeniA to keep steps he took to acomplish a task in memory, label and save them under a new skill he learned so it can be then loaded into memory and followed upon. all using natural language
 
-<TODO add tools icons here/>
+### Available tools
+
+* [ArgoCD](https://argoproj.github.io/cd/)
+* [AWS](https://aws.amazon.com/)
+* [GitHub](http://github.com/)
+* [Jenkins](https://www.jenkins.io/)
+* [Kubernetes](https://kubernetes.io/)
+* [Open Policy Agent (OPA)](https://www.openpolicyagent.org/)
+* [PagerDuty](https://www.pagerduty.com/)
+* [Slack Webhook](https://api.slack.com/messaging/webhooks)
+
+The list of supported tools can be found [here](./genia/tools_config/tools.yaml).    
+The list of OpenAI functions spec which used by the tools can be found [here](./genia/tools_config/functions.json).
 
 ### How is GeniA different from just using an LLM?
 
@@ -92,12 +104,11 @@ you can mix and match any of them and create your own company specific tools, co
 - support SSO with OKTA integration so your slack user identity can be used to invoke the tools with your user authentication and audit
 - RBAC support, so the tool usage permissions are enforced in a standard way using your company's standards
 
-## Table of Contents
+# Table of Contents
 
 - [Introduction](#introduction)
 - [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
+- [Installation](#installation)
 - [Contributing](#contributing)
 - [License](#license)
 - [Contact](#contact)
@@ -116,70 +127,99 @@ adding a new tool is based on [OpenAI json configuration](https://platform.opena
 
 the only thing missing is a short description for the model the describe when the function should be used and we prefered keeping it in a separated file - link to tools.yaml
 
-### GeniA is secured
+### GeniA Security
 
-GeniA is stateless, it keeps its current conversations in memory but you can integrate it to one of your cloud dbs, so no worries of GDPR, SOC-2 and similar
-we use Open AI API, and it can be easily connected to your own Azure Open AI enviroment
-GeniA is 100% open source so you can install it in your own cloud enviroment
+GeniA is stateless, it keeps its current conversations in memory but you can integrate it to one of your cloud dbs, so no worries of GDPR, SOC-2 and similar. We use OpenAI API, and it can be easily connected to your own Azure OpenAI enviroment
+GeniA is 100% open source so you can install it in your own cloud enviroment.
 
-[secret store] by using .evn.template but we are working on standard secret store providers integrations
+A word regarding secrets, for now the project using environment varibales by [.evn.template](.evn.template), but we are working on standard secrets store providers integrations.
 
-we currently recommend integrating GeniA to a specific private channel with permissions to a white list of engineers.
+**We currently recommend integrating GeniA to a specific private channel with permissions to a white list of engineers.**
 
-we are currently working on SSO and RBAC support for GeniA, which will be available in the near future.
+We are currently working on SSO and RBAC support for GeniA, which will be available in the near future.
 
 ### So can GeniA connect to any API out there?
 
-of course it can, this is an active academic research but not a real production grade tool.
+Of course it can, this is an active academic research but not a real production grade tool.
 
-we took the open ai approach for plugins but simplified it and allow you to integrate it to any of your existing classes of code or available apis
+We took the open ai approach for plugins but simplified it and allow you to integrate it to any of your existing classes of code or available apis
 
-what we landed on is the ability to learn new skills with no need for model fine tunining or in many cases even the need to redeploy your service.
+What we landed on is the ability to learn new skills with no need for model fine tunining or in many cases even the need to redeploy your service.
 
-in many cases though, adding a brand new tool requires some prompt tuning and testing
+In many cases though, adding a brand new tool requires some prompt tuning and testing.
 
-[authentication of new tool]
+The authentication of a new tool now handled by the writer of a new tool, but soon it will be generalized as part of the project.
 
-## Prerequisites
+## Getting Started
 
-You can run GeniA in local mode via the terminal, or as a Slack Bot. The easiest option is to run it locally using [Docker](#run-via-docker). In case you want to install it locally, jump to [Installation](#installation).
+You can run GeniA in local mode via the terminal, or as Streamlit app or in organization as Slack App Bot. The easiest option is to run it locally using [Docker](#run-via-docker). In case you want to install it locally, jump to [Installation](#installation).
 
 > **Note:**
 > When using OpenAI, you should be aware of cost spending, so make sure you limit the usage. Both soft and hard limits can be set here: https://platform.openai.com/account/billing/limits.
 
 ### Run via Docker
 
-Handle secrets by copy the [.env.template](.env.template) into `.env`, and put in `.env` the minimal secrets which is just `OPENAI_API_KEY`
+Handle secrets by copy the [.env.template](./.env.template) into `.env`, and put in `.env` the minimal secrets which is just `OPENAI_API_KEY`
 
-### Build
 
-`git clone https://github.com/GeniA-dev/GeniA`   
-`cd GeniA`   
-`docker build -t GeniA:latest .`   
+### Run in local terminal mode
+```
+docker run -p 5001:5001 --env-file ./.env -it genia:latest
+```
 
-### Run in local mode (terminal)
+### Run in slack app bot mode
+```
+docker run -p 5001:5001 --env-file ./.env -it genia:latest slack
+```
 
-`docker run -p 5001:5001 --env-file ./.env -it GeniA:latest`
+# Developer Guide
 
-### Run in slack bot mode
+## Run GeniA from source :: Docker
 
-`docker run -p 5001:5001 --env-file ./.env -it GeniA:latest slack`
+```
+git clone https://github.com/GeniA-dev/GeniA
+cd GeniA
+docker build -t genia:latest .
+```
 
-## Installation
+Run via [Docker](#run-via-docker)
+
+## Run GeniA from source :: Python
 
 ### Poetry install
 
-`curl -sSL https://install.python-poetry.org | python3 -`
+```
+curl -sSL https://install.python-poetry.org | python3 -
+```
 
-### Run in local mode
+### Run in local terminal mode
 
-`poetry run python main.py local`
+```
+poetry run python main.py local
+```
+
+### Run in slack app bot mode
+
+[First install the bot](#create-slack-app-bot)
+```
+poetry run python main.py slack
+```
 
 ### Run in streamlit mode
 
-`pip install streamlit`    
-`poetry shell`    
-`streamlit run main.py streamlit`    
+```
+pip install streamlit
+poetry shell
+streamlit run main.py streamlit
+```
+
+## Testing
+
+```
+poetry run pytest tests
+```
+
+# Installation
 
 ### Run in Slack App Bot
 
@@ -191,17 +231,17 @@ Handle secrets by copy the [.env.template](.env.template) into `.env`, and put i
 
 In order to operate the Slack GPT Bot, it is necessary to define the correct permissions for your Slack bot. Please adhere to the following guidelines to arrange the required permissions:
 
-1. In the project's root directory, mv the `.env.template` into `.env` file and input your Slack keys
+1. In the project's root directory, mv the [.env.template](./.env.template) into `.env` file and input your Slack keys
 2. Create a new [Slack App](https://api.slack.com/authentication/basics).
 3. Navigate to your [Slack API Dashboard](https://api.slack.com/apps) and select the app you've created for this bot.
 4. On the left-hand side menu, click on `OAuth & Permissions`.
 5. Within the `Scopes` division, there are two categories of scopes: `Bot Token Scopes` and `User Token Scopes`. Append the following scopes under `Bot Token Scopes`:
-   `app_mentions:read`
-   `chat:write`
-   `channels:history`
-   `groups:history`
-   `im:history`
-   `mpim:history`
+   `app_mentions:read`    
+   `chat:write`    
+   `channels:history`    
+   `groups:history`    
+   `im:history`    
+   `mpim:history`    
 6. Ascend to the `OAuth Tokens for Your Workspace` and hit the `Install App To Workspace` button. This operation will produce the `SLACK_BOT_TOKEN`.
 7. On the left-hand side menu, click on `Socket Mode` and activate it. You'll be asked to `Generate an app-level token to enable Socket Mode`. Generate a token labeled `SLACK_APP_TOKEN` and include the `connections:write` scope.
 8. In the `Socket Mode` page's `Features affected` section, hit `Event Subscriptions` and switch `Enable Events` to the `On` state. Append the app_mention event, coupled with the `app_mentions:read` scope in the `Subscribe to bot events` subsection below the toggle.
@@ -209,16 +249,6 @@ In order to operate the Slack GPT Bot, it is necessary to define the correct per
 # Contributing
 
 👩‍💻➕👨‍💻 Fork GeniA repository, make your changes, and submit a pull request! We appreciate your contributions! 🙌🌟💖
-
-# Developer Guide
-
-<TODO how to add new tools/>
-
-## Testing
-
-```
-poetry run pytest tests
-```
 
 # License
 
