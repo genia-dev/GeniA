@@ -164,12 +164,12 @@ Handle secrets by copy the [.env.template](./.env.template) into `.env`, and put
 
 ### Run in local terminal mode
 ```
-docker run -p 5001:5001 --env-file ./.env -it genia:latest
+docker run -p 5001:5001 --env-file ./.env -it geniadev/genia:latest
 ```
 
 ### Run in slack app bot mode
 ```
-docker run -p 5001:5001 --env-file ./.env -it genia:latest slack
+docker run -p 5001:5001 --env-file ./.env -it geniadev/genia:latest slack
 ```
 
 # Developer Guide
@@ -179,7 +179,7 @@ docker run -p 5001:5001 --env-file ./.env -it genia:latest slack
 ```
 git clone https://github.com/GeniA-dev/GeniA
 cd GeniA
-docker build -t genia:latest .
+docker build -t geniadev/genia:latest .
 ```
 
 Run via [Docker](#run-via-docker)
