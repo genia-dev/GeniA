@@ -7,11 +7,6 @@ from genia.settings_loader import settings
 class LLMToolValidator:
     logger = logging.getLogger(__name__)
 
-    def __init__(self):
-        self._validation_messgae = (
-            settings.agent_prompt.user_validation_title + "\n" + settings.agent_prompt.user_validation_message
-        )
-
     def is_tool_validation_required(
         self,
         llm_conversation_service: LLMConversationService,
@@ -32,13 +27,16 @@ class LLMToolValidator:
         function_arguments,
         llm_tool,
     ):
-        response = self._validation_messgae.format(function_title=llm_tool["title"])
+        user_response = settings.agent_prompt.user_validation_message.format(function_title=llm_tool["title"])
+        model_response = settings.agent_prompt.model_validation_message.format(function_name=llm_tool["tool_name"])
         params_list = []
         if len(function_arguments) > 0:
-            response += " with the following parameters?\n"
+            user_response += " with the following parameters?\n"
             for key, value in function_arguments.items():
                 params_list.append(key.replace("_", " ") + " - " + str(value))
 
-        response += "\n".join(params_list)
-        llm_conversation_service.add_assistant_validation_message(llm_conversation, response, llm_tool["tool_name"])
-        return response
+        user_response += "\n".join(params_list)
+        llm_conversation_service.add_assistant_validation_message(
+            llm_conversation, model_response, llm_tool["tool_name"]
+        )
+        return user_response

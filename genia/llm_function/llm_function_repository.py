@@ -8,12 +8,7 @@ from typing import List
 from langchain.vectorstores import VectorStore
 
 from genia.settings_loader import settings
-from genia.utils.utils import (
-    safe_json_dumps,
-    safe_load_json_file,
-    safe_load_yaml_file,
-    safe_txt_dumps,
-)
+from genia.utils.utils import safe_json_dumps, safe_load_json_file, safe_load_yaml_file, safe_txt_dumps
 
 
 class LLMFunctionRepository:
@@ -241,8 +236,8 @@ class LLMFunctionRepository:
                 del self._llm_functions_dict[skill_name]
 
             llm_tools_dict = self._load_tools(root_folder)
-            if skill_name in llm_functions_dict:
-                del llm_functions_dict[skill_name]
+            if skill_name in llm_tools_dict:
+                del llm_tools_dict[skill_name]
             safe_json_dumps(list(llm_tools_dict.values()), os.path.join(root_folder, "tools.yaml"))
             if skill_name in self._llm_tools_dict:
                 del self._llm_tools_dict[skill_name]
@@ -290,4 +285,7 @@ class LLMFunctionRepositoryAsAFunction:
                     tools_list,
                 )
             )
+            exact_match = repo._llm_functions_dict.get(filter)
+            if exact_match is not None:
+                tools_list.append({"name": exact_match["name"], "description": exact_match["description"]})
         return "These are the top {} tools found: ".format(k) + json.dumps(tools_list)
