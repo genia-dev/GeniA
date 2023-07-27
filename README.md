@@ -7,13 +7,15 @@ Your own engineering GenAI virtual superhero!
 
 Imagine ChatGPT, empowered by your tools and apis, acting on your behalf, automating those time wasters and repetative tasks. all in natural language and right in your team's slack channel!
 
-#### We introduce you to the future of software engineering with Tools 3.0!
+#### GeniA is Production grade
 
-**[note]** This is not just a visionary multi-agent project; we have set ourselves the goal of building a production-grade software right off the bat. Now, you can start working with GeniA in production by installing the GeniA container, integrating it into your team's Slack channel, and getting started.
+**[note!]** This is not just a visionary multi-agent project; we have set ourselves the goal of building a production-grade software right off the bat. Now, you can start working with GeniA in production by installing the GeniA container, integrate it into your team's Slack channel, and let it land on its feet running.
 
 ### GeniA is fun!
 
 There has been a lot of buzz around ChatGPT and CoPilot boosting writing new code, but as software engineers we know that writing code is just a part of our day to day.
+
+## We introduce you to the future of software engineering with Tools 3.0!
 
 ### Imagine a virtual team member helping you:
 
@@ -56,7 +58,8 @@ Devops shift left
 
 ### GeniA is 100% open source!
 
-Built with love by engineers for engineers, so you can now onboard your new engineering superhero to your team.
+Built with love by engineers for engineers, our goal is to help teams harnest the power of LLMs to boost how fast you can go!
+download and onboard your new engineering superhero to your team.
 
 ### GeniA is rapidly learning new tools!
 
@@ -79,12 +82,14 @@ GeniA can be taught new tools blazingly fast, one of our main goals was to simpl
      category: url
      template: https://api.open-meteo.com/v1/forecast?latitude={latitude}&longitude={longitude}&temperature_unit=celsius&current_weather=true
    ```
-3. standard openapi swagger files
+3. standard openapi swagger files - we imagine a world in which your LLM model can call any API out there!
 
    GeniA can invoke any standard openapi out there, easily integrated by a swagger file. this is a work in progress, there is a working example plugged in out of the box
+
 4. natural language skills
 
-   experimental capability of GeniA to keep steps he took to acomplish a task in memory, label and save them under a new skill he learned so it can be then loaded into memory and followed upon. all using natural language
+   This is where LLM realy sparks, an experimental capability of GeniA to learn new skills and keep steps it took to acomplish a task in its long term memory, name and save them under a new skill it learned so it can be then loaded into memory and followed upon. 
+   all using natural language!
 
 ### Available tools
 
@@ -119,6 +124,7 @@ you can mix and match any of them and create your own company specific tools, co
 - support open ai based on azure
 - support SSO with OKTA integration so your slack user identity can be used to invoke the tools with your user authentication and audit
 - RBAC support, so the tool usage permissions are enforced in a standard way using your company's standards
+- thousands of new tools coming up soon, add yours, its fun and will help the community with your own best practices!
 
 # Table of Contents
 
