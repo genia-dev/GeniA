@@ -146,6 +146,12 @@
   class: genia.tools.github_client.github_client.GithubClient
   method: commit_and_create_new_pr
 
+- tool_name: summarize_github_pr_content
+  category: python
+  title: summarize the github pull request url including commits data
+  class: genia.tools.github_client.github_client.GithubClient
+  method: summarize_github_pr_content
+
 - tool_name: list_namespaces
   category: python
   title: list all Kubernetes namespaces

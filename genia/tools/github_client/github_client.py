@@ -1,13 +1,16 @@
 import os
 import logging
 from github import Github, InputGitTreeElement
+from urllib.parse import urlparse
+from genia.agents.adhoc import call_model
+from genia.settings_loader import settings
 
 
 class GithubClient:
     logger = logging.getLogger(__name__)
 
     def __init__(self, access_token=None):
-        if access_token == None:
+        if access_token is None:
             self.access_token = os.getenv("GITHUB_PERSONAL_ACCESS_TOKEN")
 
     def get_token(self):
@@ -43,3 +46,48 @@ class GithubClient:
         pr = repo.create_pull(title=pull_request_message, body=commit_message, base="main", head=branch)
         self.logger.debug(pr)
         return {"message": f"Pull request created: {pr.html_url}"}
+
+    def get_pr_content(self, repo_name, pull_number):
+        g = self.login()
+        pull_number = pull_number
+        repo = g.get_repo(repo_name)
+
+        pull_request = repo.get_pull(int(pull_number))
+        pr_info_str = ""
+
+        pr_info_str += f"PR Title: {pull_request.title}\n"
+        pr_info_str += f"PR Description: {pull_request.body}\n\n"
+
+        for commit in pull_request.get_commits():
+            pr_info_str += f"Commit message: {commit.commit.message}\n"
+            pr_info_str += f"Commit SHA: {commit.sha}\n"
+            pr_info_str += f"Commit URL: {commit.url}\n"
+            full_commit = repo.get_commit(commit.sha)
+            files = full_commit.files
+            for file in files:
+                pr_info_str += f"File Name: {file.filename}\n"
+                pr_info_str += f"Status: {file.status}\n"
+                pr_info_str += f"Patch: {file.patch}\n"
+
+        return pr_info_str
+
+    def extract_pr_info(self, github_pr_url):
+        parsed_url = urlparse(github_pr_url)
+        path_parts = parsed_url.path.split("/")
+        owner = path_parts[1]
+        repo = path_parts[2]
+        pr_number = path_parts[4]
+
+        return owner, repo, pr_number
+
+    def summarize_github_pr_content(self, github_pull_request_url):
+        owner, repo, pr_number = self.extract_pr_info(github_pull_request_url)
+        self.logger.debug(f"extract_pr_info: {owner} {repo} {pr_number}")
+        pr_content = self.get_pr_content(f"{owner}/{repo}", pr_number)
+
+        messages = [
+            {"role": "system", "content": settings["github_summarizer_prompt"]["system"]},
+            # TODO
+            {"role": "user", "content": pr_content[:4096]},
+        ]
+        return call_model(messages)

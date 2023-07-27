@@ -407,6 +407,22 @@
         }
     },
     {
+        "name": "summarize_github_pr_content",
+        "description": "summarize the github pull request url including commits data",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "github_pull_request_url": {
+                    "type": "string",
+                    "description": "The GitHub pull request url"
+                }
+            },
+            "required": [
+                "github_pull_request_url"
+            ]
+        }
+    },
+    {
         "name": "list_namespaces",
         "description": "List Kubernetes namespaces",
         "parameters": {
