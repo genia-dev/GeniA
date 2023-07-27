@@ -43,3 +43,8 @@ def safe_json_dumps(content, file_path):
 def safe_txt_dumps(file_path, content):
     with open(file_path, "w") as file:
         file.write(content)
+
+
+def safe_yaml_dump(file_path: str, content):
+    with open(file_path, "w") as file:
+        yaml.dump(content, file)

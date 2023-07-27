@@ -34,8 +34,10 @@ class LLMToolValidator:
             user_response += " with the following parameters?\n"
             for key, value in function_arguments.items():
                 params_list.append(key.replace("_", " ") + " - " + str(value))
+            user_response += "\n".join(params_list)
+        else:
+            user_response += "?"
 
-        user_response += "\n".join(params_list)
         llm_conversation_service.add_assistant_validation_message(
             llm_conversation, model_response, llm_tool["tool_name"]
         )

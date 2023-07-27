@@ -51,13 +51,13 @@
     },
     {
         "name": "get_top_available_tools",
-        "description": "fetch top available functions for the AI assistant to be used, use this tool whenever you are not sure if a tool is available for the task you need to execute",
+        "description": "AI assistant can find additional available functions in long term memory toolbox, use this function whenever you are not sure if a tool is available for the task you need to execute",
         "parameters": {
             "type": "object",
             "properties": {
                 "filter": {
                     "type": "string",
-                    "description": "capture the user intent to filter the list of tools. i.e 'amazon web services', 'cloud infrastructure', 'code deploy'"
+                    "description": "functions filter query, i.e 'amazon web services', 'cloud infrastructure', 'code deploy' or use exact tool name i.e 'get_top_available_tools'"
                 }
             },
             "required": []
@@ -65,7 +65,7 @@
     },
     {
         "name": "upsert_skill",
-        "description": "AI can learn a new skill by saving its thought as a text snippet and save it memory to to be used later",
+        "description": "AI can add or update a new skill by saving a well formated snippet of list of steps in its long-term memory enhancing its knowledge and capabilities",
         "parameters": {
             "type": "object",
             "properties": {

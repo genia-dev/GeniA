@@ -8,7 +8,7 @@ from typing import List
 from langchain.vectorstores import VectorStore
 
 from genia.settings_loader import settings
-from genia.utils.utils import safe_json_dumps, safe_load_json_file, safe_load_yaml_file, safe_txt_dumps
+from genia.utils.utils import safe_json_dumps, safe_load_json_file, safe_load_yaml_file, safe_txt_dumps, safe_yaml_dump
 
 
 class LLMFunctionRepository:
@@ -211,7 +211,7 @@ class LLMFunctionRepository:
             llm_tools_dict = self._load_tools(root_folder)
             new_tool = self.validate_tools_title([new_tool])[0]
             llm_tools_dict.update({skill_name: new_tool})
-            safe_json_dumps(list(llm_tools_dict.values()), os.path.join(root_folder, "tools.yaml"))
+            safe_yaml_dump(list(llm_tools_dict.values()), os.path.join(root_folder, "tools.yaml"))
             self._llm_tools_dict[skill_name] = new_tool
 
             skills_dict = self._load_skills(root_folder)

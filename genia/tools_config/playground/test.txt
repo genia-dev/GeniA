@@ -32,6 +32,20 @@ lets print a plan of thoughts that specifies how you can list the aws regions us
 
 
 
+
+
+print a plan of thoughts that specifies how you can invoke the AWS lambda function 'find-ec2-instances-without-label' using the required arguments should prompt the user for. please reflect your thoughts, print those thoughts here below in a format i can save as a memory of text and in the future load 'as-is' so you will be able to immediately execute
+
+By using the upsert_skill function, you can ensure that the AI assistant retains and recalls specific skills, making it more efficient and effective in providing assistance.
+
+
+
+
+
+
+
+----------------------------------------------------------------------------------------------------
+
 use the tools you have and the ability to find more tools to come up with a plan which i want you to print so it could be saved in the future to disk and loaded in the future so this plan can be executed again. 
 the goal is to invoke AWS lambda function with a certain name, lets say lambda_foo and its parametes bar=1 and baz=2. please reflect your thoughts, take it step by step and present a snippet of memory i can save
 
