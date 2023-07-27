@@ -1,7 +1,6 @@
 ![CI](https://github.com/genia-dev/GeniA/actions/workflows/ci.yml/badge.svg)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
-
 # Meet GeniA 🧬🤖💻
 
 Your own engineering GenAI virtual superhero!
@@ -16,20 +15,34 @@ Imagine ChatGPT, empowered by your tools and apis, acting on your behalf, automa
 
 There has been a lot of buzz around ChatGPT and CoPilot boosting writing new code, but as software engineers we know that writing code is just a part of our day to day.
 
-Imagine a team member helping you:
+### Imagine a virtual team member helping you:
 
-* `increase the memory for my node service deployed on k8s cluster`
-* `rollout your k8s based service to production using argo`
-* `summarize production logs`
-* `write code for a new utility and deploy to a lambda function`
-* `look at your metrics for service usage anomalies`
-* `look for security vulnerabilities over my s3 buckets`
+R&D scenarios
+
+* `rollout your k8s based service to staging/production using argo`
+* `why did my last argo deploy failed?`
+* `summarize my recent node.js service logs`
 * `trigger a new build`
-* `generate reports for unutilized cloud resources`
-* `add a cron to trigger a function`
-* `scale out your services`
-* `generate usage report for AWS ECR (Amazon Elastic Container Registry)`
 * `summarize GitHub pull request with it's content`
+
+Finops shift left
+* `generate report for unutilized cloud resources per team owner to team slack`
+* `generate usage report for AWS ECR (Amazon Elastic Container Registry) to find cost saving opportunities`
+
+Secops shift left
+* `look for security vulnerabilities over my s3 buckets`
+* `grant me with production permissions (temporarily add me to an IAM user group with auditing)`
+
+SRE shift left
+* `look at my metrics for service usage anomalies`
+* `increase the memory for my node service deployed on k8s cluster`
+
+Devops shift left
+* `scale out my (node.js k8s based) service`
+* `find unlabled EC2 instances`
+* `add a cron to trigger something`
+* `write code for a new utility and deploy my 'automate this shixx' snippet to a lambda function`
+* `trigger any of my company playbooks`
 
 <p align="center">
 <br/>
@@ -41,7 +54,6 @@ Imagine a team member helping you:
 <br/>
 </p>
 
-
 ### GeniA is 100% open source!
 
 Built with love by engineers for engineers, so you can now onboard your new engineering superhero to your team.
@@ -52,6 +64,7 @@ GeniA can be taught new tools blazingly fast, one of our main goals was to simpl
 
 1. code tools - GeniA can call any class+method you have by adding simple spec
    this is an example of using a langchain tool, right out of the box, but can be any class
+
    ```
    - tool_name: search_serp_api
      category: python
@@ -84,7 +97,7 @@ GeniA can be taught new tools blazingly fast, one of our main goals was to simpl
 * [PagerDuty](https://www.pagerduty.com/)
 * [Slack Webhook](https://api.slack.com/messaging/webhooks)
 
-The list of supported tools can be found [here](./genia/tools_config/tools.yaml).    
+The list of supported tools can be found [here](./genia/tools_config/tools.yaml).
 The list of OpenAI functions spec which used by the tools can be found [here](./genia/tools_config/functions.json).
 
 ### How is GeniA different from just using an LLM?
@@ -100,7 +113,6 @@ GeniA is configured to use gpt-3.5-turbo-0613 by default. although gpt-4-0613 ha
 we use the power of the community to further enrich the tools, skills and best practices GeniA is familiar with.
 
 you can mix and match any of them and create your own company specific tools, contribute back to the community to help others!
-
 
 ## So what's next on the roadmap?
 
@@ -165,13 +177,14 @@ You can run GeniA in local mode via the terminal, or as Streamlit app or in orga
 
 Handle secrets by copy the [.env.template](./.env.template) into `.env`, and put in `.env` the minimal secrets which is just `OPENAI_API_KEY`
 
-
 ### Run in local terminal mode
+
 ```
 docker run -p 5001:5001 --env-file ./.env -it geniadev/genia:latest
 ```
 
 ### Run in slack app bot mode
+
 ```
 docker run -p 5001:5001 --env-file ./.env -it geniadev/genia:latest slack
 ```
@@ -205,6 +218,7 @@ poetry run python main.py local
 ### Run in slack app bot mode
 
 [First install the bot](#create-slack-app-bot)
+
 ```
 poetry run python main.py slack
 ```
@@ -240,12 +254,12 @@ In order to operate the Slack GPT Bot, it is necessary to define the correct per
 3. Navigate to your [Slack API Dashboard](https://api.slack.com/apps) and select the app you've created for this bot.
 4. On the left-hand side menu, click on `OAuth & Permissions`.
 5. Within the `Scopes` division, there are two categories of scopes: `Bot Token Scopes` and `User Token Scopes`. Append the following scopes under `Bot Token Scopes`:
-   `app_mentions:read`    
-   `chat:write`    
-   `channels:history`    
-   `groups:history`    
-   `im:history`    
-   `mpim:history`    
+   `app_mentions:read`
+   `chat:write`
+   `channels:history`
+   `groups:history`
+   `im:history`
+   `mpim:history`
 6. Ascend to the `OAuth Tokens for Your Workspace` and hit the `Install App To Workspace` button. This operation will produce the `SLACK_BOT_TOKEN`.
 7. On the left-hand side menu, click on `Socket Mode` and activate it. You'll be asked to `Generate an app-level token to enable Socket Mode`. Generate a token labeled `SLACK_APP_TOKEN` and include the `connections:write` scope.
 8. In the `Socket Mode` page's `Features affected` section, hit `Event Subscriptions` and switch `Enable Events` to the `On` state. Append the app_mention event, coupled with the `app_mentions:read` scope in the `Subscribe to bot events` subsection below the toggle.

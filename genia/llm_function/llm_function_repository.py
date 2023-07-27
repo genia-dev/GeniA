@@ -211,7 +211,7 @@ class LLMFunctionRepository:
             llm_tools_dict = self._load_tools(root_folder)
             new_tool = self.validate_tools_title([new_tool])[0]
             llm_tools_dict.update({skill_name: new_tool})
-            safe_yaml_dump(list(llm_tools_dict.values()), os.path.join(root_folder, "tools.yaml"))
+            safe_yaml_dump(os.path.join(root_folder, "tools.yaml"), list(llm_tools_dict.values()))
             self._llm_tools_dict[skill_name] = new_tool
 
             skills_dict = self._load_skills(root_folder)
