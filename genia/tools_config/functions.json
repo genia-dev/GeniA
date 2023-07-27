@@ -962,5 +962,25 @@
                 "age_seconds"
             ]
         }
+    },
+    {
+        "name": "get_top_k_containers_usage",
+        "description": "get from AWS ECR (Elastic Container Registry) the usage of containers in the registry",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "region_name": {
+                    "type": "string",
+                    "description": "The AWS Region Name"
+                },
+                "limit": {
+                    "type": "number",
+                    "description": "The number of containers repositories to limit in the usage result"
+                }
+            },
+            "required": [
+                "region_name"
+            ]
+        }
     }
 ]

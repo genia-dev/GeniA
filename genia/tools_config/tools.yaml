@@ -136,6 +136,12 @@
   class: genia.tools.aws_client.cloudtrail.aws_client_cloudtrail.AWSClientCloudTrail
   method: list_users_in_group_more_than_x_time
 
+- tool_name: get_top_k_containers_usage
+  category: python
+  title: get from AWS ECR (Elastic Container Registry) the usage of containers in the registry
+  class: genia.tools.aws_client.ecr.aws_client_ecr.AWSClientECR
+  method: get_top_k_containers_usage
+
 - tool_name: get_org_repos_names
   category: python
   class: genia.tools.github_client.github_client.GithubClient

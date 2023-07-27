@@ -18,16 +18,18 @@ There has been a lot of buzz around ChatGPT and CoPilot boosting writing new cod
 
 Imagine a team member helping you:
 
-* increase the memory for my node service deployed on k8s cluster
-* rollout your k8s based service to production using argo
-* summarize production logs
-* write code for a new utility and deploy to a lambda function
-* look at your metrics for service usage anomalies
-* look for security vulnerabilities over my s3 buckets
-* trigger a new build
-* generate reports for unutilized cloud resources
-* add a cron to trigger a function
-* scale out your services
+* `increase the memory for my node service deployed on k8s cluster`
+* `rollout your k8s based service to production using argo`
+* `summarize production logs`
+* `write code for a new utility and deploy to a lambda function`
+* `look at your metrics for service usage anomalies`
+* `look for security vulnerabilities over my s3 buckets`
+* `trigger a new build`
+* `generate reports for unutilized cloud resources`
+* `add a cron to trigger a function`
+* `scale out your services`
+* `generate usage report for AWS ECR (Amazon Elastic Container Registry)`
+* `summarize GitHub pull request with it's content`
 
 <p align="center">
 <br/>

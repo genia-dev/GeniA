@@ -3,7 +3,15 @@ import logging
 import openai
 from langchain import FAISS
 from langchain.embeddings import OpenAIEmbeddings
-from openai.error import APIError, InvalidRequestError, RateLimitError, ServiceUnavailableError, Timeout, TryAgain, APIConnectionError
+from openai.error import (
+    APIError,
+    InvalidRequestError,
+    RateLimitError,
+    ServiceUnavailableError,
+    Timeout,
+    TryAgain,
+    APIConnectionError,
+)
 from tenacity import retry, retry_if_exception_type, stop_after_attempt, wait_random_exponential
 
 from genia.agents.agent import Agent
@@ -108,7 +116,7 @@ class OpenAIChat(Agent):
                             function_response,
                         )
 
-                    self.logger.debug("function reposne: %s", function_response)
+                    self.logger.debug("function response: %s", function_response)
                     self._llm_conversation_service.add_function_response_message(
                         llm_conversation, function_name, function_response
                     )
