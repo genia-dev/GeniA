@@ -4,7 +4,7 @@ import threading
 from dotenv import load_dotenv
 from genia.user_interface.shell_app import ShellApp
 from genia.settings_loader import settings
-from genia.agents import OpenAIChat
+from genia.agents.chat import OpenAIChat
 
 from gunicorn.app.base import BaseApplication
 from flask import Flask, jsonify
@@ -35,7 +35,7 @@ for logger_name, log_level in settings.logger_level.to_dict().items():
     logger = logging.getLogger(logger_name)
     logger.setLevel(log_level)
 
-oa = OpenAIChat()
+oa = None
 
 
 @app.route("/api/health", methods=["GET"])
@@ -70,6 +70,7 @@ def setup_slack():
 
 
 if __name__ == "__main__":
+    oa = OpenAIChat()
     if len(sys.argv) == 1 or "local" in sys.argv:
         ShellApp(provider=oa).cmdloop()
     elif "streamlit" in sys.argv:

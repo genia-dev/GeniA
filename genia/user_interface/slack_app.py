@@ -5,7 +5,7 @@ import re
 from slack_bolt import App
 from slack_bolt.adapter.socket_mode import SocketModeHandler
 
-from genia.agents import OpenAIChat
+from genia.agents.chat import OpenAIChat
 from genia.settings_loader import settings
 
 logger = logging.getLogger(__name__)
@@ -26,6 +26,7 @@ app = App(token=SLACK_BOT_TOKEN)
 # Find the beginning of '{function_name}' using re.search()
 user_validation_idx = re.search(r"\{function_title\}", settings.agent_prompt.user_validation_message).start()
 user_validation_message = settings.agent_prompt.user_validation_message[:user_validation_idx]
+
 
 def update_chat(channel_id, reply_message_ts, response_text: str):
     if settings.chat.programmatic_user_tool_validation_required and response_text.startswith(user_validation_message):
