@@ -964,6 +964,38 @@
         }
     },
     {
+        "name": "list_roles",
+        "description": "list AWS IAM roles",
+        "parameters": {
+            "type": "object",
+            "properties": {
+            },
+            "required": [
+            ]
+        }
+    },
+    {
+        "name": "attach_policy_to_role",
+        "description": "attach IAM Policy to AWS IAM roles",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "role_name": {
+                    "type": "string",
+                    "description": "The AWS IAM Role Name"
+                },
+                "policy": {
+                    "type": "string",
+                    "description": "The IAM policy e.g ec2:DescribeInstances"
+                }
+            },
+            "required": [
+                "user_group",
+                "age_seconds"
+            ]
+        }
+    },
+    {
         "name": "get_top_k_containers_usage",
         "description": "get from AWS ECR (Elastic Container Registry) the usage of containers in the registry",
         "parameters": {

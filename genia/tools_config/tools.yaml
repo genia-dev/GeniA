@@ -136,6 +136,18 @@
   class: genia.tools.aws_client.cloudtrail.aws_client_cloudtrail.AWSClientCloudTrail
   method: list_users_in_group_more_than_x_time
 
+- tool_name: list_roles
+  category: python
+  title: list AWS IAM roles
+  class: genia.tools.aws_client.iam.aws_client_iam.AWSClientIAM
+  method: list_roles
+
+- tool_name: attach_policy_to_role
+  category: python
+  title: attach IAM Policy to AWS IAM roles
+  class: genia.tools.aws_client.iam.aws_client_iam.AWSClientIAM
+  method: attach_policy_to_role
+
 - tool_name: get_top_k_containers_usage
   category: python
   title: get from AWS ECR (Elastic Container Registry) the usage of containers in the registry
