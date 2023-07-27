@@ -21,11 +21,11 @@ def load_classes_from_directory(directory):
                 spec.loader.exec_module(module)
 
 
-load_classes_from_directory("genia/tools")
-
-
 class PythonFunction(LLMFunction):
     logger = logging.getLogger(__name__)
+
+    def __init__(self):
+        load_classes_from_directory("genia/tools")
 
     def sanitize_input(query: str) -> str:
         # Removes `, whitespace & python from start

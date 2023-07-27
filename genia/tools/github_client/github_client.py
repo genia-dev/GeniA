@@ -1,8 +1,9 @@
 import os
 import logging
+import json
 from github import Github, InputGitTreeElement
 from urllib.parse import urlparse
-from genia.agents.adhoc import call_model
+from genia.agents.adhoc import OpenAIAdhoc
 from genia.settings_loader import settings
 
 
@@ -12,6 +13,7 @@ class GithubClient:
     def __init__(self, access_token=None):
         if access_token is None:
             self.access_token = os.getenv("GITHUB_PERSONAL_ACCESS_TOKEN")
+        self.adhoc = OpenAIAdhoc()
 
     def get_token(self):
         return self.access_token
@@ -90,4 +92,4 @@ class GithubClient:
             # TODO
             {"role": "user", "content": pr_content[:4096]},
         ]
-        return call_model(messages)
+        return self.adhoc.call_model(messages)
