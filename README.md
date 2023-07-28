@@ -56,6 +56,7 @@ Devops shift left
 <br/>
 </p>
 
+
 ### GeniA is 100% open source!
 
 Built with love by engineers for engineers, our goal is to help teams harnest the power of LLMs to boost how fast you can go!
@@ -90,6 +91,18 @@ GeniA can be taught new tools blazingly fast, one of our main goals was to simpl
 
    This is where LLM realy sparks, an experimental capability of GeniA to learn new skills and keep steps it took to acomplish a task in its long term memory, name and save them under a new skill it learned so it can be then loaded into memory and followed upon. 
    all using natural language!
+
+### What is tools 3.0 rather than 2.0?
+
+The low code / no code approach serves some usecases well for years, drag and drop instead of code.
+
+Today with the power of LLM anyone can write code. just use natural language.
+
+We prefer more innovative approach. Code. 
+Not sure what a code snippet does? ask the model, want to revise existing complex code? ask the model.
+
+No need for a propietary YAML files and vendor domain specific language (DSL), use native code.
+something's missing? no need to wait for a vendor to add anything. just use the LLM to write code, write it yourself, or take one of the thousands of community contributed tools. remember any class+method or api out there is a tool GeniA can learn and use
 
 ### Available tools
 

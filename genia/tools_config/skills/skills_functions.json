@@ -1,14 +1,5 @@
 [
     {
-        "name": "list_aws_regions",
-        "description": "Use the AWS API to list all AWS regions",
-        "parameters": {
-            "type": "object",
-            "properties": {},
-            "required": []
-        }
-    },
-    {
         "name": "invoke_lambda_find_ec2_instances_without_label",
         "description": "find AWS EC2 instances without label by invoking the matching aws lambda.",
         "parameters": {

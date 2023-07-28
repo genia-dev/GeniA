@@ -95,6 +95,33 @@ Here is the text that you can save and use in a new session to load the last fun
 
 
 
+ -------------------------
+{
+  "plan": [
+    {
+      "step": 1,
+      "action": "functions.list_aws_regions",
+      "parameters": {}
+    },
+    {
+      "step": 2,
+      "action": "Ask user to select a region or use user mentioned AWS region"
+    },
+    {
+      "step": 3,
+      "action": "functions.invoke_lambda",
+      "parameters": {
+        "lambda_name": "underutilized_instances",
+        "region_name": "<User Selected AWS Region or User Mentioned AWS Region>",
+        "payload": "{\"threshold\":10}"
+      }
+    }
+  ]
+}
+
+-------------------------
+
+
 Please copy and save this text. In a new session, you can provide this text to me, and I will know exactly how to execute the last function call. Let me know if you have any further questions or need assistance.
 
 No, you don't need to add any additional text. The provided text contains all the necessary information for me to know that it should be used to execute the last function call. Simply provide the saved text in a new session, and I will understand that it is the instruction to run the function. Let me know if there's anything else I can help you with!

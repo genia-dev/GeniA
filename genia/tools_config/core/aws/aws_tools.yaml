@@ -3,7 +3,3 @@
   validate: false
   class: genia.tools.aws_client.ec2.aws_client_ec2.AWSClientEC2
   method: list_aws_regions
-
-- tool_name: invoke_lambda_find_ec2_instances_without_label
-  category: skill
-  title: "find EC2 instances without label"

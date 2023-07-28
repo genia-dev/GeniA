@@ -1,0 +1,3 @@
+- tool_name: invoke_lambda_find_ec2_instances_without_label
+  category: skill
+  title: "find EC2 instances without label"
