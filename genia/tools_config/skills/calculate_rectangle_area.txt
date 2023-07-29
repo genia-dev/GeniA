@@ -1,0 +1,13 @@
+To calculate the area of a rectangle, we need the following arguments:
+
+1. `lambda_name`: The name of the Lambda function, which is 'rectangle-area-lambda'.
+2. `region_name`: The AWS region where the Lambda function is deployed, which is 'us-west-2'.
+3. `payload`: The payload to be passed as input to the Lambda function. In this case, it should be a JSON object containing the `width` and `height` parameters.
+
+To execute the Lambda function, AI assistant should follow these steps:
+
+1. Prompt the user to enter the `width` and `height` values.
+2. Validate the inputs are integers. If not, display an error message and ask the user to enter a valid integer.
+3. Construct the payload JSON object with the entered values.
+4. Call the `invoke_lambda` function with the `lambda_name`, `region_name`, and constructed `payload`.
+5. Handle the response from the `invoke_lambda` function and display the result to the user.

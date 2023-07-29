@@ -1,0 +1,7 @@
+To grant an IAM user with temporary production permissions, follow these steps:
+
+1. Retrieve the user's AWS IAM Username by prompting the user to enter the `user_name` value.
+2. Set the AWS IAM Group Name as 'production-shift-group'.
+2. Call the 'add_user_to_group' function with the group name 'production-shift-group' and the user's username as arguments.
+3. Verify the response from the function call to ensure that the user was successfully added to the group.
+4. Print a success message to the user indicating that the 'on-call' user has been granted temporary credentials for production.

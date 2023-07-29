@@ -1,0 +1,7 @@
+To revoke temporary production permissions from a user, follow these steps:
+
+1. Retrieve the user's AWS IAM Username.
+2. Set the AWS IAM Group Name as 'production-shift-group'.
+3. Call the 'remove_user_from_group' function with the group name 'production-shift-group' and the 'on-call' user's username as arguments.
+4. Verify the response from the function call to ensure that the user was successfully added to the group.
+5. Print a success message to the user indicating that the 'on-call' user has been revoked temporary permissions for production.

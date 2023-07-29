@@ -1,8 +1,0 @@
-To call the AWS Lambda function 'underutilized-resources' in the 'us-east-1' region, we can use the 'invoke_lambda' tool. The function requires a parameter called 'threshold' with a value of 10.
-
-Plan:
-1. Use the 'invoke_lambda' tool.
-2. Set the 'lambda_name' parameter to 'underutilized-resources'.
-3. Set the 'region_name' parameter to 'us-east-1'.
-4. Set the 'payload' parameter to '{"threshold": 10}'.
-5. Print a memory that includes the function name, region, and parameter value.

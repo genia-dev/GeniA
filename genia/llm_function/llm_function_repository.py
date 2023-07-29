@@ -239,7 +239,7 @@ class LLMFunctionRepository:
             llm_tools_dict = self._load_tools(root_folder)
             if skill_name in llm_tools_dict:
                 del llm_tools_dict[skill_name]
-            safe_yaml_dump(list(llm_tools_dict.values()), os.path.join(root_folder, "tools.yaml"))
+            safe_yaml_dump(os.path.join(root_folder, "tools.yaml"), list(llm_tools_dict.values()))
             if skill_name in self._llm_tools_dict:
                 del self._llm_tools_dict[skill_name]
 

@@ -7,5 +7,23 @@
             "properties": {},
             "required": []
         }
+    },
+    {
+        "name": "grant_production_permissions",
+        "description": "Grant an IAM user with temporary production permissions",
+        "parameters": {
+            "type": "object",
+            "properties": {},
+            "required": []
+        }
+    },
+    {
+        "name": "revoke_production_permissions",
+        "description": "Revoke an IAM user with production permissions",
+        "parameters": {
+            "type": "object",
+            "properties": {},
+            "required": []
+        }
     }
 ]
