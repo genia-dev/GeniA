@@ -24,22 +24,26 @@ R&D scenarios
 * `rollout your k8s based service to staging/production using argo`
 * `why did my last argo deploy failed?`
 * `summarize my recent node.js service logs`
-* `trigger a new build`
+* `trigger a new jenkins build`
 * `summarize GitHub pull request with it's content`
 
 Finops shift left
+
 * `generate report for unutilized cloud resources per team owner to team slack`
 * `generate usage report for AWS ECR (Amazon Elastic Container Registry) to find cost saving opportunities`
 
 Secops shift left
+
 * `look for security vulnerabilities over my s3 buckets`
 * `grant me with production permissions (temporarily add me to an IAM user group with auditing)`
 
 SRE shift left
+
 * `look at my metrics for service usage anomalies`
 * `increase the memory for my node service deployed on k8s cluster`
 
 Devops shift left
+
 * `scale out my (node.js k8s based) service`
 * `find unlabled EC2 instances`
 * `add a cron to trigger something`
@@ -55,7 +59,6 @@ Devops shift left
 <br/>
 <br/>
 </p>
-
 
 ### GeniA is 100% open source!
 
@@ -86,10 +89,9 @@ GeniA can be taught new tools blazingly fast, one of our main goals was to simpl
 3. standard openapi swagger files - we imagine a world in which your LLM model can call any API out there!
 
    GeniA can invoke any standard openapi out there, easily integrated by a swagger file. this is a work in progress, there is a working example plugged in out of the box
-
 4. natural language skills
 
-   This is where LLM realy sparks, an experimental capability of GeniA to learn new skills and keep steps it took to acomplish a task in its long term memory, name and save them under a new skill it learned so it can be then loaded into memory and followed upon. 
+   This is where LLM realy sparks, an experimental capability of GeniA to learn new skills and keep steps it took to acomplish a task in its long term memory, name and save them under a new skill it learned so it can be then loaded into memory and followed upon.
    all using natural language!
 
 ### What is tools 3.0 rather than 2.0?
@@ -98,7 +100,7 @@ The low code / no code approach serves some usecases well for years, drag and dr
 
 Today with the power of LLM anyone can write code. just use natural language.
 
-We prefer more innovative approach. Code. 
+We prefer more innovative approach. Code.
 Not sure what a code snippet does? ask the model, want to revise existing complex code? ask the model.
 
 No need for a propietary YAML files and vendor domain specific language (DSL), use native code.

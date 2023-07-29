@@ -1,6 +1,8 @@
 import logging
+from typing import Dict
 
 from genia.conversation.llm_conversation import LLMConversationService, LLMConversation
+from genia.llm_function.llm_function_repository import LLMFunctionRepository
 from genia.settings_loader import settings
 
 
@@ -10,15 +12,34 @@ class LLMToolValidator:
     def is_tool_validation_required(
         self,
         llm_conversation_service: LLMConversationService,
+        llm_functions_repository: LLMFunctionRepository,
         llm_tool,
-        function_arguments,
+        function_arguments: Dict,
         llm_conversation: LLMConversation,
     ):
         return (
             settings.chat.programmatic_user_tool_validation_required
             and llm_tool.get("validate", True)
-            and llm_conversation_service.get_last_function_call(llm_conversation) != llm_tool["tool_name"]
+            and not self._was_this_function_call_just_confirmed_already(
+                llm_conversation_service, llm_tool, function_arguments, llm_conversation
+            )
+            and not self._is_within_skill_function_chain(
+                llm_conversation_service, llm_functions_repository, llm_conversation
+            )
         )
+
+    def _was_this_function_call_just_confirmed_already(
+        self, llm_conversation_service: LLMConversationService, llm_tool, function_arguments: Dict, llm_conversation
+    ):
+        return llm_conversation_service.get_last_function_call(llm_conversation) == llm_tool["tool_name"]
+
+    def _is_within_skill_function_chain(
+        self,
+        llm_conversation_service: LLMConversationService,
+        llm_functions_repository: LLMFunctionRepository,
+        llm_conversation,
+    ) -> bool:
+        return llm_conversation_service.is_within_skill_function_chain(llm_functions_repository, llm_conversation)
 
     def validate_tool_usage(
         self,

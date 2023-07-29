@@ -3,12 +3,12 @@ import logging
 import os
 import re
 import threading
-from typing import List
+from typing import List, Set
 
 from langchain.vectorstores import VectorStore
 
 from genia.settings_loader import settings
-from genia.utils.utils import safe_json_dumps, safe_load_json_file, safe_load_yaml_file, safe_txt_dumps, safe_yaml_dump
+from genia.utils.utils import safe_json_dump, safe_load_json_file, safe_load_yaml_file, safe_txt_dump, safe_yaml_dump
 
 
 class LLMFunctionRepository:
@@ -166,8 +166,9 @@ class LLMFunctionRepository:
         """
         return self._vector_store.similarity_search_with_score(query, k=k)
 
-    def find_tools(self, required_functions: set, tools: list):
+    def find_tools(self, required_functions: Set, tools: List):
         tools_dict = {}
+        # add mandatory tools that should always be available for the model
         required_functions.update(["get_top_available_tools"])  # "reasoning_acting"
         for required_function in required_functions:
             tools_dict[required_function] = [
@@ -202,7 +203,7 @@ class LLMFunctionRepository:
 
             llm_functions_dict = self._load_functions(root_folder)
             llm_functions_dict.update({skill_name: new_function})
-            safe_json_dumps(
+            safe_json_dump(
                 list(llm_functions_dict.values()),
                 os.path.join(root_folder, "functions.json"),
             )
@@ -216,7 +217,7 @@ class LLMFunctionRepository:
 
             skills_dict = self._load_skills(root_folder)
             skills_dict.update({skill_name: skill_code})
-            safe_txt_dumps(os.path.join(root_folder, skill_name + ".txt"), skill_code)
+            safe_txt_dump(os.path.join(root_folder, skill_name + ".txt"), skill_code)
             self._llm_skills_dict[skill_name] = skill_code
 
             self._vector_store_add_texts([new_function])
@@ -228,7 +229,7 @@ class LLMFunctionRepository:
             llm_functions_dict = self._load_functions(root_folder)
             if skill_name in llm_functions_dict:
                 del llm_functions_dict[skill_name]
-            safe_json_dumps(
+            safe_json_dump(
                 list(llm_functions_dict.values()),
                 os.path.join(root_folder, "functions.json"),
             )
@@ -238,7 +239,7 @@ class LLMFunctionRepository:
             llm_tools_dict = self._load_tools(root_folder)
             if skill_name in llm_tools_dict:
                 del llm_tools_dict[skill_name]
-            safe_json_dumps(list(llm_tools_dict.values()), os.path.join(root_folder, "tools.yaml"))
+            safe_yaml_dump(list(llm_tools_dict.values()), os.path.join(root_folder, "tools.yaml"))
             if skill_name in self._llm_tools_dict:
                 del self._llm_tools_dict[skill_name]
 

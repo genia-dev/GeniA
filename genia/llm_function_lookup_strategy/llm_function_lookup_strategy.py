@@ -21,9 +21,9 @@ class LLMFunctionLookupStrategy(ABC):
         pass
 
 
-class LLMFunctionLookupStrategyLastUserAll(LLMFunctionLookupStrategy):
+class LLMFunctionLookupStrategyPrevCallsLastUserAndAsistant(LLMFunctionLookupStrategy):
     def find_potential_tools(self, llm_conversation: LLMConversation):
-        last_function_calls = self._llm_conversation_service.get_previous_function_calls(llm_conversation)
+        previous_function_calls = self._llm_conversation_service.get_previous_function_calls(llm_conversation)
         # _take_k_or_less last_function_calls
         user_messages = self._llm_conversation_service.get_user_messages(llm_conversation, 5)
         assistant_messages = self._llm_conversation_service.get_assistant_messages(llm_conversation, 5)
@@ -44,7 +44,7 @@ class LLMFunctionLookupStrategyLastUserAll(LLMFunctionLookupStrategy):
         tools_list = list(map(lambda item: [item[0].metadata, item[1]], last_user_similarities))
         tools_list.extend(self._filtered_ordered_list(all_user_similarities, 0.5))
         tools_list.extend(self._filtered_ordered_list(all_assistant_similarities, 0.5))
-        model_functions = self._llm_functions_repository.find_tools(last_function_calls, tools_list)
+        model_functions = self._llm_functions_repository.find_tools(previous_function_calls, tools_list)
         llm_conversation.set_model_functions(model_functions)
         return list(map(lambda obj: obj[0], model_functions))
 

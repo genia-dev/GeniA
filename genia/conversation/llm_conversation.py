@@ -1,10 +1,11 @@
 import json
 import logging
 from abc import ABC, abstractmethod
-from typing import List
+from typing import List, Set
 
 from termcolor import colored
 
+from genia.llm_function.llm_function_repository import LLMFunctionRepository
 from genia.settings_loader import settings
 
 
@@ -67,6 +68,10 @@ class LLMConversationService:
 
     def __init__(self, conversation_repository: LLMConversationRepository):
         self._conversation_repository = conversation_repository
+        self._max_chain_length = min(
+            settings["tools_similarity"]["size_of_all_tools_request"],
+            settings["chat"]["max_user_message_chain"],
+        )
 
     def find_conversation_by_id(self, uid) -> LLMConversation:
         llm_conversation = self._conversation_repository.find_conversation_by_id(uid)
@@ -104,15 +109,12 @@ class LLMConversationService:
                 break
         return res
 
-    def get_previous_function_calls(self, llm_conversation: LLMConversation) -> set:
+    def get_previous_function_calls(self, llm_conversation: LLMConversation) -> Set:
         messages_reverse = llm_conversation.get_messages()[::-1]
-        max_chain_length = min(
-            settings["tools_similarity"]["size_of_all_tools_request"],
-            settings["chat"]["max_user_message_chain"],
-        )
+
         res = set()
         for index, msg in enumerate(messages_reverse):
-            if index <= max_chain_length:
+            if index <= self._max_chain_length:
                 if msg["role"] == "assistant" and msg.get("validation") is not None:
                     res.add(msg.get("validation"))
                 elif msg["role"] == "assistant" and msg.get("function_call") is not None:
@@ -120,6 +122,20 @@ class LLMConversationService:
                 elif msg["role"] == "function":
                     res.add(msg.get("name"))
         return res
+
+    def is_within_skill_function_chain(
+        self, llm_functions_repository: LLMFunctionRepository, llm_conversation: LLMConversation
+    ):
+        result = False
+        messages_reverse = llm_conversation.get_messages()[::-1]
+        for index, msg in enumerate(messages_reverse):
+            if msg["role"] == "function":
+                if llm_functions_repository.find_tool_by_name(msg["name"])["category"] == "skill":
+                    result = True
+                    break
+            elif msg["role"] == "user":
+                break
+        return result
 
     def is_concecutive_function_call(self, llm_conversation: LLMConversation):
         messages_reverse = llm_conversation.get_messages()[::-1]

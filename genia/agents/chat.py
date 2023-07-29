@@ -3,28 +3,25 @@ import logging
 import openai
 from langchain import FAISS
 from langchain.embeddings import OpenAIEmbeddings
-from openai.error import (
-    APIError,
-    InvalidRequestError,
-    RateLimitError,
-    ServiceUnavailableError,
-    Timeout,
-    TryAgain,
-    APIConnectionError,
-)
-from tenacity import retry, retry_if_exception_type, stop_after_attempt, wait_random_exponential
+from openai.error import (APIConnectionError, APIError, InvalidRequestError,
+                          RateLimitError, ServiceUnavailableError, Timeout,
+                          TryAgain)
+from tenacity import (retry, retry_if_exception_type, stop_after_attempt,
+                      wait_random_exponential)
 
 from genia.agents.agent import Agent
-from genia.conversation.llm_conversation import LLMConversation, LLMConversationService
-from genia.conversation.llm_conversation_in_memory_repository import LLMConversationInMemRepository
-from genia.llm_function.llm_function_lookup_strategy import (
+from genia.conversation.llm_conversation import (LLMConversation,
+                                                 LLMConversationService)
+from genia.conversation.llm_conversation_in_memory_repository import \
+    LLMConversationInMemRepository
+from genia.llm_function_lookup_strategy.llm_function_lookup_strategy import (
     LLMFunctionLookupStrategy,
-    LLMFunctionLookupStrategyLastUserAll,
-)
+    LLMFunctionLookupStrategyPrevCallsLastUserAndAsistant)
 from genia.llm_function.llm_function_repository import LLMFunctionRepository
 from genia.llm_function.llm_functions_factory import LLMFunctionFactory
 from genia.settings_loader import settings
-from genia.token_limiter.token_limiter_openai import TokenLimiter, TokenLimiterOpenAI
+from genia.token_limiter.token_limiter_openai import (TokenLimiter,
+                                                      TokenLimiterOpenAI)
 from genia.tool_validators.llm_tool_validator import LLMToolValidator
 from genia.utils.utils import safe_loads
 
@@ -57,7 +54,7 @@ class OpenAIChat(Agent):
         self._llm_tools_validator = llm_tools_validator
         self._llm_token_limiter = llm_token_limiter
         if function_lookup_strategy is None:
-            function_lookup_strategy = LLMFunctionLookupStrategyLastUserAll(
+            function_lookup_strategy = LLMFunctionLookupStrategyPrevCallsLastUserAndAsistant(
                 llm_conversation_service, llm_functions_repository
             )
         self._function_lookup_strategy = function_lookup_strategy
@@ -90,6 +87,7 @@ class OpenAIChat(Agent):
                         self.logger.debug("found the tool: %s", llm_matching_tool)
                         if self._llm_tools_validator.is_tool_validation_required(
                             self._llm_conversation_service,
+                            self._llm_functions_repository,
                             llm_matching_tool,
                             function_arguments,
                             llm_conversation,

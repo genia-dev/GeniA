@@ -1,5 +1,21 @@
+
+print a plan of thoughts that specifies how you can invoke the AWS lambda function 'find-ec2-instances-without-label' using the required arguments should prompt the user for. please reflect your thoughts, print those thoughts here below in a format i can save as a memory of text and in the future load 'as-is' so you will be able to immediately execute
+
+----------------------------------------------------------------------------------------------------
+
+print a chain of thoughts plan that specifies how you can  add aws user 'myawesometestuser' to user group 'production-shift-group', using the required arguments should prompt the user for. 
+please reflect your thoughts, print those thoughts here below in a format i can save as a memory of text and in the future load 'as-is' so you will be able to immediately execute, the user intent for the goal here is to grant an 'on-call' user by name temporary credentials for production
+
+@GeniA
+ can you find unlabled ec2 instances?
+
+----------------------------------------------------------------------------------------------------
+
+
 lets print a plan of thoughts that specifies how you can list the aws regions using the function "list_aws_regions" and then filter those which starts with 'eu'. print those thoughts here below in a format i can save as a memory of text and in the future load 'as-is' so you will be able to immediately execute
 
+
+----------------------------------------------------------------------------------------------------
 
 1. Use the `list_aws_regions` function to get a list of all AWS regions.
 2. Iterate through the list of regions and check if each region starts with 'us'.
@@ -28,21 +44,10 @@ lets print a plan of thoughts that specifies how you can list the aws regions us
     }
   ]
 }
-----------------------------------------------------------------------------------------------------
-
-
-
-
-
-print a plan of thoughts that specifies how you can invoke the AWS lambda function 'find-ec2-instances-without-label' using the required arguments should prompt the user for. please reflect your thoughts, print those thoughts here below in a format i can save as a memory of text and in the future load 'as-is' so you will be able to immediately execute
-
-
-print a chain of thoughts plan that specifies how you can  add aws user 'myawesometestuser' to user group 'production-shift-group', using the required arguments should prompt the user for. 
-please reflect your thoughts, print those thoughts here below in a format i can save as a memory of text and in the future load 'as-is' so you will be able to immediately execute
-the user intent for the goal here is to grant an 'on-call' user by name temporary credentials for production
 
 
 ----------------------------------------------------------------------------------------------------
+
 
 use the tools you have and the ability to find more tools to come up with a plan which i want you to print so it could be saved in the future to disk and loaded in the future so this plan can be executed again. 
 the goal is to invoke AWS lambda function with a certain name, lets say lambda_foo and its parametes bar=1 and baz=2. please reflect your thoughts, take it step by step and present a snippet of memory i can save

@@ -86,6 +86,6 @@ class LLMConversationInMemRepository(LLMConversationRepository):
         else:
             raise ValueError(
                 "current stored version does not match the new value. new: %s, old: %s",
-                llm_conversation,
-                old_chat,
+                llm_conversation.get_id(),
+                old_chat.get_id(),
             )

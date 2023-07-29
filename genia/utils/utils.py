@@ -35,12 +35,12 @@ def safe_loads(json_string: str):
     return parsed_json
 
 
-def safe_json_dumps(content, file_path):
+def safe_json_dump(content, file_path):
     with open(file_path, "w") as json_file:
         json.dump(content, json_file)
 
 
-def safe_txt_dumps(file_path, content):
+def safe_txt_dump(file_path, content):
     with open(file_path, "w") as file:
         file.write(content)
 
