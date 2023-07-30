@@ -19,6 +19,18 @@ print a plan of thoughts that specifies how you can invoke the AWS lambda functi
 
 ----------------------------------------------------------------------------------------------------
 
+
+https://github.com/openai/evals/pull/1324
+
+https://github.com/openai/openai-cookbook/pull/612
+
+https://github.com/openai/triton/pull/1848
+
+
+
+----------------------------------------------------------------------------------------------------
+
+
 1. Use the `list_aws_regions` function to get a list of all AWS regions.
 2. Iterate through the list of regions and check if each region starts with 'us'.
 3. If a region starts with 'us', add it to a new list of filtered regions.

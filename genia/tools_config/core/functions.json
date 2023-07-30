@@ -408,7 +408,7 @@
     },
     {
         "name": "summarize_github_pr_content",
-        "description": "summarize the github pull request url including commits data",
+        "description": "summarize a github pull request by url",
         "parameters": {
             "type": "object",
             "properties": {
