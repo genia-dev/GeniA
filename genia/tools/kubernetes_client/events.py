@@ -12,3 +12,9 @@ class KubernetesEvents:
     def list_events_for_all_namespaces(self):
         events = self.api_client_events.list_event_for_all_namespaces()
         return [event.to_dict() for event in events.items]
+
+    def list_namespaced_pod_events(self, namespace, pod_name):
+        events = self.api_client_events.list_namespaced_event(
+            namespace, field_selector=f"involvedObject.name={pod_name}"
+        )
+        return [event.to_dict() for event in events.items if event.type == "Warning"]

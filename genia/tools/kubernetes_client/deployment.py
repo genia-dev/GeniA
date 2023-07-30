@@ -245,7 +245,7 @@ class KubernetesDeployment:
         stop=stop_after_attempt(3),
         retry=retry_if_exception_type((DeploymentUpdateConflictError)),
     )
-    def scale_deployment_resources_inner(self, namespace, deployment_name, container_name, requests, limits):
+    def scale_deployment_resources_inner(self, namespace, deployment_name, requests, limits, container_name=None):
         try:
             self.logger.info(
                 f"scaling deployment resources for deplyment: {deployment_name} container: {container_name} requests: {requests} limits: {limits}"
@@ -254,7 +254,11 @@ class KubernetesDeployment:
             deployment = api_client.read_namespaced_deployment(deployment_name, namespace)
 
             for container in deployment.spec.template.spec.containers:
-                if container.name == container_name:
+                if container_name is not None:
+                    if container.name == container_name:
+                        container.resources.requests = requests
+                        container.resources.limits = limits
+                else:
                     container.resources.requests = requests
                     container.resources.limits = limits
 
@@ -270,15 +274,15 @@ class KubernetesDeployment:
         self,
         namespace,
         deployment_name,
-        container_name,
         requests_cpu,
         requests_memory,
         limits_cpu,
         limits_memory,
+        container_name=None,
     ):
         requests = {"cpu": requests_cpu, "memory": requests_memory}
         limits = {"cpu": limits_cpu, "memory": limits_memory}
-        return self.scale_deployment_resources_inner(namespace, deployment_name, container_name, requests, limits)
+        return self.scale_deployment_resources_inner(namespace, deployment_name, requests, limits, container_name)
 
     def delete_deployment(self, namespace, deployment_name):
         self.logger.info(f"deleting deployment {deployment_name}")

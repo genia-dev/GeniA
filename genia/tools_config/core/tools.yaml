@@ -91,7 +91,7 @@
 - tool_name: create_scheduled_lambda
   category: python
   title: create AWS scheduled cron lambda
-  class: AWSClientEvents
+  class: genia.tools.aws_client.events.aws_client_events.AWSClientEvents
   method: create_scheduled_lambda
 
 - tool_name: list_scheduled_lambdas
@@ -189,13 +189,13 @@
 
 - tool_name: scale_deployment_resources
   category: python
-  title: scale the kubernetes resources requests and limits of cpu and memory for a deployment container
+  title: Scale the requests and limits of CPU and memory resources for a Kubernetes deployment
   class: genia.tools.kubernetes_client.deployment.KubernetesDeployment
   method: scale_deployment_resources
 
 - tool_name: describe_deployment
   category: python
-  title: describe the kubernetes resources requests and limits of cpu and memory and replicas and the container
+  title: Describe the Kubernetes resources for deployment
   class: genia.tools.kubernetes_client.deployment.KubernetesDeployment
   method: describe_deployment
 
@@ -204,6 +204,18 @@
   title: list the kubernetes deployments for a given namespace
   class: genia.tools.kubernetes_client.deployment.KubernetesDeployment
   method: list_deployment
+
+- tool_name: list_namespaced_events
+  category: python
+  title: list the kubernetes events for a given namespace
+  class: genia.tools.kubernetes_client.events.KubernetesEvents
+  method: list_namespaced_events
+
+- tool_name: list_namespaced_pod_events
+  category: python
+  title: list the kubernetes events for a given namespace and specific pod
+  class: genia.tools.kubernetes_client.events.KubernetesEvents
+  method: list_namespaced_pod_events
 
 - tool_name: opa_check_policy_rule
   category: python

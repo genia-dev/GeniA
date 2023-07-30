@@ -52,7 +52,7 @@ class TestKubernetesDeployment(unittest.TestCase):
         )
 
         self.api_client_deployment.scale_deployment_resources(
-            self.namespace, "nginx", "nginx", "100m", "200Mi", "300m", "600Mi"
+            self.namespace, "nginx", "100m", "200Mi", "300m", "600Mi", "nginx"
         )
 
         self.assertEqual(

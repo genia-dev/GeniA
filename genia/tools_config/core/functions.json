@@ -544,6 +544,43 @@
         }
     },
     {
+        "name": "list_namespaced_events",
+        "description": "list the kubernetes events for a given namespace",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "namespace": {
+                    "type": "string",
+                    "description": "The Kubernetes namespace"
+                }
+            },
+            "required": [
+                "namespace"
+            ]
+        }
+    },
+    {
+        "name": "list_namespaced_pod_events",
+        "description": "list the kubernetes events for a given namespace and specific pod",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "namespace": {
+                    "type": "string",
+                    "description": "The Kubernetes namespace"
+                },
+                "pod_name": {
+                    "type": "string",
+                    "description": "The Kubernetes pod to get events"
+                }
+            },
+            "required": [
+                "namespace",
+                "pod_name"
+            ]
+        }
+    },
+    {
         "name": "opa_check_policy_rule",
         "description": "Check OPA policy rule against Kubernetes input",
         "parameters": {
