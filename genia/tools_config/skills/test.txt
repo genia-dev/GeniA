@@ -2,7 +2,7 @@
 print a plan of thoughts that specifies how you can invoke the AWS lambda function 'find-ec2-instances-without-label' using the required arguments should prompt the user for. please reflect your thoughts, print those thoughts here below in a format i can save as a memory of text and in the future load 'as-is' so you will be able to immediately execute
 
 
-take it step by step and print a plan of thoughts that specifies how you can invoke the AWS lambda function 'find-ec2-instances-without-label'. please reflect your thoughts, print those thoughts here below in a format i can save as a memory of text and in the future load 'as-is' so you will be able to immediately execute
+take it step by step and print a plan of thoughts as clear steps for you self. those steps should specify how you can invoke the AWS lambda function 'find-ec2-instances-without-label'. please reflect your thoughts, print those thoughts here below in a format i can save as a memory of text and in the future load 'as-is' so you will be able to immediately execute
 
 add this as a new skill to your memory
 

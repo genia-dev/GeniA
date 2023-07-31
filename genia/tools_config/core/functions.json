@@ -236,7 +236,7 @@
     },
     {
         "name": "update_lambda",
-        "description": "udate and deploy AWS Lambda function",
+        "description": "update the code and redeploy AWS Lambda function",
         "parameters": {
             "type": "object",
             "properties": {
@@ -483,19 +483,19 @@
                 },
                 "requests_cpu": {
                     "type": "string",
-                    "description": "The Kubernetes requests cpu"
+                    "description": "The Kubernetes requests cpu in Mi or Gi i.e 2Gi or 2048Mi"
                 },
                 "requests_memory": {
                     "type": "string",
-                    "description": "The Kubernetes requests memory"
+                    "description": "The Kubernetes requests memory in Mi or Gi i.e 2Gi or 2048Mi"
                 },
                 "limits_cpu": {
                     "type": "string",
-                    "description": "The Kubernetes limits cpu"
+                    "description": "The Kubernetes limits cpu in Mi or Gi i.e 2Gi or 2048Mi"
                 },
                 "limits_memory": {
                     "type": "string",
-                    "description": "The Kubernetes limits memory"
+                    "description": "The Kubernetes limits memory in Mi or Gi i.e 2Gi or 2048Mi"
                 }
             },
             "required": [

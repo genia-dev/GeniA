@@ -16,7 +16,7 @@ from genia.conversation.llm_conversation_in_memory_repository import \
     LLMConversationInMemRepository
 from genia.llm_function_lookup_strategy.llm_function_lookup_strategy import (
     LLMFunctionLookupStrategy,
-    LLMFunctionLookupStrategyPrevCallsLastUserAndAsistant)
+    LLMFunctionLookupStrategyPrevCallsLastUserAndChat)
 from genia.llm_function.llm_function_repository import LLMFunctionRepository
 from genia.llm_function.llm_functions_factory import LLMFunctionFactory
 from genia.settings_loader import settings
@@ -54,7 +54,7 @@ class OpenAIChat(Agent):
         self._llm_tools_validator = llm_tools_validator
         self._llm_token_limiter = llm_token_limiter
         if function_lookup_strategy is None:
-            function_lookup_strategy = LLMFunctionLookupStrategyPrevCallsLastUserAndAsistant(
+            function_lookup_strategy = LLMFunctionLookupStrategyPrevCallsLastUserAndChat(
                 llm_conversation_service, llm_functions_repository
             )
         self._function_lookup_strategy = function_lookup_strategy

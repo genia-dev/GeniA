@@ -189,13 +189,13 @@
 
 - tool_name: scale_deployment_resources
   category: python
-  title: Scale the requests and limits of CPU and memory resources for a Kubernetes deployment
+  title: scale Kubernetes deployment resources
   class: genia.tools.kubernetes_client.deployment.KubernetesDeployment
   method: scale_deployment_resources
 
 - tool_name: describe_deployment
   category: python
-  title: Describe the Kubernetes resources for deployment
+  title: describe the Kubernetes resources for deployment
   class: genia.tools.kubernetes_client.deployment.KubernetesDeployment
   method: describe_deployment
 

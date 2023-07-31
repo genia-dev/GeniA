@@ -1,7 +1,8 @@
 import json
-import yaml
 import random
 import string
+
+import yaml
 
 
 def generate_random_string(length=8):
@@ -48,3 +49,11 @@ def safe_txt_dump(file_path, content):
 def safe_yaml_dump(file_path: str, content):
     with open(file_path, "w") as file:
         yaml.dump(content, file)
+
+
+def is_blank(input: str):
+    return not is_not_blank(input)
+
+
+def is_not_blank(input: str):
+    return input and input.strip()

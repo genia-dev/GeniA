@@ -7,6 +7,7 @@ from termcolor import colored
 
 from genia.llm_function.llm_function_repository import LLMFunctionRepository
 from genia.settings_loader import settings
+from genia.utils.utils import is_not_blank
 
 
 class LLMConversation:
@@ -232,25 +233,23 @@ class LLMConversationService:
     def get_init_message(self):
         return [{"role": "system", "content": settings["agent_prompt"]["system"]}]
 
-    def get_user_messages(self, llm_conversation: LLMConversation, k):
-        return self._take_k_or_less(
-            [item["content"] for item in llm_conversation.get_messages() if item["role"] == "user"],
-            k,
-        )
+    def get_user_messages(self, llm_conversation: LLMConversation, skip: str, limit: int):
+        # TODO: shlomi change to test if response to validation
+        return [
+            item["content"]
+            for item in llm_conversation.get_messages()
+            if item["role"] == "user" and item["content"] != skip
+        ][:limit]
 
-    def get_assistant_messages(self, llm_conversation: LLMConversation, k):
-        #  (item['role'] == 'assistant' and item['content']!= None and item.get("validation") != None)], k)
-        return self._take_k_or_less(
-            [
-                item["content"]
-                for item in llm_conversation.get_messages()
-                if (item["role"] == "assistant" and item["content"] is not None)
-            ],
-            k,
-        )
+    def get_assistant_non_validation_messages(self, llm_conversation: LLMConversation, limit):
+        return [
+            item["content"]
+            for item in llm_conversation.get_messages()
+            if (item["role"] == "assistant" and is_not_blank(item["content"]) and item.get("validation") is None)
+        ][:limit]
 
-    def _take_k_or_less(self, assistant_messages, k):
-        return assistant_messages[:k] if len(assistant_messages) >= k else assistant_messages
+    # def _take_k_or_less(self, messages_list, k):
+    #     return messages_list[:k] if len(messages_list) >= k else messages_list
 
     def pretty_print_conversation(self, llm_conversation: LLMConversation, logger):
         if not logger.isEnabledFor(logging.DEBUG):

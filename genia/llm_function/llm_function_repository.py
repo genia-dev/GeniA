@@ -8,7 +8,14 @@ from typing import List, Set
 from langchain.vectorstores import VectorStore
 
 from genia.settings_loader import settings
-from genia.utils.utils import safe_json_dump, safe_load_json_file, safe_load_yaml_file, safe_txt_dump, safe_yaml_dump
+from genia.utils.utils import (
+    is_blank,
+    safe_json_dump,
+    safe_load_json_file,
+    safe_load_yaml_file,
+    safe_txt_dump,
+    safe_yaml_dump,
+)
 
 
 class LLMFunctionRepository:
@@ -259,10 +266,10 @@ class LLMFunctionRepository:
 class LLMFunctionRepositoryAsAFunction:
     logger = logging.getLogger(__name__)
 
-    def find_most_relevant_tools(self, filter=None):
+    def find_most_relevant_tools(self, filter: str):
         repo = LLMFunctionRepository.get_instance()
         k = settings["tools_similarity"]["size_of_all_tools_request"]
-        if filter is None:
+        if is_blank(filter):
             tools_list = list(repo.get_functions_dict())[:k]
         else:
             most_similar_document_tools = repo.similarity_search_with_score(query=filter, k=k)
