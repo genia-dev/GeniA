@@ -7,14 +7,11 @@
    </a>
 </p>
 <br>
-
 ------
-
 <br>
 
-# Meet GeniA 🧬🤖💻
-
- GeniA, an AI assistant developed for engineering tasks. GeniA is a dynamic, intuitive tool capable of managing tasks in your team's Slack channel. Envision a ChatGPT integrated with your tools and APIs, capable of executing tasks and handling queries independently, contributing to time and energy efficiency.
+GeniA, an AI assistant developed for engineering tasks. GeniA is a dynamic, intuitive tool capable of managing tasks in your team's Slack channel. Envision a ChatGPT integrated with your tools and APIs, capable of executing tasks and handling queries independently, contributing to time and energy efficiency.
+<br>
 
 ## 📝 Table of Contents
 
@@ -47,6 +44,7 @@ GeniA offers assistance with:
 ### Envision a virtual collaborator facilitating you with:
 
 #### Research & Development Scenarios
+
 * `Deploy your k8s-based service to staging/production using Argo`
 * `Investigate the cause of the last Argo deployment failure`
 * `Summarize the recent logs from your Node.js service`
@@ -59,14 +57,17 @@ GeniA offers assistance with:
 * `Create a usage report for AWS ECR (Amazon Elastic Container Registry) to identify potential cost-saving opportunities`
 
 #### SecOps Shift-Left
+
 * `Conduct a security vulnerability analysis on your S3 buckets`
 * `Grant me temporary production permissions (Add me temporarily to an IAM user group with auditing)`
 
 #### SRE Shift-Left
+
 * `Examine my service usage metrics for any anomalies`
 * `Increase the memory for my Node service deployed on a k8s cluster`
 
 #### DevOps Shift-Left
+
 * `Scale out my Node.js k8s-based service`
 * `Identify unlabeled EC2 instances`
 * `Set up a cron job to trigger a task`
@@ -76,15 +77,14 @@ GeniA offers assistance with:
 <p align="center">
 <br/>
 <br/>
-<br/>
    <img src="media/Genia_in_a_war_room.gif"/>
 <br/>
 </p>
 
 #### Additional great examples [can be found here](./media/)
 
-
 ### Introducing Tools 3.0: Enhancing Coding with Language Models
+
 Tools 2.0 with low-code/no-code approaches have been revolutionary, allowing users to leverage drag-and-drop functions over traditional coding for certain use cases.
 
 However, with the advent of Language Learning Models (LLMs), Tools 3.0 pushes the boundary further, empowering everyone to write code using natural language. It signifies a shift from proprietary, restrictive design paradigms to a more open, innovative approach where the model assists in understanding and revising complex code snippets.
@@ -96,6 +96,7 @@ Remember, any class, method, or API available becomes a learning and application
 **Under the hood** GeniA built upon the [function-calling capabilities offered by OpenAI](https://openai.com/blog/function-calling-and-other-api-updates).
 
 ## Features
+
 GeniA's unique features include:
 
 1. **Production-Grade**: Engineered for real-world applications.
@@ -129,7 +130,7 @@ The list of OpenAI functions spec which used by the tools can be found [here](./
 
 ### Expanding GeniA's Skills: Adding New Tools Effortlessly
 
-Adding a new tool adheres to the [OpenAI JSON configuration](https://platform.openai.com/docs/api-reference/chat/create#chat/create-functions) standards. This ensures compatibility, making it easy to import any existing function-calling project or ChatGPT plugin. 
+Adding a new tool adheres to the [OpenAI JSON configuration](https://platform.openai.com/docs/api-reference/chat/create#chat/create-functions) standards. This ensures compatibility, making it easy to import any existing function-calling project or ChatGPT plugin.
 The only missing component is a brief description guiding the model on when to use the function. We prefer to maintain this in a separate file - refer to the [tools.yaml](./genia/tools_config/core/tools.yaml).
 
 GeniA is designed to be a quick learner, rapidly acquiring the capability to use new tools. We've made the learning process as straightforward as possible. Here's how you can teach GeniA:
@@ -154,7 +155,6 @@ GeniA is designed to be a quick learner, rapidly acquiring the capability to use
 ```
 
 3. **Utilizing OpenAPI Swagger Files:** Imagine your AI model being able to invoke any API out there - GeniA is capable of that! You can easily integrate any standard OpenAPI into GeniA using a Swagger file. This feature is still under development, but a working example is provided out of the box.
-
 4. **Learning Natural Language Skills:** This is where LLM truly shines. GeniA has an experimental feature that allows it to acquire new skills using natural language. It retains the steps taken to accomplish a task in its long-term memory, categorizes them under a new skill, and loads them into memory for future use. In this way, GeniA can learn and execute complex tasks, all in natural language.
 
 ## Future Plans
