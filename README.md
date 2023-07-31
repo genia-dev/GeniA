@@ -1,54 +1,79 @@
 ![CI](https://github.com/genia-dev/GeniA/actions/workflows/ci.yml/badge.svg)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
+<p align=center>
+   <a href="https://genia.dev">
+      <img src="./media/GeniA.png"/>
+   </a>
+   <br>
+   <b>Your Engineering Gen AI Assistant</b>
+</p>
+<br>
+
+------
+
+<br>
+
 # Meet GeniA 🧬🤖💻
 
-Your own engineering GenAI virtual superhero!
+ GeniA, an AI assistant developed for engineering tasks. GeniA is a dynamic, intuitive tool capable of managing tasks in your team's Slack channel. Envision a ChatGPT integrated with your tools and APIs, capable of executing tasks and handling queries independently, contributing to time and energy efficiency.
 
-Imagine ChatGPT, empowered by your tools and apis, acting on your behalf, automating those time wasters and repetative tasks. all in natural language and right in your team's slack channel!
+## 📝 Table of Contents
 
-#### GeniA is Production grade
+1. [🎉 Introduction](#introduction)
+2. [🌟 Features](#features)
+3. [🆚 Comparison to LLM](#comparison-to-llm)
+4. [🔌 Supported Tools](#supported-tools)
+5. [⚙️ Expanding GeniA's Toolbox](#expanding-genias-toolbox)
+6. [🚀 Future Plans](#future-plans)
+7. [🔒 Security](#security)
+8. [🚀 Usage](#usage)
+9. [🔧 Installation](#installation)
+10. [ 📖 Developer Guide](developer-guide)
+11. [🤝 Contributing](#contributing)
+12. [📜 License](#license)
+13. [📞 Contact](#contact)
 
-**[note!]** This is not just a visionary multi-agent project; we have set ourselves the goal of building a production-grade software right off the bat. Now, you can start working with GeniA in production by installing the GeniA container, integrate it into your team's Slack channel, and let it land on its feet running.
+## Introduction
 
-### GeniA is fun!
+While ChatGPT and CoPilot have garnered significant attention for their ability to assist with writing new code, we, as software engineers, understand that coding is merely one facet of our daily responsibilities.
 
-There has been a lot of buzz around ChatGPT and CoPilot boosting writing new code, but as software engineers we know that writing code is just a part of our day to day.
+GeniA offers assistance with:
 
-## We introduce you to the future of software engineering with Tools 3.0!
+- **R&D**: Deployment, troubleshooting, log summarisation, build initiation, PR digesting.
+- **FinOps**: Reporting on unused resources, optimising cloud expenditure.
+- **SecOps**: Vulnerability checks, temporary production permissions.
+- **SRE**: Service usage monitoring, service optimisation.
+- **DevOps**: Scaling services, managing EC2 instances and cron jobs, coding utilities.
 
-### Imagine a virtual team member helping you:
+### Envision a virtual collaborator facilitating you with:
 
-R&D scenarios
+#### Research & Development Scenarios
+* `Deploy your k8s-based service to staging/production using Argo`
+* `Investigate the cause of the last Argo deployment failure`
+* `Summarize the recent logs from your Node.js service`
+* `Initiate a new Jenkins build`
+* `Summarize GitHub pull request along with its content`
 
-* `rollout your k8s based service to staging/production using argo`
-* `why did my last argo deploy failed?`
-* `summarize my recent node.js service logs`
-* `trigger a new jenkins build`
-* `summarize GitHub pull request with it's content`
+#### FinOps Shift-Left
 
-Finops shift left
+* `Generate a report detailing unutilized cloud resources per team and share it on Slack`
+* `Create a usage report for AWS ECR (Amazon Elastic Container Registry) to identify potential cost-saving opportunities`
 
-* `generate report for unutilized cloud resources per team owner to team slack`
-* `generate usage report for AWS ECR (Amazon Elastic Container Registry) to find cost saving opportunities`
+#### SecOps Shift-Left
+* `Conduct a security vulnerability analysis on your S3 buckets`
+* `Grant me temporary production permissions (Add me temporarily to an IAM user group with auditing)`
 
-Secops shift left
+#### SRE Shift-Left
+* `Examine my service usage metrics for any anomalies`
+* `Increase the memory for my Node service deployed on a k8s cluster`
 
-* `look for security vulnerabilities over my s3 buckets`
-* `grant me with production permissions (temporarily add me to an IAM user group with auditing)`
-
-SRE shift left
-
-* `look at my metrics for service usage anomalies`
-* `increase the memory for my node service deployed on k8s cluster`
-
-Devops shift left
-
-* `scale out my (node.js k8s based) service`
-* `find unlabled EC2 instances`
-* `add a cron to trigger something`
-* `write code for a new utility and deploy my 'automate this shixx' snippet to a lambda function`
-* `trigger any of my company playbooks`
+#### DevOps Shift-Left
+* `Scale out my Node.js k8s-based service`
+* `Identify unlabeled EC2 instances`
+* `Set up a cron job to trigger a task`
+* `Develop code for a new utility and deploy my 'automate this task' snippet to a lambda function`
+* `Trigger any of my company's predefined playbooks`
 
 <p align="center">
 <br/>
@@ -56,145 +81,144 @@ Devops shift left
 <br/>
    <img src="media/Genia_in_a_war_room_xl.gif"/>
 <br/>
-<br/>
-<br/>
 </p>
 
-##### Additional great examples [can be found here](./media/)
+#### Additional great examples [can be found here](./media/)
 
-### GeniA is 100% open source!
 
-Built with love by engineers for engineers, our goal is to help teams harnest the power of LLMs to boost how fast you can go!
-download and onboard your new engineering superhero to your team.
+### Introducing Tools 3.0: Enhancing Coding with Language Models
+Tools 2.0 with low-code/no-code approaches have been revolutionary, allowing users to leverage drag-and-drop functions over traditional coding for certain use cases.
 
-### GeniA is rapidly learning new tools!
+However, with the advent of Language Learning Models (LLMs), Tools 3.0 pushes the boundary further, empowering everyone to write code using natural language. It signifies a shift from proprietary, restrictive design paradigms to a more open, innovative approach where the model assists in understanding and revising complex code snippets.
 
-GeniA can be taught new tools blazingly fast, one of our main goals was to simplify it as much as possible (WIP)
+Tools 3.0 negates the need for proprietary YAML files and vendor-specific domain languages (DSLs), urging users to rely on native code. Rather than waiting for vendor updates to fulfill requirements, users can now instruct LLMs to write code, create it themselves, or utilize the vast range of community-contributed tools.
 
-1. code tools - GeniA can call any class+method you have by adding simple spec
-   this is an example of using a langchain tool, right out of the box, but can be any class
+Remember, any class, method, or API available becomes a learning and application tool for GeniA. Tools 3.0 redefines coding, transforming it into an intuitive, flexible, and democratized process.
 
-   ```
-   - tool_name: search_serp_api
-     category: python
-     class: langchain.utilities.serpapi.SerpAPIWrapper
-     method: run
-   ```
-2. add any url - GET with either path or request parameters by simply adding:
+**Under the hood** GeniA built upon the [function-calling capabilities offered by OpenAI](https://openai.com/blog/function-calling-and-other-api-updates).
 
-   ```
-   - tool_name: get_current_weather
-     title: get the current weather details
-     category: url
-     template: https://api.open-meteo.com/v1/forecast?latitude={latitude}&longitude={longitude}&temperature_unit=celsius&current_weather=true
-   ```
-3. standard openapi swagger files - we imagine a world in which your LLM model can call any API out there!
+## Features
+GeniA's unique features include:
 
-   GeniA can invoke any standard openapi out there, easily integrated by a swagger file. this is a work in progress, there is a working example plugged in out of the box
-4. natural language skills
+1. **Production-Grade**: Engineered for real-world applications.
+2. **Engaging Companion**: Designed to make the development process more interactive and enjoyable.
+3. **Customisable and Extensible**: As an open-source tool, GeniA can be tailored to your specific needs.
+4. **Quick Learner**: Rapidly adapts to new tools and APIs.
 
-   This is where LLM realy sparks, an experimental capability of GeniA to learn new skills and keep steps it took to acomplish a task in its long term memory, name and save them under a new skill it learned so it can be then loaded into memory and followed upon.
-   all using natural language!
+## Comparison to LLM
 
-### What is tools 3.0 rather than 2.0?
+**Safety Prioritized:** While LLMs offer suggestions, GeniA goes a step further but with utmost caution. It's designed to function responsibly in live environments, ensuring it doesn't take unrestricted decisions.
 
-The low code / no code approach serves some usecases well for years, drag and drop instead of code.
+**Beyond Recommendations:** Where LLMs provide guidance, GeniA offers proactive assistance. It doesn't just advise on the steps you need to take but goes ahead to perform the tasks itself. You could provide a code snippet, and GeniA will handle its deployment to Lambda, integrating seamlessly with your production environment and CI/CD tools.
 
-Today with the power of LLM anyone can write code. just use natural language.
+**Intelligent Tool Selection:** GeniA is not just another tool, it's also a tool-finding system. It's designed to acquaint itself with an expansive set of tools. However, mindful of the limitations of the LLM context window and token costs, it optimizes and feeds the model with only the most relevant tools. Utilizing vector databases (FAISS by default), GeniA selects tools with descriptions that align best with your intent. This smart selection process allows GeniA to work more efficiently and be more responsive to your specific needs.
 
-We prefer more innovative approach. Code.
-Not sure what a code snippet does? ask the model, want to revise existing complex code? ask the model.
+## Supported Tools
 
-No need for a propietary YAML files and vendor domain specific language (DSL), use native code.
-something's missing? no need to wait for a vendor to add anything. just use the LLM to write code, write it yourself, or take one of the thousands of community contributed tools. remember any class+method or api out there is a tool GeniA can learn and use
+1. [ArgoCD](https://argoproj.github.io/cd/)
+2. [AWS](https://aws.amazon.com/)
+3. [GitHub](http://github.com/)
+4. [Jenkins](https://www.jenkins.io/)
+5. [Kubernetes](https://kubernetes.io/)
+6. [Open Policy Agent (OPA)](https://www.openpolicyagent.org/)
+7. [PagerDuty](https://www.pagerduty.com/)
+8. [Slack Webhook](https://api.slack.com/messaging/webhooks)
 
-### Available tools
+The details of supported tools can be found [here](./genia/tools_config/core/tools.yaml).
+The list of OpenAI functions spec which used by the tools can be found [here](./genia/tools_config/core/functions.json).
 
-* [ArgoCD](https://argoproj.github.io/cd/)
-* [AWS](https://aws.amazon.com/)
-* [GitHub](http://github.com/)
-* [Jenkins](https://www.jenkins.io/)
-* [Kubernetes](https://kubernetes.io/)
-* [Open Policy Agent (OPA)](https://www.openpolicyagent.org/)
-* [PagerDuty](https://www.pagerduty.com/)
-* [Slack Webhook](https://api.slack.com/messaging/webhooks)
+## Expanding GeniA's Toolbox
 
-The list of supported tools can be found [here](./genia/tools_config/tools.yaml).
-The list of OpenAI functions spec which used by the tools can be found [here](./genia/tools_config/functions.json).
+### Expanding GeniA's Skills: Adding New Tools Effortlessly
 
-### How is GeniA different from just using an LLM?
+Adding a new tool adheres to the [OpenAI JSON configuration](https://platform.openai.com/docs/api-reference/chat/create#chat/create-functions) standards. This ensures compatibility, making it easy to import any existing function-calling project or ChatGPT plugin. 
+The only missing component is a brief description guiding the model on when to use the function. We prefer to maintain this in a separate file - refer to the [tools.yaml](./genia/tools_config/core/tools.yaml).
 
-1. Using tools that are taking actions in a live enviroment can be risky, you don't want to let the model run around and make his own decisions.... well, not just yet.
-2. we reimagine the way engineers are using LLMs. currently with ChatGPT you are asking the model for advice, and using chat, it guides you with recommendations and the steps **you** need to take. GeniA on the other hand is more than happy to go ahead and actually do the work itself, for example you can write a code snippet and have genia deploy it to lambda. GeniA is connected to your production enviroment, CI/CD tools and everything else you need.
-3. the list of tools GeniA is familiar with will soon be THOUSANDS, but with the limited nature of the LLM context window and the cost per token, it makes most sense to only send the most relevant tools for the model to use. so we invented a tool that can find tools! we leverage the power of vector dbs (FAISS by default) to look for the tools with the description that matches your intent best and send only those to the model
+GeniA is designed to be a quick learner, rapidly acquiring the capability to use new tools. We've made the learning process as straightforward as possible. Here's how you can teach GeniA:
 
-GeniA is configured to use gpt-3.5-turbo-0613 by default. although gpt-4-0613 has proven to yield better results, we found 3.5 to be more cost effective.
+1. **Incorporating Code Tools:** By adding a simple specification, GeniA can invoke any class and method within your codebase. For instance, below is an example of integrating a utility tool from your software development suite:
 
-### GeniA is rapidly learning new tools!
+```yaml
+- tool_name: bug_tracker_api
+  category: python
+  class: mypackage.utilities.bugtracker.BugTrackerAPIWrapper
+  method: run
 
-we use the power of the community to further enrich the tools, skills and best practices GeniA is familiar with.
+```
 
-you can mix and match any of them and create your own company specific tools, contribute back to the community to help others!
+2. **Connecting to URLs:** GeniA can perform GET requests with either path or request parameters. You can integrate this by providing a URL, as shown in this example, which fetches the current CI/CD pipeline status:
 
-## So what's next on the roadmap?
+```yaml
+- tool_name: get_pipeline_status
+  title: fetch the current pipeline status
+  category: url
+  template: https://ci.yourserver.com/api/v1/pipeline?project_id={project_id}&pipeline_id={pipeline_id}
+```
 
-- support open ai based on azure
-- support SSO with OKTA integration so your slack user identity can be used to invoke the tools with your user authentication and audit
-- RBAC support, so the tool usage permissions are enforced in a standard way using your company's standards
-- thousands of new tools coming up soon, add yours, its fun and will help the community with your own best practices!
+3. **Utilizing OpenAPI Swagger Files:** Imagine your AI model being able to invoke any API out there - GeniA is capable of that! You can easily integrate any standard OpenAPI into GeniA using a Swagger file. This feature is still under development, but a working example is provided out of the box.
 
-# Table of Contents
+4. **Learning Natural Language Skills:** This is where LLM truly shines. GeniA has an experimental feature that allows it to acquire new skills using natural language. It retains the steps taken to accomplish a task in its long-term memory, categorizes them under a new skill, and loads them into memory for future use. In this way, GeniA can learn and execute complex tasks, all in natural language.
 
-- [Introduction](#introduction)
-- [Getting Started](#getting-started)
-- [Installation](#installation)
-- [Contributing](#contributing)
-- [License](#license)
-- [Contact](#contact)
+## Future Plans
 
-# Introduction
+- Azure-based Open AI support.
+- OKTA integration for SSO.
+- RBAC Support.
+- Extending capabilities with thousands of new tools.
 
-GeniA is an generative AI agent which is base on [OpenAI function calling capability](https://openai.com/blog/function-calling-and-other-api-updates) and is familiar with your tools and company policies
+### Can GeniA Interface with Any Existing API?
 
-### How does it work?
+Indeed, GeniA has the capability to connect with any available API. Although it's currently an active area of academic research rather than a full-fledged production-grade tool, we've adapted OpenAI's plugin approach for increased simplicity and wider integration possibilities. You can incorporate GeniA into any existing code classes or APIs.
 
-### GeniA can learn new skills
+Our ultimate achievement is empowering GeniA to acquire new skills without necessitating model fine-tuning or, in many cases, redeployment of your service. However, it's worth noting that the introduction of a completely new tool might call for some prompt adjustments and testing.
 
-you can add new tools to GeniA and teach him additional new skills
+Presently, the authentication process for a new tool falls on the tool creator. However, we plan to standardize this aspect within the project framework shortly.
 
-adding a new tool is based on [OpenAI json configuration](https://platform.openai.com/docs/api-reference/chat/create#chat/create-functions) file so we keep it standard to easily import any existing function calling project or any ChatGPT plugin
+## Security
 
-the only thing missing is a short description for the model the describe when the function should be used and we prefered keeping it in a separated file - link to tools.yaml
+GeniA is stateless. It connects with cloud DBs for conversation storage and handles secrets via environment variables. Plans are in place for standard secrets store provider integration.
 
-### GeniA Security
+On the subject of secrets management, the project currently utilizes environment variables, as defined in the [.env.template](.env.template) file. However, we are actively developing integrations with standard secrets store providers for improved security.
 
-GeniA is stateless, it keeps its current conversations in memory but you can integrate it to one of your cloud dbs, so no worries of GDPR, SOC-2 and similar. We use OpenAI API, and it can be easily connected to your own Azure OpenAI enviroment
-GeniA is 100% open source so you can install it in your own cloud enviroment.
+**We presently advise the integration of GeniA within a designated private channel, accessible exclusively to a whitelist of approved engineers.**
 
-A word regarding secrets, for now the project using environment varibales by [.evn.template](.evn.template), but we are working on standard secrets store providers integrations.
+We are actively developing Single Sign-On (SSO) and Role-Based Access Control (RBAC) features for GeniA. These enhancements are slated for release in the near future.
 
-**We currently recommend integrating GeniA to a specific private channel with permissions to a white list of engineers.**
+## Usage
 
-We are currently working on SSO and RBAC support for GeniA, which will be available in the near future.
-
-### So can GeniA connect to any API out there?
-
-Of course it can, this is an active academic research but not a real production grade tool.
-
-We took the open ai approach for plugins but simplified it and allow you to integrate it to any of your existing classes of code or available apis
-
-What we landed on is the ability to learn new skills with no need for model fine tunining or in many cases even the need to redeploy your service.
-
-In many cases though, adding a brand new tool requires some prompt tuning and testing.
-
-The authentication of a new tool now handled by the writer of a new tool, but soon it will be generalized as part of the project.
-
-## Getting Started
-
-You can run GeniA in local mode via the terminal, or as Streamlit app or in organization as Slack App Bot. The easiest option is to run it locally using [Docker](#run-via-docker). In case you want to install it locally, jump to [Installation](#installation).
+GeniA can operate in various modes: via the terminal in local mode, as a Streamlit app, or within an organization as a Slack App Bot. For simplicity, we recommend running it locally using [Docker](#run-via-docker). If a local installation is desired, please refer to the [Installation](#installation) section.
 
 > **Note:**
-> When using OpenAI, you should be aware of cost spending, so make sure you limit the usage. Both soft and hard limits can be set here: https://platform.openai.com/account/billing/limits.
+> When using OpenAI, be mindful of cost implications and ensure you set usage limits. You can configure both soft and hard limits at the following URL: https://platform.openai.com/account/billing/limits.
+
+By default, GeniA is set to use `gpt-3.5-turbo-0613`. We acknowledge that `gpt-4-0613` often delivers superior results, but have found the 3.5 version to be a more cost-effective choice.
+
+## Installation
+
+### Run in Slack App Bot
+
+#### Create Slack App Bot
+
+> **Note:**
+>
+> When it comes to [Choosing a protocol to connect to Slack](https://api.slack.com/apis/connections), there are two primary options. In this instance, we utilize `Socket Mode`, enabling your app to leverage the `Events API` and the platform's interactive components without the need for a public HTTP Request URL. Instead of sending payloads to a public endpoint, Slack employs a WebSocket URL to communicate with your app.
+
+For the Slack GPT Bot to function effectively, it's crucial to establish the correct permissions for your Slack bot. Please follow the forthcoming guidelines to set up the necessary permissions:
+
+1. In the project's root directory, mv the [.env.template](./.env.template) into `.env` file and input your Slack keys
+2. Create a new [Slack App](https://api.slack.com/authentication/basics).
+3. Navigate to your [Slack API Dashboard](https://api.slack.com/apps) and select the app you've created for this bot.
+4. On the left-hand side menu, click on `OAuth & Permissions`.
+5. Within the `Scopes` division, there are two categories of scopes: `Bot Token Scopes` and `User Token Scopes`. Append the following scopes under `Bot Token Scopes`:
+   `app_mentions:read`
+   `chat:write`
+   `channels:history`
+   `groups:history`
+   `im:history`
+   `mpim:history`
+6. Ascend to the `OAuth Tokens for Your Workspace` and hit the `Install App To Workspace` button. This operation will produce the `SLACK_BOT_TOKEN`.
+7. On the left-hand side menu, click on `Socket Mode` and activate it. You'll be asked to `Generate an app-level token to enable Socket Mode`. Generate a token labeled `SLACK_APP_TOKEN` and include the `connections:write` scope.
+8. In the `Socket Mode` page's `Features affected` section, hit `Event Subscriptions` and switch `Enable Events` to the `On` state. Append the app_mention event, coupled with the `app_mentions:read` scope in the `Subscribe to bot events` subsection below the toggle.
 
 ### Run via Docker
 
@@ -212,9 +236,9 @@ docker run -p 5001:5001 --env-file ./.env -it geniadev/genia:latest
 docker run -p 5001:5001 --env-file ./.env -it geniadev/genia:latest slack
 ```
 
-# Developer Guide
+## Developer Guide
 
-## Run GeniA from source :: Docker
+### Run GeniA from source :: Docker
 
 ```
 git clone https://github.com/GeniA-dev/GeniA
@@ -224,21 +248,21 @@ docker build -t geniadev/genia:latest .
 
 Run via [Docker](#run-via-docker)
 
-## Run GeniA from source :: Python
+### Run GeniA from source :: Python
 
-### Poetry install
+#### Poetry install
 
 ```
 curl -sSL https://install.python-poetry.org | python3 -
 ```
 
-### Run in local terminal mode
+#### Run in local terminal mode
 
 ```
 poetry run python main.py local
 ```
 
-### Run in slack app bot mode
+#### Run in slack app bot mode
 
 [First install the bot](#create-slack-app-bot)
 
@@ -254,38 +278,11 @@ poetry shell
 streamlit run main.py streamlit
 ```
 
-## Testing
+### Testing
 
 ```
 poetry run pytest tests
 ```
-
-# Installation
-
-### Run in Slack App Bot
-
-#### Create Slack App Bot
-
-> **Note:**
->
-> There are two main options to [Choosing a protocol to connect to Slack](https://api.slack.com/apis/connections); We are using here the `Socket Mode` which allows your app to use the `Events API` and interactive components of the platform—without exposing a public HTTP Request URL. Instead of sending payloads to a public endpoint, Slack will use a WebSocket URL to communicate with your app.
-
-In order to operate the Slack GPT Bot, it is necessary to define the correct permissions for your Slack bot. Please adhere to the following guidelines to arrange the required permissions:
-
-1. In the project's root directory, mv the [.env.template](./.env.template) into `.env` file and input your Slack keys
-2. Create a new [Slack App](https://api.slack.com/authentication/basics).
-3. Navigate to your [Slack API Dashboard](https://api.slack.com/apps) and select the app you've created for this bot.
-4. On the left-hand side menu, click on `OAuth & Permissions`.
-5. Within the `Scopes` division, there are two categories of scopes: `Bot Token Scopes` and `User Token Scopes`. Append the following scopes under `Bot Token Scopes`:
-   `app_mentions:read`
-   `chat:write`
-   `channels:history`
-   `groups:history`
-   `im:history`
-   `mpim:history`
-6. Ascend to the `OAuth Tokens for Your Workspace` and hit the `Install App To Workspace` button. This operation will produce the `SLACK_BOT_TOKEN`.
-7. On the left-hand side menu, click on `Socket Mode` and activate it. You'll be asked to `Generate an app-level token to enable Socket Mode`. Generate a token labeled `SLACK_APP_TOKEN` and include the `connections:write` scope.
-8. In the `Socket Mode` page's `Features affected` section, hit `Event Subscriptions` and switch `Enable Events` to the `On` state. Append the app_mention event, coupled with the `app_mentions:read` scope in the `Subscribe to bot events` subsection below the toggle.
 
 # Contributing
 
