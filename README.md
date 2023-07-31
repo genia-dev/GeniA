@@ -54,7 +54,7 @@ Devops shift left
 <br/>
 <br/>
 <br/>
-   <img src="media/Genia_in_a_war_room_m.gif" />
+   <img src="media/Genia_in_a_war_room_l.gif" />
 <br/>
 <br/>
 <br/>
