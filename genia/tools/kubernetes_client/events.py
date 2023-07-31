@@ -17,4 +17,5 @@ class KubernetesEvents:
         events = self.api_client_events.list_namespaced_event(
             namespace, field_selector=f"involvedObject.name={pod_name}"
         )
-        return [event.to_dict() for event in events.items if event.type == "Warning"]
+        # return [event.to_dict() for event in events.items if event.type != "Normal"]
+        return [event.message for event in events.items if event.type != "Normal"]

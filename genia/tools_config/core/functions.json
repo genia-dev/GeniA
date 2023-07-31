@@ -544,8 +544,8 @@
         }
     },
     {
-        "name": "get_pods_events_by_deployment",
-        "description": "Get pods events logs for deployment",
+        "name": "get_pods_errors_events_by_deployment",
+        "description": "Get pods errors events",
         "parameters": {
             "type": "object",
             "properties": {
@@ -559,8 +559,27 @@
                 }
             },
             "required": [
-                "namespace",
                 "deployment_name"
+            ]
+        }
+    },
+    {
+        "name": "kubernetes_get_service_errors",
+        "description": "Get kubernetes service errors and get the full response in a format of 'message' and 'reason'",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "namespace": {
+                    "type": "string",
+                    "description": "The Kubernetes namespace"
+                },
+                "service": {
+                    "type": "string",
+                    "description": "The Kubernetes service name"
+                }
+            },
+            "required": [
+                "service"
             ]
         }
     },

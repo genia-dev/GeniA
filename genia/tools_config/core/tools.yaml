@@ -205,11 +205,17 @@
   class: genia.tools.kubernetes_client.deployment.KubernetesDeployment
   method: list_deployment
 
-- tool_name: get_pods_events_by_deployment
+- tool_name: get_pods_errors_events_by_deployment
   category: python
-  title: Get pods events for deployment
+  title: Get pods errors events
   class: genia.tools.kubernetes_client.deployment.KubernetesDeployment
-  method: get_pods_events_by_deployment
+  method: get_pods_errors_events_by_deployment
+
+- tool_name: kubernetes_get_service_errors
+  category: python
+  title: Get kubernetes service errors
+  class: genia.tools.kubernetes_client.global.KubernetesGlobal
+  method: kubernetes_get_service_errors
 
 - tool_name: list_namespaced_events
   category: python

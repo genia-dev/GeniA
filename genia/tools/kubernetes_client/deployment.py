@@ -331,16 +331,16 @@ class KubernetesDeployment:
         api_response = api_client.create_namespaced_deployment(namespace, deployment)
         self.logger.info(api_response)
 
-    def get_pods_events_by_deployment(self, namespace, deployment_name):
+    def get_pods_errors_events_by_deployment(self, deployment_name, namespace="default"):
         self.logger.debug(f"Listing pods with deployment name {deployment_name} in namespace {namespace}")
 
         events_api = KubernetesEvents()
-        result = []
+        result = {}
         pods = self.api_client_core.list_namespaced_pod(namespace)
         for i in pods.items:
             owners = [x.name for x in i.metadata.owner_references if x.kind == "ReplicaSet"]
             if any(o.startswith(deployment_name) for o in owners):
                 self.logger.debug(f"found pod: {i.metadata.name} in deployment: {deployment_name}")
-                result.append(events_api.list_namespaced_pod_events(namespace, i.metadata.name))
+                result[i.metadata.name] = events_api.list_namespaced_pod_events(namespace, i.metadata.name)
 
         return result
