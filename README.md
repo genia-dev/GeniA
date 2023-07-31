@@ -91,6 +91,7 @@ Scaling services, managing EC2 instances and cron jobs, coding utilities.
 </p>
 
 ### Many more great examples [can be found here](./media/)
+
 <br/>
 
 ### Introducing Tools 3.0: Enhancing Coding with Language Models
@@ -133,13 +134,14 @@ GeniA's unique features include:
 6. [Open Policy Agent (OPA)](https://www.openpolicyagent.org/)
 7. [PagerDuty](https://www.pagerduty.com/)
 8. [Slack Webhook](https://api.slack.com/messaging/webhooks)
+9. Dozens of more tools are coming really soon
 
 The details of supported tools can be found [here](./genia/tools_config/core/tools.yaml).
 The list of OpenAI functions spec which used by the tools can be found [here](./genia/tools_config/core/functions.json).
 
-## Expanding GeniA's Toolbox
+## Growing GeniA's Toolbox
 
-### Expanding GeniA's Skills: Adding New Tools Effortlessly
+### Teaching GeniA new Skills: Adding Tools Effortlessly
 
 Adding a new tool adheres to the [OpenAI JSON configuration](https://platform.openai.com/docs/api-reference/chat/create#chat/create-functions) standards. This ensures compatibility, making it easy to import any existing function-calling project or ChatGPT plugin.
 The only missing component is a brief description guiding the model on when to use the function. We prefer to maintain this in a separate file - refer to the [tools.yaml](./genia/tools_config/core/tools.yaml).
@@ -201,6 +203,8 @@ GeniA can operate in various modes: via the terminal in local mode, as a Streaml
 > When using OpenAI, be mindful of cost implications and ensure you set usage limits. You can configure both soft and hard limits at the following URL: https://platform.openai.com/account/billing/limits.
 
 By default, GeniA is set to use `gpt-3.5-turbo-0613`. We acknowledge that `gpt-4-0613` often delivers superior results, but have found the 3.5 version to be a more cost-effective choice.
+
+# Getting started
 
 ## Installation
 
