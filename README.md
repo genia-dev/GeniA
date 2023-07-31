@@ -79,7 +79,7 @@ GeniA offers assistance with:
 <br/>
 <br/>
 <br/>
-   <img src="media/Genia_in_a_war_room_xl.gif"/>
+   <img src="media/Genia_in_a_war_room.gif"/>
 <br/>
 </p>
 
