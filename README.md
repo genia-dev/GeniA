@@ -7,10 +7,9 @@
    </a>
 </p>
 <br>
-GeniA, an AI assistant developed for engineering tasks. GeniA is a dynamic, intuitive tool capable of managing tasks in your team's Slack channel. 
+GeniA, an AI assistant developed for engineering tasks. GeniA is a dynamic, intuitive tool capable of managing tasks in your team's Slack channel.
 
 Imagine a ChatGPT integrated with your team's tools and APIs, capable of executing tasks and handling queries independently, contributing to time and energy efficiency.
-<br>
 <br>
 
 ## 📝 Table of Contents
@@ -37,15 +36,16 @@ While ChatGPT and CoPilot have garnered significant attention for their ability 
 
 Built with love by engineers for engineers, our goal is to help teams harnest the power of LLMs to boost how fast you can go!
 
-#### GeniA is Production grade
+### GeniA is Production grade
 
 we have set ourselves the goal of building a production-grade software right off the bat. Now, you can start working with GeniA in production by installing the GeniA container, integrate it into your team's Slack channel, and let it land on its feet running.
 
-
-### Envision a virtual collaborator facilitating you with:
+### Imagine a virtual asisstant ompowering you with:
 
 #### Research & Development Scenarios
-Deployment, troubleshooting, log summarisation, build initiation, PR digesting
+
+Deployment, troubleshooting, log summarization, build initiation, PR digesting
+
 * `Deploy your k8s-based service to staging/production using Argo`
 * `Investigate the cause of the last Argo deployment failure`
 * `Summarize the recent logs from your Node.js service`
@@ -53,22 +53,30 @@ Deployment, troubleshooting, log summarisation, build initiation, PR digesting
 * `Summarize GitHub pull request along with its content`
 
 #### FinOps Shift-Left
+
 Reporting on unused resources, optimising cloud expenditure.
+
 * `Generate a report detailing unutilized cloud resources per team and share it on Slack`
 * `Create a usage report for AWS ECR (Amazon Elastic Container Registry) to identify potential cost-saving opportunities`
 
 #### SecOps Shift-Left
-Vulnerability checks, temporary production permissions.
+
+Vulnerability checks, best practices, playbooks.
+
 * `Conduct a security vulnerability analysis on your S3 buckets`
 * `Grant me temporary production permissions (Add me temporarily to an IAM user group with auditing)`
 
 #### SRE Shift-Left
-Service usage monitoring, service optimisation.
+
+lower your MTTR, Service usage monitoring, service optimization.
+
 * `Examine my service usage metrics for any anomalies`
 * `Increase the memory for my Node service deployed on a k8s cluster`
 
 #### DevOps Shift-Left
+
 Scaling services, managing EC2 instances and cron jobs, coding utilities.
+
 * `Scale out my Node.js k8s-based service`
 * `Identify unlabeled EC2 instances`
 * `Set up a cron job to trigger a task`
@@ -82,7 +90,8 @@ Scaling services, managing EC2 instances and cron jobs, coding utilities.
 <br/>
 </p>
 
-#### Additional great examples [can be found here](./media/)
+### Many more great examples [can be found here](./media/)
+<br/>
 
 ### Introducing Tools 3.0: Enhancing Coding with Language Models
 
@@ -101,9 +110,10 @@ Remember, any class, method, or API available becomes a learning and application
 GeniA's unique features include:
 
 1. **Production-Grade**: Engineered for real-world applications.
-2. **Engaging Companion**: Designed to make the development process more interactive and enjoyable.
-3. **Customisable and Extensible**: As an open-source tool, GeniA can be tailored to your specific needs.
-4. **Quick Learner**: Rapidly adapts to new tools and APIs.
+2. **Collaborative assistant**: Designed to make the development process more interactive and enjoyable.
+3. **Proactively taking action**: building, coding, executing, summarizing. not just giving you a good advice.
+4. **Customizable and Extensible**: As an open-source tool, GeniA can be tailored to your specific needs.
+5. **Quick Learner**: Rapidly adapts to new tools and APIs.
 
 ## Comparison to LLM
 
