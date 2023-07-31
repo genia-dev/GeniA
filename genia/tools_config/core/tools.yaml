@@ -205,6 +205,12 @@
   class: genia.tools.kubernetes_client.deployment.KubernetesDeployment
   method: list_deployment
 
+- tool_name: get_pods_events_by_deployment
+  category: python
+  title: Get pods events for deployment
+  class: genia.tools.kubernetes_client.deployment.KubernetesDeployment
+  method: get_pods_events_by_deployment
+
 - tool_name: list_namespaced_events
   category: python
   title: list the kubernetes events for a given namespace

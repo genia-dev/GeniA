@@ -544,6 +544,27 @@
         }
     },
     {
+        "name": "get_pods_events_by_deployment",
+        "description": "Get pods events logs for deployment",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "namespace": {
+                    "type": "string",
+                    "description": "The Kubernetes namespace"
+                },
+                "deployment_name": {
+                    "type": "string",
+                    "description": "The Kubernetes deployment name"
+                }
+            },
+            "required": [
+                "namespace",
+                "deployment_name"
+            ]
+        }
+    },
+    {
         "name": "list_namespaced_events",
         "description": "list the kubernetes events for a given namespace",
         "parameters": {
