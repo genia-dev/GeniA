@@ -3,10 +3,8 @@
 
 <p align=center>
    <a href="https://genia.dev" target="_blank">
-      <img src="./media/GeniA.png"/>
+      <img src="./media/GeniA_wide.png"/>
    </a>
-   <br>
-   <b>Your Engineering Gen AI Assistant</b>
 </p>
 <br>
 
