@@ -29,7 +29,7 @@
 7. [🔒 Security](#security)
 8. [🚀 Usage](#usage)
 9. [🔧 Installation](#installation)
-10. [ 📖 Developer Guide](developer-guide)
+10. [ 📖 Developer Guide](#developer-guide)
 11. [🤝 Contributing](#contributing)
 12. [📜 License](#license)
 13. [📞 Contact](#contact)
