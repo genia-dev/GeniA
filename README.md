@@ -7,7 +7,9 @@
    </a>
 </p>
 <br>
-GeniA, an AI assistant developed for engineering tasks. GeniA is a dynamic, intuitive tool capable of managing tasks in your team's Slack channel. Envision a ChatGPT integrated with your tools and APIs, capable of executing tasks and handling queries independently, contributing to time and energy efficiency.
+GeniA, an AI assistant developed for engineering tasks. GeniA is a dynamic, intuitive tool capable of managing tasks in your team's Slack channel. 
+
+Imagine a ChatGPT integrated with your team's tools and APIs, capable of executing tasks and handling queries independently, contributing to time and energy efficiency.
 <br>
 <br>
 
@@ -29,20 +31,21 @@ GeniA, an AI assistant developed for engineering tasks. GeniA is a dynamic, intu
 
 ## Introduction
 
-While ChatGPT and CoPilot have garnered significant attention for their ability to assist with writing new code, we, as software engineers, understand that coding is merely one facet of our daily responsibilities.
+While ChatGPT and CoPilot have garnered significant attention for their ability to assist with writing new code, as software engineers, we understand that coding is merely one aspect of our daily responsibilities and AI present many additional opportunities to minimize bolier plate, time wasters and cross team dependencies.
 
-GeniA offers assistance with:
+### GeniA is 100% open source!
 
-- **R&D**: Deployment, troubleshooting, log summarisation, build initiation, PR digesting.
-- **FinOps**: Reporting on unused resources, optimising cloud expenditure.
-- **SecOps**: Vulnerability checks, temporary production permissions.
-- **SRE**: Service usage monitoring, service optimisation.
-- **DevOps**: Scaling services, managing EC2 instances and cron jobs, coding utilities.
+Built with love by engineers for engineers, our goal is to help teams harnest the power of LLMs to boost how fast you can go!
+
+#### GeniA is Production grade
+
+we have set ourselves the goal of building a production-grade software right off the bat. Now, you can start working with GeniA in production by installing the GeniA container, integrate it into your team's Slack channel, and let it land on its feet running.
+
 
 ### Envision a virtual collaborator facilitating you with:
 
 #### Research & Development Scenarios
-
+Deployment, troubleshooting, log summarisation, build initiation, PR digesting
 * `Deploy your k8s-based service to staging/production using Argo`
 * `Investigate the cause of the last Argo deployment failure`
 * `Summarize the recent logs from your Node.js service`
@@ -50,22 +53,22 @@ GeniA offers assistance with:
 * `Summarize GitHub pull request along with its content`
 
 #### FinOps Shift-Left
-
+Reporting on unused resources, optimising cloud expenditure.
 * `Generate a report detailing unutilized cloud resources per team and share it on Slack`
 * `Create a usage report for AWS ECR (Amazon Elastic Container Registry) to identify potential cost-saving opportunities`
 
 #### SecOps Shift-Left
-
+Vulnerability checks, temporary production permissions.
 * `Conduct a security vulnerability analysis on your S3 buckets`
 * `Grant me temporary production permissions (Add me temporarily to an IAM user group with auditing)`
 
 #### SRE Shift-Left
-
+Service usage monitoring, service optimisation.
 * `Examine my service usage metrics for any anomalies`
 * `Increase the memory for my Node service deployed on a k8s cluster`
 
 #### DevOps Shift-Left
-
+Scaling services, managing EC2 instances and cron jobs, coding utilities.
 * `Scale out my Node.js k8s-based service`
 * `Identify unlabeled EC2 instances`
 * `Set up a cron job to trigger a task`
