@@ -2,7 +2,7 @@
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 <p align=center>
-   <a href="https://genia.dev">
+   <a href="https://genia.dev" target="_blank">
       <img src="./media/GeniA.png"/>
    </a>
    <br>
