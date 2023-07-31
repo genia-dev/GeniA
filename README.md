@@ -94,7 +94,7 @@ Scaling services, managing EC2 instances and cron jobs, coding utilities.
 
 <br/>
 
-### Introducing Tools 3.0: Enhancing Coding with Language Models
+### Introducing Tools 3.0: Enhance Coding with Large Language Models
 
 Tools 2.0 with low-code/no-code approaches have been revolutionary, allowing users to leverage drag-and-drop functions over traditional coding for certain use cases.
 
