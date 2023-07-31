@@ -7,8 +7,8 @@
    </a>
 </p>
 <br>
-<br>
 GeniA, an AI assistant developed for engineering tasks. GeniA is a dynamic, intuitive tool capable of managing tasks in your team's Slack channel. Envision a ChatGPT integrated with your tools and APIs, capable of executing tasks and handling queries independently, contributing to time and energy efficiency.
+<br>
 <br>
 
 ## 📝 Table of Contents
