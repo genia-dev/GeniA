@@ -60,6 +60,8 @@ Devops shift left
 <br/>
 </p>
 
+additional great examples [can be found here](./media/)
+
 ### GeniA is 100% open source!
 
 Built with love by engineers for engineers, our goal is to help teams harnest the power of LLMs to boost how fast you can go!

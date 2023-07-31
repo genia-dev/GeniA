@@ -6,8 +6,20 @@ print a plan of thoughts that specifies how you can invoke the AWS lambda functi
 print a chain of thoughts plan that specifies how you can  add aws user 'myawesometestuser' to user group 'production-shift-group', using the required arguments should prompt the user for. 
 please reflect your thoughts, print those thoughts here below in a format i can save as a memory of text and in the future load 'as-is' so you will be able to immediately execute, the user intent for the goal here is to grant an 'on-call' user by name temporary credentials for production
 
-@GeniA
- can you find unlabled ec2 instances?
+ what is the term unlabelled resources  in finops? why is it important?
+ 
+can you find unlabled ec2 instances?
+
+def lambda_handler(event: Dict[str, Any], context: Any) -> List[str]:
+    ec2_client = boto3.client('ec2')
+    response = ec2_client.describe_instances()
+    instances_without_labels = []
+    for reservation in response['Reservations']:
+        for instance in reservation['Instances']:
+            if 'Tags' not in instance:
+                instances_without_labels.append(instance['InstanceId'])
+    return instances_without_labels
+    
 
 ----------------------------------------------------------------------------------------------------
 
@@ -18,6 +30,18 @@ print a plan of thoughts that specifies how you can invoke the AWS lambda functi
 
 
 ----------------------------------------------------------------------------------------------------
+
+
+https://github.com/openai/evals/pull/1324
+
+https://github.com/openai/openai-cookbook/pull/612
+
+https://github.com/openai/triton/pull/1848
+
+
+
+----------------------------------------------------------------------------------------------------
+
 
 1. Use the `list_aws_regions` function to get a list of all AWS regions.
 2. Iterate through the list of regions and check if each region starts with 'us'.
