@@ -483,7 +483,7 @@
                 },
                 "requests_cpu": {
                     "type": "string",
-                    "description": "The Kubernetes requests cpu in Mi or Gi i.e 2Gi or 2048Mi"
+                    "description": "The Kubernetes requests cpu, units are 'cores' or 'millicores.' i.e 500m for half a core"
                 },
                 "requests_memory": {
                     "type": "string",
@@ -491,7 +491,7 @@
                 },
                 "limits_cpu": {
                     "type": "string",
-                    "description": "The Kubernetes limits cpu in Mi or Gi i.e 2Gi or 2048Mi"
+                    "description": "The Kubernetes limits cpu, units are 'cores' or 'millicores' i.e 500m for half a core"
                 },
                 "limits_memory": {
                     "type": "string",
