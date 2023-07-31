@@ -54,13 +54,13 @@ Devops shift left
 <br/>
 <br/>
 <br/>
-   <img src="media/GeniA.gif" />
+   <img src="media/Genia_in_a_war_room_m.gif" />
 <br/>
 <br/>
 <br/>
 </p>
 
-additional great examples [can be found here](./media/)
+##### Additional great examples [can be found here](./media/)
 
 ### GeniA is 100% open source!
 

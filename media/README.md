@@ -1,3 +1,7 @@
+### Genai can write code for you, learn it as a new skill and deploy it to a lambda to execute:
+
+[![Genia finds unlabelled resources](https://img.youtube.com/vi/n_l3by3a35c/hqdefault.jpg)](https://www.youtube.com/embed/n_l3by3a35c)
+
 ### Imagine a virtual team member helping you with the following scenarios:
 
 R&D scenarios
@@ -57,7 +61,7 @@ SRE shift left
 <br/>
 <br/>
 <br/>
-   <img src="GeniA.gif" />
+   <img src="Genia_in_a_war_room_m.gif" />
 <br/>
 <br/>
 <br/>
@@ -70,5 +74,3 @@ Devops shift left
 * `add a cron to trigger something`
 * `write code for a new utility and deploy my 'automate this shixx' snippet to a lambda function`
 * `trigger any of my company playbooks`
-
-[![Genia finds unlabelled resources](https://img.youtube.com/vi/n_l3by3a35c/hqdefault.jpg)](https://www.youtube.com/embed/n_l3by3a35c)
