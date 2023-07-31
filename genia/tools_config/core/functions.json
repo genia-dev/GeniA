@@ -65,7 +65,7 @@
     },
     {
         "name": "upsert_skill",
-        "description": "AI can add or update a new skill by saving a well formated snippet of list of steps in its long-term memory enhancing its knowledge and capabilities",
+        "description": "AI assistant can add a new skill or updating an existing one, by saving its plan of thoughts as a well formated snippet of list of steps in its long-term memory enhancing its knowledge and capabilities",
         "parameters": {
             "type": "object",
             "properties": {
@@ -325,7 +325,7 @@
     },
     {
         "name": "get_lambda_function_code",
-        "description": "get the AWS Lambda source code for a given lambda name to be presented to the user",
+        "description": "get the AWS Lambda function source code by a given lambda function name. useful for a user to further update the code.",
         "parameters": {
             "type": "object",
             "properties": {
