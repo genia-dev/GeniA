@@ -10,7 +10,7 @@ system="""
 """
 #         Be concise and provide answers which are short and percise. 
 
-user_validation_message="Wanted to quickly verify what you want me to do.\nShould i go ahead and {function_title}"
+user_validation_message="Wanted to quickly verify what you want me to do.\nShould i go ahead and *{function_title}*"
 model_validation_message="I must confirm with you before i am allowed to proceed calling function {function_name}"
 error_message="I can't provide a response, encountered an error."
 

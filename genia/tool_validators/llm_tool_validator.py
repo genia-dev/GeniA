@@ -54,7 +54,7 @@ class LLMToolValidator:
         if len(function_arguments) > 0:
             user_response += " with the following parameters?\n"
             for key, value in function_arguments.items():
-                params_list.append(key.replace("_", " ") + " - " + str(value))
+                params_list.append(key.replace("_", " ") + ": " + str(value))
             user_response += "\n".join(params_list)
         else:
             user_response += "?"
