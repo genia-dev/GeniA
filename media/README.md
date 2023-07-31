@@ -61,7 +61,7 @@ SRE shift left
 <br/>
 <br/>
 <br/>
-   <img src="Genia_in_a_war_room_xl.gif" width=720" height="540" />
+   <img src="Genia_in_a_war_room_xl.gif"/>
 <br/>
 <br/>
 <br/>
