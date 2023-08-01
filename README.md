@@ -21,7 +21,7 @@ Imagine a ChatGPT integrated with your team's tools and APIs, capable of executi
 5. [⚙️ Expanding GeniA's Toolbox](#expanding-genias-toolbox)
 6. [🚀 Future Plans](#future-plans)
 7. [🔒 Security](#security)
-8. [🚀 Usage](#usage)
+8. [🚀 Getting started](#getting-started)
 9. [🔧 Installation](#installation)
 10. [ 📖 Developer Guide](#developer-guide)
 11. [🤝 Contributing](#contributing)
@@ -195,7 +195,7 @@ On the subject of secrets management, the project currently utilizes environment
 
 We are actively developing Single Sign-On (SSO) and Role-Based Access Control (RBAC) features for GeniA. These enhancements are slated for release in the near future.
 
-## Usage
+## Getting started
 
 GeniA can operate in various modes: via the terminal in local mode, as a Streamlit app, or within an organization as a Slack App Bot. For simplicity, we recommend running it locally using [Docker](#run-via-docker). If a local installation is desired, please refer to the [Installation](#installation) section.
 
@@ -203,8 +203,6 @@ GeniA can operate in various modes: via the terminal in local mode, as a Streaml
 > When using OpenAI, be mindful of cost implications and ensure you set usage limits. You can configure both soft and hard limits at the following URL: https://platform.openai.com/account/billing/limits.
 
 By default, GeniA is set to use `gpt-3.5-turbo-0613`. We acknowledge that `gpt-4-0613` often delivers superior results, but have found the 3.5 version to be a more cost-effective choice.
-
-# Getting started
 
 ## Installation
 
@@ -299,7 +297,8 @@ poetry run pytest tests
 
 # Contributing
 
-👩‍💻➕👨‍💻 Fork GeniA repository, make your changes, and submit a pull request! We appreciate your contributions! 🙌🌟💖
+👩‍💻➕👨‍💻 Fork GeniA repository, make your changes, and submit a pull request! We appreciate your contributions! 🙌🌟💖    
+More details can be found [here](./CONTRIBUTING.md).
 
 # License
 
@@ -309,6 +308,9 @@ http://www.apache.org/licenses/LICENSE-2.0
 
 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
 
+[LICENSE](./LICENSE)
+
 # Contact
 
-Got an idea to improve our project? We'd love to hear it and collaborate with you. Don't hesitate to reach out to us! Just open an [issue](https://github.com/GeniA-dev/GeniA/issues), and GeniA will respond to you 🦸‍♀️🦸‍♂️
+Got an idea to improve our project? We'd love to hear it and collaborate with you. Don't hesitate to reach out to us! Just open an [issue](https://github.com/GeniA-dev/GeniA/issues) and GeniA will respond to you 🦸‍♀️🦸‍♂️ !   
+You can see details [here](./.github/ISSUE_TEMPLATE/submit-a-request.md).
