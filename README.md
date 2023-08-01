@@ -126,6 +126,13 @@ GeniA's unique features include:
 
 ## Supported Tools
 
+<p align="center">
+<br/>
+<br/>
+   <img src="media/genia_diagram.png"/>
+<br/>
+</p>
+
 1. [ArgoCD](https://argoproj.github.io/cd/)
 2. [AWS](https://aws.amazon.com/)
 3. [GitHub](http://github.com/)
