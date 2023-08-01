@@ -154,6 +154,7 @@ The list of OpenAI functions spec which used by the tools can be found [here](./
    </a>
 </p>
 <br>
+
 ### Teaching GeniA new Skills: Adding Tools Effortlessly
 
 Adding a new tool adheres to the [OpenAI JSON configuration](https://platform.openai.com/docs/api-reference/chat/create#chat/create-functions) standards. This ensures compatibility, making it easy to import any existing function-calling project or ChatGPT plugin.
