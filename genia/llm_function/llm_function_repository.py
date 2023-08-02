@@ -266,7 +266,7 @@ class LLMFunctionRepository:
 class LLMFunctionRepositoryAsAFunction:
     logger = logging.getLogger(__name__)
 
-    def find_most_relevant_tools(self, filter: str):
+    def find_most_relevant_tools(self, filter: str = ""):
         repo = LLMFunctionRepository.get_instance()
         k = settings["tools_similarity"]["size_of_all_tools_request"]
         if is_blank(filter):
