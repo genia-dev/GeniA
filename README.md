@@ -33,7 +33,7 @@ While ChatGPT and CoPilot have garnered significant attention for their ability 
 
 ### GeniA is 100% open source!
 
-Built with love by engineers for engineers, our goal is to help teams harnest the power of LLMs to boost how fast you can go!
+Built with love by engineers for engineers, our goal is to help teams harness the power of LLMs to boost how fast you can go!
 
 ### GeniA is Production grade
 
