@@ -1,7 +1,7 @@
 - tool_name: github_fetcher
   category: url
   template: https://api.github.com/repos/{owner}/{repo}/commits?since={since}
-  
+
 - tool_name: get_top_available_tools
   category: python
   validate: false

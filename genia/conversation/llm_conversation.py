@@ -111,10 +111,9 @@ class LLMConversationService:
         return res
 
     def get_previous_function_calls(self, llm_conversation: LLMConversation) -> Set:
-        messages_reverse = llm_conversation.get_messages()[::-1]
-
+        messages = llm_conversation.get_messages()
         res = set()
-        for index, msg in enumerate(messages_reverse):
+        for index, msg in enumerate(messages):
             if index <= self._max_chain_length:
                 if msg["role"] == "assistant" and msg.get("validation") is not None:
                     res.add(msg.get("validation"))
@@ -131,7 +130,8 @@ class LLMConversationService:
         messages_reverse = llm_conversation.get_messages()[::-1]
         for index, msg in enumerate(messages_reverse):
             if msg["role"] == "function":
-                if llm_functions_repository.find_tool_by_name(msg["name"])["category"] == "skill":
+                tool = llm_functions_repository.find_tool_by_name(msg["name"])
+                if tool is not None and tool["category"] == "skill":
                     result = True
                     break
             elif msg["role"] == "user":

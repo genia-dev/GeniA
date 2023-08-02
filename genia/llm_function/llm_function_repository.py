@@ -178,10 +178,11 @@ class LLMFunctionRepository:
         # add mandatory tools that should always be available for the model
         required_functions.update(["get_top_available_tools"])  # "reasoning_acting"
         for required_function in required_functions:
-            tools_dict[required_function] = [
-                self._llm_functions_dict[required_function],
-                0.0,
-            ]
+            if self._llm_functions_dict.get(required_function) is not None:
+                tools_dict[required_function] = [
+                    self._llm_functions_dict[required_function],
+                    0.0,
+                ]
         for index, item in enumerate(tools):
             if index <= settings["tools_similarity"]["size_of_all_tools_request"]:
                 tools_dict[item[0].get("name")] = [

@@ -1,0 +1,5 @@
+- tool_name: create_new_github_repo
+  category: python
+  title: create new github repository
+  class: genia.tools.github_client.github_client.GithubEnrichedClient
+  method: get_create_new_repo

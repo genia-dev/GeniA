@@ -166,3 +166,4 @@ data/skills/*.*
 src/data/functions_embeddings/*.*
 genia/agents/experimental/*.*
 .DS_Store
+genia/settings/settings.local.toml

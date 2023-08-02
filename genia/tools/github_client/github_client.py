@@ -1,8 +1,9 @@
-import os
 import logging
-import json
-from github import Github, InputGitTreeElement
+import os
 from urllib.parse import urlparse
+
+from github import Github, InputGitTreeElement
+
 from genia.agents.adhoc import OpenAIAdhoc
 from genia.settings_loader import settings
 
