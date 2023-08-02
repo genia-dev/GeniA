@@ -39,7 +39,7 @@ Built with love by engineers for engineers, our goal is to help teams harnest th
 
 we have set ourselves the goal of building a production-grade software right off the bat. Now, you can start working with GeniA in production by installing the GeniA container, integrate it into your team's Slack channel, and let it land on its feet running.
 
-### Imagine a virtual asisstant ompowering you with:
+### Imagine a virtual asisstant empowering you with:
 
 #### Research & Development Scenarios
 
