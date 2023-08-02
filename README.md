@@ -183,7 +183,7 @@ GeniA is designed to be a quick learner, rapidly acquiring the capability to use
 3. **Utilizing OpenAPI Swagger Files:** Imagine your AI model being able to invoke any API out there - GeniA is capable of that! You can easily integrate any standard OpenAPI into GeniA using a Swagger file. This feature is still under development, but a working example is provided out of the box.
 4. **Learning Natural Language Skills:** This is where LLM truly shines. GeniA has an experimental feature that allows it to acquire new skills using natural language. It retains the steps taken to accomplish a task in its long-term memory, categorizes them under a new skill, and loads them into memory for future use. In this way, GeniA can learn and execute complex tasks, all in natural language.
 
-##### see complete function [documentation here](./genia/tools_config/)
+##### see complete function [documentation here](./genia/tools_config/extended/)
 
 ## Future Plans
 
