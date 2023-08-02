@@ -16,7 +16,7 @@ programmatic_user_tool_validation_required=true
 
 [logger_level]
 default_logging_level="ERROR"
-'genia.agents.chat'="DEBUG"
+'genia.agents.chat'="INFO"
 'genia.token_limiter.token_limiter_openai'="INFO"
 'genia.main'="INFO"
 'genia.user_interface.slack_app'="INFO"
