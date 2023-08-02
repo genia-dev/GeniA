@@ -183,6 +183,8 @@ GeniA is designed to be a quick learner, rapidly acquiring the capability to use
 3. **Utilizing OpenAPI Swagger Files:** Imagine your AI model being able to invoke any API out there - GeniA is capable of that! You can easily integrate any standard OpenAPI into GeniA using a Swagger file. This feature is still under development, but a working example is provided out of the box.
 4. **Learning Natural Language Skills:** This is where LLM truly shines. GeniA has an experimental feature that allows it to acquire new skills using natural language. It retains the steps taken to accomplish a task in its long-term memory, categorizes them under a new skill, and loads them into memory for future use. In this way, GeniA can learn and execute complex tasks, all in natural language.
 
+##### see complete function [documentation here](./genia/tools_config/)
+
 ## Future Plans
 
 - Azure-based Open AI support.
@@ -310,7 +312,7 @@ poetry run pytest tests
 
 # Contributing
 
-👩‍💻➕👨‍💻 Fork GeniA repository, make your changes, and submit a pull request! We appreciate your contributions! 🙌🌟💖    
+👩‍💻➕👨‍💻 Fork GeniA repository, make your changes, and submit a pull request! We appreciate your contributions! 🙌🌟💖
 More details can be found [here](./CONTRIBUTING.md).
 
 # License
@@ -325,5 +327,5 @@ Unless required by applicable law or agreed to in writing, software distributed 
 
 # Contact
 
-Got an idea to improve our project? We'd love to hear it and collaborate with you. Don't hesitate to reach out to us! Just open an [issue](https://github.com/GeniA-dev/GeniA/issues) and GeniA will respond to you 🦸‍♀️🦸‍♂️ !   
+Got an idea to improve our project? We'd love to hear it and collaborate with you. Don't hesitate to reach out to us! Just open an [issue](https://github.com/GeniA-dev/GeniA/issues) and GeniA will respond to you 🦸‍♀️🦸‍♂️ !
 You can see details [here](./.github/ISSUE_TEMPLATE/submit-a-request.md).
