@@ -1,3 +1,4 @@
+import os
 import json
 import random
 import string
@@ -57,3 +58,9 @@ def is_blank(input: str):
 
 def is_not_blank(input: str):
     return input and input.strip()
+
+
+def load_genia_home():
+    if os.environ.get("GENIA_HOME") is not None:
+        return os.environ.get("GENIA_HOME")
+    return ""

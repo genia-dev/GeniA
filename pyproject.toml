@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "genia"
-version = "0.1.0"
+version = "0.3.0"
 description = ""
 authors = ["Uri Shamay <cmpxchg16@gmail.com>", "Shlomi Shemesh <shlomosh@gmail.com>"]
 readme = "README.md"
@@ -53,3 +53,9 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.black]
 line-length = 119
+
+[tool.poetry.scripts]
+genia = 'genia.entry:streamlit'
+streamlit = 'genia.entry:local_streamlit'
+local = 'genia.main:local'
+slack = 'genia.main:slack'

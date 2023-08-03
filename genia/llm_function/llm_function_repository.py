@@ -15,16 +15,18 @@ from genia.utils.utils import (
     safe_load_yaml_file,
     safe_txt_dump,
     safe_yaml_dump,
+    load_genia_home,
 )
 
 
 class LLMFunctionRepository:
     logger = logging.getLogger(__name__)
 
-    CORE_ROOT_PATH = "genia/tools_config"
+    GENIA_HOME = load_genia_home()
+    CORE_ROOT_PATH = GENIA_HOME + "genia/tools_config"
 
-    FUNCTIONS_EMBEDDINGS_FILE_PATH = "data/functions_embeddings"
-    FUNCTIONS_EMBEDDINGS_FILE_NAME = "functions_index"
+    FUNCTIONS_EMBEDDINGS_FILE_PATH = GENIA_HOME + "data/functions_embeddings"
+    FUNCTIONS_EMBEDDINGS_FILE_NAME = GENIA_HOME + "functions_index"
 
     _embeddings = None
     _llm_functions_dict: dict

@@ -56,7 +56,7 @@ def slack_app():
     from genia.user_interface import slack_app
 
 
-def streamlit_app():
+def streamlit():
     logging.info("starting streamlit app")
     from genia.user_interface.streamlit_app import StreamlitApp
 
@@ -69,22 +69,25 @@ def setup_slack():
     slack_app_thread.start()
 
 
-if __name__ == "__main__":
+def local():
     oa = OpenAIChat()
-    if len(sys.argv) == 1 or "local" in sys.argv:
-        ShellApp(provider=oa).cmdloop()
-    elif "streamlit" in sys.argv:
-        streamlit_app()
-    elif "slack" in sys.argv:
-        setup_slack()
+    ShellApp(provider=oa).cmdloop()
 
-        host = settings.server.host
-        port = settings.server.port
-        workers = settings.server.workers
 
-        logging.info(f"starting server listen on host: {host} with port: {port} with #workers: {workers}")
-        options = {
-            "bind": "%s:%s" % (host, port),
-            "workers": workers,
-        }
-        ServerApplication(app, options).run()
+def slack():
+    setup_slack()
+
+    host = settings.server.host
+    port = settings.server.port
+    workers = settings.server.workers
+
+    logging.info(f"starting server listen on host: {host} with port: {port} with #workers: {workers}")
+    options = {
+        "bind": "%s:%s" % (host, port),
+        "workers": workers,
+    }
+    ServerApplication(app, options).run()
+
+
+if __name__ == "__main__":
+    streamlit()

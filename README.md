@@ -14,18 +14,19 @@ GeniA is an AI assistant developed for engineering tasks. GeniA is a dynamic, in
 ## 📝 Table of Contents
 
 1. [🎉 Introduction](#introduction)
-2. [🌟 Features](#features)
-3. [🆚 Comparison to LLM](#comparison-to-llm)
-4. [🔌 Supported Tools](#supported-tools)
-5. [⚙️ Expanding GeniA's Toolbox](#expanding-genias-toolbox)
-6. [🚀 Future Plans](#future-plans)
-7. [🔒 Security](#security)
-8. [▶️ Getting started](#getting-started)
-9. [🔧 Installation](#installation)
-10. [ 📖 Developer Guide](#developer-guide)
-11. [🤝 Contributing](#contributing)
-12. [📜 License](#license)
-13. [📞 Contact](#contact)
+   - 1.1 [🌟 Features](#features)
+   - 1.2 [🆚 Comparison to LLM](#comparison-to-llm)
+   - 1.3 [🔌 Supported Tools](#supported-tools)
+   - 1.4 [⚙️ Expanding GeniA's Toolbox](#expanding-genias-toolbox)
+   - 1.5 [🚀 Future Plans](#future-plans)
+   - 1.6. [🔒 Security](#security)
+2. [▶️ Getting started](#getting-started)
+   - 2.1 [🔧 Installation](#installation)
+   - 2.2 [ 📖 Developer Guide](#developer-guide)
+
+[🤝 Contributing](#contributing)    
+[📜 License](#license)    
+[📞 Contact](#contact)    
 
 ## Introduction
 
@@ -215,7 +216,18 @@ We are actively developing Single Sign-On (SSO) and Role-Based Access Control (R
 
 ## Getting started
 
-GeniA can operate in various modes: via the terminal in local mode, as a Streamlit app, or within an organization as a Slack App Bot. For simplicity, we recommend running it locally using [Docker](#run-via-docker). If a local installation is desired, please refer to the [Installation](#installation) section.
+The easiest way to play with GeniA is [Streamlit](https://streamlit.io/) web app. Make sure you have `python3` & `pip3` installed, then run:
+
+```
+pip3 install streamlit genia
+```
+
+Then you can run the streamlit web app by:
+```
+genia
+```
+
+You can play with GeniA also in terminal local mode. Once you done to play with it you can move to the collaborative mode as a Slack App Bot. For simplicity, we recommend running it locally using [Docker](#run-via-docker). If a local installation is desired, please refer to the [Installation](#installation) section.
 
 When using Azure OpenAI, you need to configure also those environment variables:
 
@@ -297,7 +309,7 @@ curl -sSL https://install.python-poetry.org | python3 -
 #### Run in local terminal mode
 
 ```
-poetry run python main.py local
+poetry run local
 ```
 
 #### Run in slack app bot mode
@@ -305,15 +317,13 @@ poetry run python main.py local
 [First install the bot](#create-slack-app-bot)
 
 ```
-poetry run python main.py slack
+poetry run slack
 ```
 
 ### Run in streamlit mode
 
 ```
-pip install streamlit
-poetry shell
-streamlit run main.py streamlit
+poetry run streamlit
 ```
 
 ### Testing
