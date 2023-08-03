@@ -4,7 +4,7 @@ import os
 
 
 def local_streamlit():
-    subprocess.run(["python", "-m", "streamlit", "run", "genia/main.py"])
+    subprocess.run(["python3", "-m", "streamlit", "run", "genia/main.py"])
 
 
 def streamlit():

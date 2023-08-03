@@ -10,7 +10,7 @@ WORKDIR /app
 
 COPY pyproject.toml poetry.lock ./
 COPY genia genia
-COPY README.md main.py ./
+COPY README.md ./
 COPY ./entrypoint.sh ./
 
 RUN $POETRY_HOME/bin/poetry install --no-interaction --no-ansi

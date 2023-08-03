@@ -1,5 +1,4 @@
 import logging
-import sys
 import threading
 from dotenv import load_dotenv
 from genia.user_interface.shell_app import ShellApp
