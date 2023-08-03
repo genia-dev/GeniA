@@ -4,7 +4,7 @@ import logging
 
 import streamlit as st
 
-from genia.agents import OpenAIChat
+from genia.agents.chat import OpenAIChat
 
 oa = OpenAIChat()
 
