@@ -1,5 +1,5 @@
 import logging
-
+import os
 import openai
 from langchain import FAISS
 from langchain.embeddings import OpenAIEmbeddings
@@ -43,7 +43,14 @@ class OpenAIChat(Agent):
     def __init__(
         self,
         model=settings["openai"]["OPENAI_MODEL"],
-        llm_functions_repository=LLMFunctionRepository(OpenAIEmbeddings(), FAISS),
+        llm_functions_repository=LLMFunctionRepository(
+            OpenAIEmbeddings(
+                chunk_size=16
+                if os.getenv("OPENAI_API_TYPE") == "azure"
+                else 1000,  # 1000 is the default also in OpenAIEmbeddings, and 16 in Azure limit
+            ),
+            FAISS,
+        ),
         llm_function_factory=LLMFunctionFactory(),
         llm_conversation_service=LLMConversationService(LLMConversationInMemRepository()),
         llm_tools_validator=LLMToolValidator(),
@@ -166,6 +173,16 @@ class OpenAIChat(Agent):
         # split the actuall call to a retriable wraped function call
         try:
             self.logger.debug("calling the model")
+            if os.getenv("OPENAI_API_TYPE") == "azure":
+                return openai.ChatCompletion.create(
+                    temperature=settings["openai"]["temperature"],
+                    messages=messages,
+                    functions=functions,
+                    engine=os.getenv("OPENAI_API_DEPLOYMENT"),
+                    request_timeout=settings["openai"]["timeout"],
+                    function_call=settings["openai"].get("function_call", "auto"),
+                )
+
             return openai.ChatCompletion.create(
                 temperature=settings["openai"]["temperature"],
                 model=self._model,

@@ -20,7 +20,7 @@ GeniA is an AI assistant developed for engineering tasks. GeniA is a dynamic, in
 5. [⚙️ Expanding GeniA's Toolbox](#expanding-genias-toolbox)
 6. [🚀 Future Plans](#future-plans)
 7. [🔒 Security](#security)
-8. [🚀 Getting started](#getting-started)
+8. [▶️ Getting started](#getting-started)
 9. [🔧 Installation](#installation)
 10. [ 📖 Developer Guide](#developer-guide)
 11. [🤝 Contributing](#contributing)
@@ -29,7 +29,11 @@ GeniA is an AI assistant developed for engineering tasks. GeniA is a dynamic, in
 
 ## Introduction
 
-While ChatGPT and CoPilot have garnered significant attention for their ability to assist with writing new code, as software engineers, we understand that coding is merely one aspect of our daily responsibilities and AI present many additional opportunities to minimize bolier plate, time wasters and cross team dependencies.
+While ChatGPT and CoPilot have garnered significant attention for their ability to assist with writing new code, as software engineers, we understand that coding is merely one aspect of our daily responsibilities and AI present many additional opportunities to minimize bolier plate, time wasters and cross team dependencies.    
+
+**Under the hood** GeniA built upon the [function-calling capabilities offered by OpenAI](https://openai.com/blog/function-calling-and-other-api-updates). Azure OpenAI supported as well.
+
+GeniA requires OpenAI API Key, you can generate [here](https://platform.openai.com/account/api-keys)
 
 ### GeniA is 100% open source!
 
@@ -103,7 +107,6 @@ Tools 3.0 negates the need for proprietary YAML files and vendor-specific domain
 
 Remember, any class, method, or API available becomes a learning and application tool for GeniA. Tools 3.0 redefines coding, transforming it into an intuitive, flexible, and democratized process.
 
-**Under the hood** GeniA built upon the [function-calling capabilities offered by OpenAI](https://openai.com/blog/function-calling-and-other-api-updates).
 
 ## Features
 
@@ -214,8 +217,17 @@ We are actively developing Single Sign-On (SSO) and Role-Based Access Control (R
 
 GeniA can operate in various modes: via the terminal in local mode, as a Streamlit app, or within an organization as a Slack App Bot. For simplicity, we recommend running it locally using [Docker](#run-via-docker). If a local installation is desired, please refer to the [Installation](#installation) section.
 
+When using Azure OpenAI, you need to configure also those environment variables:
+
+```
+OPENAI_API_DEPLOYMENT=
+OPENAI_API_TYPE="azure"
+OPENAI_API_BASE=https://<your-endpoint.openai.azure.com/
+OPENAI_API_VERSION="2023-07-01-preview"
+```
+
 > **Note:**
-> When using OpenAI, be mindful of cost implications and ensure you set usage limits. You can configure both soft and hard limits at the following URL: https://platform.openai.com/account/billing/limits.
+> GeniA using OpenAI, be mindful of cost implications and ensure you set usage limits. You can configure both soft and hard limits at the following URL: https://platform.openai.com/account/billing/limits.
 
 By default, GeniA is set to use `gpt-3.5-turbo-0613`. We acknowledge that `gpt-4-0613` often delivers superior results, but have found the 3.5 version to be a more cost-effective choice.
 

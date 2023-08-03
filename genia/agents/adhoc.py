@@ -1,3 +1,4 @@
+import os
 import logging
 import openai
 
@@ -16,6 +17,14 @@ class OpenAIAdhoc:
     )
     def call_model(self, messages):
         try:
+            if os.getenv("OPENAI_API_TYPE") == "azure":
+                return openai.ChatCompletion.create(
+                    temperature=settings["openai"]["temperature"],
+                    messages=messages,
+                    engine=os.getenv("OPENAI_API_DEPLOYMENT"),
+                    request_timeout=settings["openai"]["timeout"],
+                )
+
             response = openai.ChatCompletion.create(
                 temperature=settings["openai"]["temperature"],
                 model=settings["openai"]["OPENAI_MODEL"],
