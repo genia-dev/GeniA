@@ -21,7 +21,7 @@ GeniA is an AI assistant developed for engineering tasks. GeniA is a dynamic, in
    3. [🔌 Supported Tools](#supported-tools)
    4. [⚙️ Expanding GeniA's Toolbox](#expanding-genias-toolbox)
    5. [🚀 Future Plans](#future-plans)
-   6. [🔒 Security
+   6. [🔒 Security](#security)
 2. [▶️ Getting started](#getting-started)
    1. [🔧 Installation](#installation)
    2. [ 📖 Developer Guide](#developer-guide)
