@@ -1,7 +1,6 @@
-from abc import ABC, abstractmethod
+from abc import ABC
 
 
 class Agent(ABC):
-    @abstractmethod
     def process_message(self, user_message, uid, **kwargs):
         pass

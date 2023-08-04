@@ -1,35 +1,27 @@
 import logging
 import os
-import openai
+
 from langchain import FAISS
 from langchain.embeddings import OpenAIEmbeddings
-from openai.error import (
-    APIConnectionError,
-    APIError,
-    InvalidRequestError,
-    RateLimitError,
-    ServiceUnavailableError,
-    Timeout,
-    TryAgain,
-)
+from openai.error import InvalidRequestError, RateLimitError, ServiceUnavailableError, TryAgain
 from tenacity import retry, retry_if_exception_type, stop_after_attempt, wait_random_exponential
 
-from genia.agents.agent import Agent
+from genia.agents.open_ai import OpenAIAgent
 from genia.conversation.llm_conversation import LLMConversation, LLMConversationService
 from genia.conversation.llm_conversation_in_memory_repository import LLMConversationInMemRepository
+from genia.llm_function.llm_function_repository import LLMFunctionRepository
+from genia.llm_function.llm_functions_factory import LLMFunctionFactory
 from genia.llm_function_lookup_strategy.llm_function_lookup_strategy import (
     LLMFunctionLookupStrategy,
     LLMFunctionLookupStrategyPrevCallsLastUserAndChat,
 )
-from genia.llm_function.llm_function_repository import LLMFunctionRepository
-from genia.llm_function.llm_functions_factory import LLMFunctionFactory
 from genia.settings_loader import settings
 from genia.token_limiter.token_limiter_openai import TokenLimiter, TokenLimiterOpenAI
 from genia.tool_validators.llm_tool_validator import LLMToolValidator
 from genia.utils.utils import safe_loads
 
 
-class OpenAIChat(Agent):
+class OpenAIChat(OpenAIAgent):
     logger = logging.getLogger(__name__)
 
     _model: str
@@ -163,34 +155,6 @@ class OpenAIChat(Agent):
                 self.logger.warning("maximum context length by open AI %s", str(e))
                 self._llm_conversation_service.handle_context_too_long(llm_conversation)
                 raise TryAgain
-            raise e
-
-    @retry(
-        stop=stop_after_attempt(3),
-        retry=retry_if_exception_type((Timeout, TryAgain, APIError, APIConnectionError)),
-    )
-    def call_model(self, messages, functions, function_call):
-        try:
-            params = {
-                "temperature": settings["openai"]["temperature"],
-                "messages": messages,
-                "request_timeout": settings["openai"]["timeout"],
-            }
-            if len(functions) > 0:
-                params["functions"] = functions
-                params["function_call"] = function_call
-
-            self.logger.debug("calling the model")
-
-            if os.getenv("OPENAI_API_TYPE") == "azure":
-                params["engine"] = os.getenv("OPENAI_API_DEPLOYMENT")
-            else:
-                params["model"] = self._model
-
-            return openai.ChatCompletion.create(**params)
-
-        except Exception as e:
-            self.logger.error("call model error %s", str(e))
             raise e
 
     def _llm_function_call(self, llm_conversation, function_name, function_arguments, llm_matching_tool):

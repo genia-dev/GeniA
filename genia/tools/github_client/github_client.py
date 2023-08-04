@@ -4,8 +4,7 @@ from urllib.parse import urlparse
 
 from github import Github, InputGitTreeElement
 
-# from genia.agents.adhoc import OpenAIAdhoc
-from genia.agents.chat import OpenAIChat
+from genia.agents.open_ai import OpenAIAgent
 from genia.settings_loader import settings
 
 
@@ -15,7 +14,7 @@ class GithubClient:
     def __init__(self, access_token=None):
         if access_token is None:
             self.access_token = os.getenv("GITHUB_PERSONAL_ACCESS_TOKEN")
-        self._model = OpenAIChat()
+        self._model = OpenAIAgent()
 
     def get_token(self):
         return self.access_token
@@ -91,7 +90,6 @@ class GithubClient:
 
         messages = [
             {"role": "system", "content": settings["github_summarizer_prompt"]["system"]},
-            # TODO
             {"role": "user", "content": pr_content[:4096]},
         ]
         # "none" means the model does not call a function
