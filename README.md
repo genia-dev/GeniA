@@ -33,9 +33,9 @@ GeniA is an AI assistant developed for engineering tasks. GeniA is a dynamic, in
 
 While ChatGPT and CoPilot have garnered significant attention for their ability to assist with writing new code, as software engineers, we understand that coding is merely one aspect of our daily responsibilities and AI present many additional opportunities to minimize bolier plate, time wasters and cross team dependencies.
 
-**Under the hood** GeniA built upon the [function-calling capabilities offered by OpenAI](https://openai.com/blog/function-calling-and-other-api-updates). Azure OpenAI supported as well.
+**Under the hood** GeniA is built upon the [function-calling capabilities offered by OpenAI](https://openai.com/blog/function-calling-and-other-api-updates) (OpenAI or Azure).
 
-GeniA requires OpenAI API Key, you can generate [here](https://platform.openai.com/account/api-keys)
+GeniA requires OpenAI API Key, you can generate one [here](https://platform.openai.com/account/api-keys)
 
 ### GeniA is 100% open source!
 
@@ -191,7 +191,7 @@ GeniA is designed to be a quick learner, rapidly acquiring the capability to use
 
 ## Future Plans
 
-- Azure-based Open AI support.
+- ✅ Azure-based Open AI support.
 - OKTA integration for SSO.
 - RBAC Support.
 - Extending capabilities with thousands of new tools.
@@ -228,9 +228,9 @@ Then you can run the streamlit web app by:
 genia
 ```
 
-You can also play with GeniA in terminal using the local mode. Once you done to play with it you can move to the collaborative mode as a Slack App Bot. For simplicity, we recommend running it locally using [Docker](#run-via-docker). If a local installation is desired, please refer to the [Installation](#installation) section.
+You can also play with GeniA in a Terminal using GeniA 'local' mode, both provide a sneak peek, but GeniA is crafted for team collaboration and works best in Slack. For simplicity, we recommend running it locally using [Docker](#run-via-docker). If you want to run docker locally, please refer to the [Installation](#installation) section.
 
-When using Azure OpenAI, you need to also configure those environment variables:
+When using Azure OpenAI, add those to your environment variables:
 
 ```
 OPENAI_API_DEPLOYMENT=
