@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "genia"
-version = "0.3.0"
+version = "0.4.0"
 description = ""
 authors = ["Uri Shamay <cmpxchg16@gmail.com>", "Shlomi Shemesh <shlomosh@gmail.com>"]
 readme = "README.md"
