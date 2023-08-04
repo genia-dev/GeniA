@@ -46,7 +46,7 @@ Secops shift left
 <br/>
 <br/>
 <br/>
-   <img src="Genia%20grants%20production%20permissions%20gif%20(1200%20%C3%97%201600%20px).gif" />
+   <img src="Genia%20grants%20production%20permissions.gif" />
 <br/>
 <br/>
 <br/>
@@ -61,7 +61,7 @@ SRE shift left
 <br/>
 <br/>
 <br/>
-   <img src="Genia_in_a_war_room_xl.gif"/>
+   <img src="Genia_in_a_war_room.gif"/>
 <br/>
 <br/>
 <br/>

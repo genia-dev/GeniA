@@ -3,7 +3,7 @@
 
 <p align=center>
    <a href="https://genia.dev" target="_blank">
-      <img src="./media/GeniA_wide_1.png"/>
+      <img src="./media/GeniA_wide.png"/>
    </a>
 </p>
 <br>

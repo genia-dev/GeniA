@@ -20,9 +20,15 @@ class StreamlitApp:
             "List some of the tools you have",
             "List your k8s tools",
             "Summarize the following github PR 'https://github.com/openai/evals/pull/1324'",
-            "~What AWS lambda functions are running on us-east-1?",
-            "~Generate a report detailing unutilized cloud resources per team and share it on Slack",
-            "~Conduct a security vulnerability analysis on your S3 buckets",
+        ]
+
+        grayed_out_examples = [
+            "What AWS lambda functions are running on us-east-1?",
+            "Generate a report detailing unutilized cloud resources per team and share it on Slack",
+            "Conduct a security vulnerability analysis on your S3 buckets",
+            "why did my last argo deploy failed?",
+            "grant the user 'shlomsh' production permissions",
+            "find unlabled EC2 instances"
         ]
 
         st.set_page_config(
@@ -32,18 +38,18 @@ class StreamlitApp:
             menu_items={"About": "https://www.genia.dev"},
         )
 
-        st.title("GeniA Your Engineering GenAI Assistant 🧬🤖💻")
+        st.title("GeniA, Your Engineering GenAI Assistant 🧬🤖💻")
+        st.caption("Genia is crafted for team collaboration and works best in slack")
 
         with st.sidebar:
             st.header("Check out some of the use cases GeniA can help you with:")
             for example in genia_examples:
-                if example.startswith("~"):
-                    c = st.container()
-                    c.markdown("> " + example[1:])
-                else:
-                    c = st.container()
-                    c.markdown("- " + example)
-                    # st.session_state.user_message = example
+                st.markdown("- " + example)
+            st.divider()
+            st.caption("set your credentials to try the prompts below")
+            for example in grayed_out_examples:
+                st.markdown("<span style='opacity: 0.5;'>" + example + "<span>", unsafe_allow_html=True)
+
 
         # Initialize chat conversation
         if "messages" not in st.session_state:
