@@ -19,7 +19,7 @@ class StreamlitApp:
         genia_examples = [
             "List some of the tools you have",
             "List your k8s tools",
-            "Summarize the following github PR 'https://github.com/openai/evals/pull/1324'",
+            "Summarize the following github PR 'https://github.com/openai/triton/pull/1848'",
         ]
 
         grayed_out_examples = [
@@ -28,7 +28,7 @@ class StreamlitApp:
             "Conduct a security vulnerability analysis on your S3 buckets",
             "why did my last argo deploy failed?",
             "grant the user 'shlomsh' production permissions",
-            "find unlabled EC2 instances"
+            "find unlabled EC2 instances",
         ]
 
         st.set_page_config(
@@ -39,17 +39,16 @@ class StreamlitApp:
         )
 
         st.title("GeniA, Your Engineering GenAI Assistant 🧬🤖💻")
-        st.caption("Genia is crafted for team collaboration and works best in slack")
 
         with st.sidebar:
             st.header("Check out some of the use cases GeniA can help you with:")
             for example in genia_examples:
                 st.markdown("- " + example)
             st.divider()
-            st.caption("set your credentials to try the prompts below")
+            st.caption("Genia is crafted for team collaboration and works best in slack")
+            st.caption("set your credentials to try these additional prompts:")
             for example in grayed_out_examples:
                 st.markdown("<span style='opacity: 0.5;'>" + example + "<span>", unsafe_allow_html=True)
-
 
         # Initialize chat conversation
         if "messages" not in st.session_state:
@@ -94,11 +93,9 @@ class StreamlitApp:
             st.markdown(
                 """
                     <style>
-                    [data-testid="stSidebar"][aria-expanded="true"]{
-                        width: 400px;
-                        min-width: 450px;
-                        max-width: 450px;
-                    }
+                        .sidebar .sidebar-content {{
+                            width: 375px;
+                        }}
                     </style>
                 """,
                 unsafe_allow_html=True,

@@ -33,9 +33,7 @@ GeniA is an AI assistant developed for engineering tasks. GeniA is a dynamic, in
 
 While ChatGPT and CoPilot have garnered significant attention for their ability to assist with writing new code, as software engineers, we understand that coding is merely one aspect of our daily responsibilities and AI present many additional opportunities to minimize bolier plate, time wasters and cross team dependencies.
 
-**Under the hood** GeniA is built upon the [function-calling capabilities offered by OpenAI](https://openai.com/blog/function-calling-and-other-api-updates) (OpenAI or Azure).
-
-GeniA requires OpenAI API Key, you can generate one [here](https://platform.openai.com/account/api-keys)
+**Under the hood** GeniA is built upon the [function-calling capabilities offered by OpenAI](https://openai.com/blog/function-calling-and-other-api-updates) (OpenAI or Azure). GeniA requires OpenAI API Key, you can generate one [here](https://platform.openai.com/account/api-keys)
 
 ### GeniA is 100% open source!
 

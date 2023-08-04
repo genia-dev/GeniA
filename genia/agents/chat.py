@@ -153,7 +153,7 @@ class OpenAIChat(Agent):
             messages = self._llm_conversation_service.build_messages_for_model(llm_conversation)
             if self._llm_token_limiter.has_limit_reached(self._model, messages, functions):
                 self._llm_conversation_service.handle_context_too_long(llm_conversation)
-            response = self.call_model(messages, functions)
+            response = self.call_model(messages, functions, settings["openai"].get("function_call", "auto"))
             self.logger.debug("Tokens usage recorded by open AI %s", response["usage"]["total_tokens"])
             self.logger.debug("LLM call took %s ms", str(response.response_ms))
             return response
@@ -169,28 +169,26 @@ class OpenAIChat(Agent):
         stop=stop_after_attempt(3),
         retry=retry_if_exception_type((Timeout, TryAgain, APIError, APIConnectionError)),
     )
-    def call_model(self, messages, functions):
-        # split the actuall call to a retriable wraped function call
+    def call_model(self, messages, functions, function_call):
         try:
-            self.logger.debug("calling the model")
-            if os.getenv("OPENAI_API_TYPE") == "azure":
-                return openai.ChatCompletion.create(
-                    temperature=settings["openai"]["temperature"],
-                    messages=messages,
-                    functions=functions,
-                    engine=os.getenv("OPENAI_API_DEPLOYMENT"),
-                    request_timeout=settings["openai"]["timeout"],
-                    function_call=settings["openai"].get("function_call", "auto"),
-                )
+            params = {
+                "temperature": settings["openai"]["temperature"],
+                "messages": messages,
+                "request_timeout": settings["openai"]["timeout"],
+            }
+            if len(functions) > 0:
+                params["functions"] = functions
+                params["function_call"] = function_call
 
-            return openai.ChatCompletion.create(
-                temperature=settings["openai"]["temperature"],
-                model=self._model,
-                messages=messages,
-                functions=functions,
-                request_timeout=settings["openai"]["timeout"],
-                function_call=settings["openai"].get("function_call", "auto"),
-            )
+            self.logger.debug("calling the model")
+
+            if os.getenv("OPENAI_API_TYPE") == "azure":
+                params["engine"] = os.getenv("OPENAI_API_DEPLOYMENT")
+            else:
+                params["model"] = self._model
+
+            return openai.ChatCompletion.create(**params)
+
         except Exception as e:
             self.logger.error("call model error %s", str(e))
             raise e
