@@ -14,7 +14,6 @@ class StreamlitApp:
     logger = logging.getLogger(__name__)
 
     def __init__(self):
-        st.session_state.user_message = "Hi, How can i assist you today?"
 
         genia_examples = [
             "List some of the tools you have",
@@ -34,21 +33,24 @@ class StreamlitApp:
         st.set_page_config(
             page_title="GeniA Your Engineering GenAI Assistant",
             page_icon="🧬🤖💻",
-            layout="wide",
+            # layout="wide",
+            initial_sidebar_state='collapsed',
             menu_items={"About": "https://www.genia.dev"},
         )
 
-        st.title("GeniA, Your Engineering GenAI Assistant 🧬🤖💻")
+        st.title("GeniA")
+        st.text("Your Engineering GenAI Assistant 🧬🤖💻")
 
         with st.sidebar:
             st.header("Check out some of the use cases GeniA can help you with:")
             for example in genia_examples:
                 st.markdown("- " + example)
             st.divider()
-            st.caption("Genia is crafted for team collaboration and works best in slack")
-            st.caption("set your credentials to try these additional prompts:")
-            for example in grayed_out_examples:
-                st.markdown("<span style='opacity: 0.5;'>" + example + "<span>", unsafe_allow_html=True)
+            st.caption("Note: Genia is crafted for team collaboration and works best in slack")
+            with st.expander("Additional prompts", expanded=False):
+                st.caption("set your credentials to try these:")
+                for example in grayed_out_examples:
+                    st.markdown("<span style='opacity: 0.5;'>" + example + "<span>", unsafe_allow_html=True)
 
         # Initialize chat conversation
         if "messages" not in st.session_state:
@@ -60,7 +62,7 @@ class StreamlitApp:
                 st.markdown(message["content"], unsafe_allow_html=True)
 
         # Accept user input
-        if prompt := st.chat_input(st.session_state.user_message):
+        if prompt := st.chat_input("Hi, How can i assist you today?"):
             # Add user message to chat conversation
             st.session_state.messages.append({"role": "user", "content": prompt})
             # Display user message in chat message container
