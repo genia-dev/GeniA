@@ -7,30 +7,31 @@
    </a>
 </p>
 <br>
+<p>
 Imagine a ChatGPT integrated with your team's tools and APIs, capable of executing tasks and handling queries independently, contributing to time and energy efficiency.
-
+<br><br>
 GeniA is an AI assistant developed for engineering tasks. GeniA is a dynamic, intuitive tool capable of managing tasks in your team's Slack channel.
+</p>
 
 ## 📝 Table of Contents
 
 1. [🎉 Introduction](#introduction)
-   - 1.1 [🌟 Features](#features)
-   - 1.2 [🆚 Comparison to LLM](#comparison-to-llm)
-   - 1.3 [🔌 Supported Tools](#supported-tools)
-   - 1.4 [⚙️ Expanding GeniA's Toolbox](#expanding-genias-toolbox)
-   - 1.5 [🚀 Future Plans](#future-plans)
-   - 1.6. [🔒 Security](#security)
+   1. [🌟 Features](#features)
+   2. [🆚 Comparison to LLM](#comparison-to-llm)
+   3. [🔌 Supported Tools](#supported-tools)
+   4. [⚙️ Expanding GeniA's Toolbox](#expanding-genias-toolbox)
+   5. [🚀 Future Plans](#future-plans)
+   6. [🔒 Security
 2. [▶️ Getting started](#getting-started)
-   - 2.1 [🔧 Installation](#installation)
-   - 2.2 [ 📖 Developer Guide](#developer-guide)
-
-[🤝 Contributing](#contributing)    
-[📜 License](#license)    
-[📞 Contact](#contact)    
+   1. [🔧 Installation](#installation)
+   2. [ 📖 Developer Guide](#developer-guide)
+3. [🤝 Contributing](#contributing)
+4. [📜 License](#license)
+5. [📞 Contact](#contact)
 
 ## Introduction
 
-While ChatGPT and CoPilot have garnered significant attention for their ability to assist with writing new code, as software engineers, we understand that coding is merely one aspect of our daily responsibilities and AI present many additional opportunities to minimize bolier plate, time wasters and cross team dependencies.    
+While ChatGPT and CoPilot have garnered significant attention for their ability to assist with writing new code, as software engineers, we understand that coding is merely one aspect of our daily responsibilities and AI present many additional opportunities to minimize bolier plate, time wasters and cross team dependencies.
 
 **Under the hood** GeniA built upon the [function-calling capabilities offered by OpenAI](https://openai.com/blog/function-calling-and-other-api-updates). Azure OpenAI supported as well.
 
@@ -107,7 +108,6 @@ However, with the advent of Language Learning Models (LLMs), Tools 3.0 pushes th
 Tools 3.0 negates the need for proprietary YAML files and vendor-specific domain languages (DSLs), urging users to rely on native code. Rather than waiting for vendor updates to fulfill requirements, users can now instruct LLMs to write code, create it themselves, or utilize the vast range of community-contributed tools.
 
 Remember, any class, method, or API available becomes a learning and application tool for GeniA. Tools 3.0 redefines coding, transforming it into an intuitive, flexible, and democratized process.
-
 
 ## Features
 
@@ -216,20 +216,21 @@ We are actively developing Single Sign-On (SSO) and Role-Based Access Control (R
 
 ## Getting started
 
-The easiest way to play with GeniA is [Streamlit](https://streamlit.io/) web app. Make sure you have `python3` & `pip3` installed, then run:
+The easiest way to get started with GeniA is [Streamlit](https://streamlit.io/) web app. Make sure you have `python3` & `pip3` installed, then run:
 
 ```
 pip3 install streamlit genia
 ```
 
 Then you can run the streamlit web app by:
+
 ```
 genia
 ```
 
-You can play with GeniA also in terminal local mode. Once you done to play with it you can move to the collaborative mode as a Slack App Bot. For simplicity, we recommend running it locally using [Docker](#run-via-docker). If a local installation is desired, please refer to the [Installation](#installation) section.
+You can also play with GeniA in terminal using the local mode. Once you done to play with it you can move to the collaborative mode as a Slack App Bot. For simplicity, we recommend running it locally using [Docker](#run-via-docker). If a local installation is desired, please refer to the [Installation](#installation) section.
 
-When using Azure OpenAI, you need to configure also those environment variables:
+When using Azure OpenAI, you need to also configure those environment variables:
 
 ```
 OPENAI_API_DEPLOYMENT=
@@ -239,7 +240,7 @@ OPENAI_API_VERSION="2023-07-01-preview"
 ```
 
 > **Note:**
-> GeniA using OpenAI, be mindful of cost implications and ensure you set usage limits. You can configure both soft and hard limits at the following URL: https://platform.openai.com/account/billing/limits.
+> GeniA uses OpenAI, be mindful of cost implications and ensure you set usage limits. You can configure both soft and hard limits at the following URL: https://platform.openai.com/account/billing/limits.
 
 By default, GeniA is set to use `gpt-3.5-turbo-0613`. We acknowledge that `gpt-4-0613` often delivers superior results, but have found the 3.5 version to be a more cost-effective choice.
 

@@ -19,10 +19,10 @@ class StreamlitApp:
         genia_examples = [
             "List some of the tools you have",
             "List your k8s tools",
-            "Summarize this github PR https://github.com/openai/evals/pull/1324",
+            "Summarize the following github PR 'https://github.com/openai/evals/pull/1324'",
             "~What AWS lambda functions are running on us-east-1?",
             "~Generate a report detailing unutilized cloud resources per team and share it on Slack",
-            "~Conduct a security vulnerability analysis on your S3 buckets"
+            "~Conduct a security vulnerability analysis on your S3 buckets",
         ]
 
         st.set_page_config(
@@ -37,12 +37,13 @@ class StreamlitApp:
         with st.sidebar:
             st.header("Check out some of the use cases GeniA can help you with:")
             for example in genia_examples:
-                if example.startswith('~'):
-                    if st.button(example[1:], disabled=True):
-                        st.session_state.user_message = example
+                if example.startswith("~"):
+                    c = st.container()
+                    c.markdown("> " + example[1:])
                 else:
-                    if st.button(example):
-                        st.session_state.user_message = example
+                    c = st.container()
+                    c.markdown("- " + example)
+                    # st.session_state.user_message = example
 
         # Initialize chat conversation
         if "messages" not in st.session_state:
