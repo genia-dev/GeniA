@@ -22,6 +22,9 @@ GeniA is an AI assistant developed for engineering tasks. GeniA is a dynamic, in
 5. [📞 Contact](#contact)
 6. [🚀 Future Plans](#future-plans)
 
+
+Full documentation can be found [here](https://genia-dev.github.io/GeniA/)
+
 ## Introduction
 
 While ChatGPT and CoPilot have garnered significant attention for their ability to assist with writing new code, as software engineers, we understand that coding is merely one aspect of our daily responsibilities and AI present many additional opportunities to minimize bolier plate, time wasters and cross team dependencies.
