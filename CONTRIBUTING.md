@@ -22,4 +22,3 @@ Please follow the coding style already established in the project.
 ## License
 
 By contributing, you agree that your contributions will be licensed under its Apache 2.0 License.
-

@@ -1,0 +1,127 @@
+site_name: GeniA
+site_url: https://genia-dev.github.io/GeniA
+site_author: genia-dev
+site_description: >-
+  Your Engineering Gen AI Assistant 🧬🤖💻
+
+# Repository
+repo_name: genia-dev/GeniA
+repo_url: https://github.com/genia-dev/GeniA
+
+# Copyright
+copyright: Copyright &copy; 2023 GeniA
+
+# Configuration
+theme:
+  name: material
+  features:
+    - announce.dismiss
+    - content.action.edit
+    - content.action.view
+    - content.code.annotate
+    - content.code.copy
+    - content.tooltips
+    - navigation.footer
+    - navigation.indexes
+    - navigation.sections
+    - navigation.tabs
+    - navigation.top
+    - navigation.tracking
+    - search.highlight
+    - search.share
+    - search.suggest
+    - toc.follow
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  font:
+    text: Roboto
+    code: Roboto Mono
+
+# Plugins
+plugins:
+  - search:
+      separator: '[\s\-,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
+  - minify:
+      minify_html: true
+
+# Customization
+extra:
+  annotate:
+    json: [.s2]
+  analytics:
+    provider: google
+    property: G-5GKW03RWSH
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/genia-dev/GeniA
+    - icon: fontawesome/brands/docker
+      link: https://hub.docker.com/r/geniadev/genia
+    - icon: fontawesome/brands/python
+      link: https://pypi.org/project/genia/
+    
+# Extensions
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+# Page tree
+nav:
+  - Home: index.md
+  - Getting started:
+    - Installation: getting-started.md
+    - Introduction: introduction.md
+    - Supported Tools: supported-tools.md
+    - Security: security.md
+    - Contributing:
+      - contributing/index.md
+      - Reporting a bug: contributing/bug_report.md
+      - Requesting a change: contributing/submit-a-request.md
+      - Any Feedback: contributing/feedback.md
+    - Guides:
+      - Growing GeniA's Toolbox: add-new-tool.md
+      - Developer Guide: developer-guide.md
+      - GeniA Slack App Bot: genia-slack-app-bot.md
+  - FAQ:
+    - faq.md
