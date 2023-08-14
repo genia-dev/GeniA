@@ -1,21 +1,21 @@
-name: GeniA Docs
+name: Publish docs via GitHub Pages
 on:
   push:
     branches:
-    - main
-  pull_request:
-    branches:
-    - main
+      - main
 
 jobs:
-  deploy:
+  build:
+    name: Deploy docs
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-python@v2
-        with:
-          python-version: 3.x
-      - run: pip install -U git+https://github.com/mkdocs/mkdocs.git#egg=mkdocs
-      - run: pip install mkdocs-material mkdocs-markdownextradata-plugin mkdocs-minify-plugin
-      - run: mkdocs gh-deploy --force
-      - run: mkdocs --version
+      - name: Checkout main
+        uses: actions/checkout@v2
+
+      - name: Deploy docs
+        uses: mhausenblas/mkdocs-deploy-gh-pages@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.DOCS_GITHUB_TOKEN }}
+          CONFIG_FILE: mkdocs.yml
+          EXTRA_PACKAGES: build-base
+          REQUIREMENTS: mkdocs/requirements.txt

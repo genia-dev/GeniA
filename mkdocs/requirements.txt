@@ -1,0 +1,3 @@
+mkdocs-material 
+mkdocs-markdownextradata-plugin 
+mkdocs-minify-plugin
