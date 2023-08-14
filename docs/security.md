@@ -7,4 +7,3 @@ On the subject of secrets management, the project currently utilizes environment
 **We presently advise the integration of GeniA within a designated private channel, accessible exclusively to a whitelist of approved engineers.**
 
 We are actively developing Single Sign-On (SSO) and Role-Based Access Control (RBAC) features for GeniA. These enhancements are slated for release in the near future.
-
