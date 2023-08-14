@@ -1,7 +1,6 @@
-## Supported Tools
 
+This is where the power of the community comes in! we need your help and support teaching GeniA more tools and best practices. adding more tools is super easy and fun!
 <p align="center">
-<br/>
 <br/>
    <img src="../media/genia_diagram.png"/>
 <br/>
