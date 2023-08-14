@@ -13,9 +13,8 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Deploy docs
-        uses: mhausenblas/mkdocs-deploy-gh-pages@master
+        uses: mhausenblas/mkdocs-deploy-gh-pages@1.26
         env:
-          GITHUB_TOKEN: ${{ secrets.DOCS_GITHUB_TOKEN }}
           CONFIG_FILE: mkdocs.yml
           EXTRA_PACKAGES: build-base
           REQUIREMENTS: mkdocs/requirements.txt
