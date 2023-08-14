@@ -16,4 +16,4 @@ jobs:
             pip install mkdocs
             mkdocs --version
             pip install mkdocs-material mkdocs-markdownextradata-plugin mkdocs-minify-plugin
-            mkdocs gh-deploy --theme material --force
+            mkdocs gh-deploy --force
