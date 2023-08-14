@@ -15,13 +15,12 @@ GeniA is an AI assistant developed for engineering tasks. GeniA is a dynamic, in
 
 ## 📝 Table of Contents
 
-1. [🎉 Introduction](#introduction)  
-2. [▶️ Getting started](#getting-started)    
+1. [🎉 Introduction](#introduction)
+2. [▶️ Getting started](#getting-started)
 3. [🤝 Contributing](#contributing)
 4. [📜 License](#license)
 5. [📞 Contact](#contact)
 6. [🚀 Future Plans](#future-plans)
-
 
 Full documentation can be found [here](https://genia-dev.github.io/GeniA/)
 
@@ -45,45 +44,44 @@ we have set ourselves the goal of building a production-grade software right off
 
 Deployment, troubleshooting, log summarization, build initiation, PR digesting
 
-* `Deploy your k8s-based service to staging/production using Argo`
-* `Investigate the cause of the last Argo deployment failure`
-* `Summarize the recent logs from your Node.js service`
-* `Initiate a new Jenkins build`
-* `Summarize GitHub pull request along with its content`
+* Deploy your k8s-based service to staging/production using Argo
+* Investigate the cause of the last Argo deployment failure
+* Summarize the recent logs from your Node.js service
+* Initiate a new Jenkins build
+* Summarize GitHub pull request along with its content
 
 #### FinOps Shift-Left
 
 Reporting on unused resources, optimising cloud expenditure.
 
-* `Generate a report detailing unutilized cloud resources per team and share it on Slack`
-* `Create a usage report for AWS ECR (Amazon Elastic Container Registry) to identify potential cost-saving opportunities`
+* Generate a report detailing unutilized cloud resources per team and share it on Slack
+* Create a usage report for AWS ECR (Amazon Elastic Container Registry) to identify potential cost-saving opportunities
 
 #### SecOps Shift-Left
 
 Vulnerability checks, best practices, playbooks.
 
-* `Conduct a security vulnerability analysis on your S3 buckets`
-* `Grant me temporary production permissions (Add me temporarily to an IAM user group with auditing)`
+* Conduct a security vulnerability analysis on your S3 buckets
+* Grant me temporary production permissions (Add me temporarily to an IAM user group with auditing)
 
 #### SRE Shift-Left
 
 lower your MTTR, Service usage monitoring, service optimization.
 
-* `Examine my service usage metrics for any anomalies`
-* `Increase the memory for my Node service deployed on a k8s cluster`
+* Examine my service usage metrics for any anomalies
+* Increase the memory for my Node service deployed on a k8s cluster
 
 #### DevOps Shift-Left
 
 Scaling services, managing EC2 instances and cron jobs, coding utilities.
 
-* `Scale out my Node.js k8s-based service`
-* `Identify unlabeled EC2 instances`
-* `Set up a cron job to trigger a task`
-* `Develop code for a new utility and deploy my 'automate this task' snippet to a lambda function`
-* `Trigger any of my company's predefined playbooks`
+* Scale out my Node.js k8s-based service
+* Identify unlabeled EC2 instances
+* Set up a cron job to trigger a task
+* Develop code for a new utility and deploy my 'automate this task' snippet to a lambda function
+* Trigger any of my company's predefined playbooks
 
 <p align="center">
-<br/>
 <br/>
    <img src="media/Genia_in_a_war_room.gif"/>
 <br/>
