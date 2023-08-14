@@ -1,19 +1,19 @@
-name: Publish docs via GitHub Pages   
+name: Deploy Docs
 on:
   push:
     branches:
-      - main
+    - main
+
 jobs:
-  build:
-    name: Deploy docs
+  deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout main
-        uses: actions/checkout@v2
-
-      - name: Deploy docs
-        uses: mhausenblas/mkdocs-deploy-gh-pages@1.26
-        env:
-          CONFIG_FILE: mkdocs.yml
-          EXTRA_PACKAGES: build-base
-          REQUIREMENTS: mkdocs/requirements.txt
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: 3.x
+      - run: pip install -U git+https://github.com/mkdocs/mkdocs.git#egg=mkdocs
+      - run: mkdocs --version
+      - run: pip install mkdocs-material mkdocs-markdownextradata-plugin mkdocs-minify-plugin
+      - run: mkdocs gh-deploy --theme material
+      
