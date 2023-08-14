@@ -7,7 +7,7 @@ For the Slack GPT Bot to function effectively, it's crucial to establish the cor
 !!! note 
     When it comes to [Choosing a protocol to connect to Slack](https://api.slack.com/apis/connections), there are two primary options. In this instance, we utilize `Socket Mode`, enabling your app to leverage the `Events API` and the platform's interactive components without the need for a public HTTP Request URL. Instead of sending payloads to a public endpoint, Slack employs a WebSocket URL to communicate with your app.
 
-1. In the project's root directory, mv the [.env.template](./.env.template) into `.env` file and input your Slack keys
+1. In the project's root directory, mv the [.env.template](https://github.com/genia-dev/GeniA/blob/main/.env.template) into `.env` file and input your Slack keys
 2. Create a new [Slack App](https://api.slack.com/authentication/basics).
 3. Navigate to your [Slack API Dashboard](https://api.slack.com/apps) and select the app you've created for this bot.
 4. On the left-hand side menu, click on `OAuth & Permissions`.
