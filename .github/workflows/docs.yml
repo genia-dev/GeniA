@@ -12,7 +12,7 @@ jobs:
       - uses: actions/setup-python@v2
         with:
           python-version: 3.x
-      - run: >
+      - run: |
             pip install mkdocs
             mkdocs --version
             pip install mkdocs-material mkdocs-markdownextradata-plugin mkdocs-minify-plugin
