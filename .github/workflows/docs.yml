@@ -16,6 +16,6 @@ jobs:
         with:
           python-version: 3.x
       - run: pip install -U git+https://github.com/mkdocs/mkdocs.git#egg=mkdocs
-      - run: pip install mkdocs-material
+      - run: pip install mkdocs-material mkdocs-markdownextradata-plugin mkdocs-minify-plugin
       - run: mkdocs gh-deploy --force
       - run: mkdocs --version
