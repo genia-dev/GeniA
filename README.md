@@ -22,7 +22,7 @@ GeniA is an AI assistant developed for engineering tasks. GeniA is a dynamic, in
 5. [📞 Contact](#contact)
 6. [🚀 Future Plans](#future-plans)
 
-Full documentation can be found [here](https://genia-dev.github.io/GeniA/)
+#### Full documentation can be found [here](https://genia-dev.github.io/GeniA/)
 
 ## Introduction
 
@@ -130,3 +130,5 @@ You can see details [here](./.github/ISSUE_TEMPLATE/submit-a-request.md).
 - OKTA integration for SSO.
 - RBAC Support.
 - Extending capabilities with thousands of new tools.
+
+#### Full documentation can be found [here](https://genia-dev.github.io/GeniA/)
