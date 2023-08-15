@@ -103,11 +103,12 @@ Then you can run the streamlit web app by:
 genia
 ```
 
-For more details jump to [docs](https://genia-dev.github.io/GeniA/getting-started/)
+For more details please see our [documentation here](https://genia-dev.github.io/GeniA/getting-started/)
+Once installed and granted with permissions, a few great example scenarios [can be found here](./media/)
 
 # Contributing
-
-👩‍💻➕👨‍💻 Fork GeniA repository, make your changes, and submit a pull request! We appreciate your contributions! 🙌🌟💖
+We would appreciate your contributions! 🙌🌟💖
+👩‍💻➕👨‍💻 Fork GeniA repository, make your changes, and submit a pull request! 
 More details can be found [here](./CONTRIBUTING.md).
 
 # License
