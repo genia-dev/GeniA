@@ -109,7 +109,7 @@ markdown_extensions:
 # Page tree
 nav:
   - Home: index.md
-  - Documentations:
+  - Documentation:
     - Introduction: introduction.md
     - Getting started: getting-started.md
     - Supported Tools: supported-tools.md
