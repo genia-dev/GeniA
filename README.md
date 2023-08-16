@@ -87,13 +87,13 @@ Scaling services, managing EC2 instances and cron jobs, coding utilities.
 * Develop code for a new utility and deploy my 'automate this task' snippet to a lambda function
 * Trigger any of my company's predefined playbooks
 
+<br/>
 <p float="center">
    <img src="media/Genia_in_a_war_room.gif"/>
 </p>
 
 ### Many more great examples [can be found here](./media/)
 
-<br/>
 
 ## Getting Started
 
