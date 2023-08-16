@@ -44,6 +44,7 @@ we have set ourselves the goal of building a production-grade software right off
    <img src="media/Genia_agents.png"/>
 </p>
 <br/>
+
 ### Imagine a virtual asisstant empowering you with:
 
 #### Research & Development Scenarios
