@@ -3,7 +3,7 @@
 
 <p align=center>
    <a href="https://genia.dev" target="_blank">
-      <img src="./media/GeniA_wide.png"/>
+      <img src="./media/genia_title.png"/>
    </a>
 </p>
 <br>
@@ -81,17 +81,21 @@ Scaling services, managing EC2 instances and cron jobs, coding utilities.
 * Develop code for a new utility and deploy my 'automate this task' snippet to a lambda function
 * Trigger any of my company's predefined playbooks
 
-<p align="center">
-<br/>
+<p float="center">
    <img src="media/Genia_in_a_war_room.gif"/>
-<br/>
 </p>
 
 ### Many more great examples [can be found here](./media/)
 
 <br/>
 
-# Getting Started
+## Architecture
+
+<p float="center">
+   <img src="media/Genia_agents.png"/>
+</p>
+
+## Getting Started
 
 ```
 pip3 install streamlit genia
@@ -106,12 +110,12 @@ genia
 For more details please see our [documentation here](https://genia-dev.github.io/GeniA/getting-started/)
 Once installed and granted with permissions, a few great example scenarios [can be found here](./media/)
 
-# Contributing
+## Contributing
 We would appreciate your contributions! 🙌🌟💖
 👩‍💻➕👨‍💻 Fork GeniA repository, make your changes, and submit a pull request! 
 More details can be found [here](./CONTRIBUTING.md).
 
-# License
+## License
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
 
@@ -121,12 +125,12 @@ Unless required by applicable law or agreed to in writing, software distributed 
 
 [LICENSE](./LICENSE)
 
-# Contact
+## Contact
 
 Got an idea to improve our project? We'd love to hear it and collaborate with you. Don't hesitate to reach out to us! Just open an [issue](https://github.com/GeniA-dev/GeniA/issues) and GeniA will respond to you 🦸‍♀️🦸‍♂️ !
 You can see details [here](./.github/ISSUE_TEMPLATE/submit-a-request.md).
 
-# Future Plans
+## Future Plans
 
 - OKTA integration for SSO.
 - RBAC Support.
