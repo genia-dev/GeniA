@@ -38,6 +38,12 @@ Built with love by engineers for engineers, our goal is to help teams harness th
 
 we have set ourselves the goal of building a production-grade software right off the bat. Now, you can start working with GeniA in production by installing the GeniA container, integrate it into your team's Slack channel, and let it land on its feet running.
 
+## Architecture
+
+<p float="center">
+   <img src="media/Genia_agents.png"/>
+</p>
+<br/>
 ### Imagine a virtual asisstant empowering you with:
 
 #### Research & Development Scenarios
@@ -89,12 +95,6 @@ Scaling services, managing EC2 instances and cron jobs, coding utilities.
 
 <br/>
 
-## Architecture
-
-<p float="center">
-   <img src="media/Genia_agents.png"/>
-</p>
-
 ## Getting Started
 
 ```
@@ -111,8 +111,9 @@ For more details please see our [documentation here](https://genia-dev.github.io
 Once installed and granted with permissions, a few great example scenarios [can be found here](./media/)
 
 ## Contributing
+
 We would appreciate your contributions! 🙌🌟💖
-👩‍💻➕👨‍💻 Fork GeniA repository, make your changes, and submit a pull request! 
+👩‍💻➕👨‍💻 Fork GeniA repository, make your changes, and submit a pull request!
 More details can be found [here](./CONTRIBUTING.md).
 
 ## License
