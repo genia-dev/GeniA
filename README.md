@@ -8,9 +8,9 @@
 </p>
 <br>
 <p>
-Imagine a ChatGPT integrated with your team's tools and APIs, capable of executing tasks and handling queries independently, contributing to time and energy efficiency.
-<br><br>
-GeniA is an AI assistant developed for engineering tasks. GeniA is a dynamic, intuitive tool capable of managing tasks in your team's Slack channel.
+Imagine a new AI team member familiar with your team's tools and APIs, both industry latest best practices, yet knows how you run things on your team. it is capable of learning and executing tasks for you, making more impact. faster.
+<br>
+GeniA is intuitive yet powerful, a quick learner and right in your team's Slack channel.
 </p>
 
 ## 📝 Table of Contents
@@ -38,6 +38,14 @@ Built with love by engineers for engineers, our goal is to help teams harness th
 
 we have set ourselves the goal of building a production-grade software right off the bat. Now, you can start working with GeniA in production by installing the GeniA container, integrate it into your team's Slack channel, and let it land on its feet running.
 
+### Project philosopy
+
+"... And, a human on a bicycle, blew the condor away, completely off the top of the charts. that’s what a computer is to me. What a computer is to me is it’s the most remarkable tool that we’ve ever come up with"
+
+-*someone*
+
+Genia can ride a bicycle.
+
 ## Architecture
 
 <p float="center">
@@ -45,7 +53,7 @@ we have set ourselves the goal of building a production-grade software right off
 </p>
 <br/>
 
-## Imagine a virtual agent empowering you with:
+## Imagine a new AI team member helping you with:
 
 #### Research & Development Scenarios
 
@@ -94,7 +102,6 @@ Scaling services, managing EC2 instances and cron jobs, coding utilities.
 </p>
 
 ### Many more great examples [can be found here](./media/)
-
 
 ## Getting Started
 
