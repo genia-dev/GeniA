@@ -1,6 +1,6 @@
 ### Videos playlist
 
-playlist of videos can be found [here](https://www.youtube.com/playlist?list=PLUv36s1rxlfPYZlwXEv67z5lYrNriZNh7)
+a playlist of videos can be found [here](https://www.youtube.com/playlist?list=PLUv36s1rxlfPYZlwXEv67z5lYrNriZNh7)
 
 ### GeniA can write code for you, learn it as a new skill and deploy it to a lambda to execute:
 
