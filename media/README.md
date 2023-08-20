@@ -1,8 +1,10 @@
+### Videos playlist
+
+playlist of videos can be found [here](https://www.youtube.com/playlist?list=PLUv36s1rxlfPYZlwXEv67z5lYrNriZNh7)
+
 ### GeniA can write code for you, learn it as a new skill and deploy it to a lambda to execute:
 
-<p float="center">
 [![Genia finds unlabelled resources](https://img.youtube.com/vi/n_l3by3a35c/hqdefault.jpg)](https://www.youtube.com/embed/n_l3by3a35c)
-</p>
 
 ### Imagine a virtual team member helping you with the following scenarios:
 
