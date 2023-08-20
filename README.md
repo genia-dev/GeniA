@@ -8,7 +8,7 @@
 </p>
 <br>
 <p>
-Imagine a new AI team member familiar with your team's tools and APIs, both industry latest best practices, yet knows how you run things on your team. it is capable of learning and executing tasks for you, making more impact. faster.
+Imagine a new AI team member familiar with your team's tools and APIs, It is up-to-date with the latest industry best practices, yet knows how you run things on your team. it is capable of learning and executing tasks for you, making more impact. faster.
 <br>
 GeniA is intuitive yet powerful, a quick learner and right in your team's Slack channel.
 </p>
