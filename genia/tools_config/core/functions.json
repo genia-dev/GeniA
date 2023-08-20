@@ -1091,5 +1091,31 @@
                 "region_name"
             ]
         }
+    },
+    {
+        "name": "security_scorecard",
+        "description": "API to interact with a project's published Scorecard result",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "platform": {
+                    "type": "string",
+                    "description": "VCS platform. eg. github.com"
+                },
+                "org": {
+                    "type": "string",
+                    "description": "Name of the owner/organization of the repository"
+                },
+                "repo": {
+                    "type": "string",
+                    "description": "The github repository name"
+                }
+            },
+            "required": [
+                "platform",
+                "org",
+                "repo"
+            ]
+        }
     }
 ]

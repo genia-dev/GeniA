@@ -317,3 +317,7 @@
   title: submit new argo workflow with specific image container
   class: genia.tools.argo.argo_client.ArgoClient
   method: submit_workflow
+
+- tool_name: security_scorecard
+  category: url
+  template: https://api.securityscorecards.dev/projects/{platform}/{org}/{repo}
