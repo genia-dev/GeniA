@@ -8,7 +8,8 @@
 </p>
 <br>
 <p>
-Imagine a new AI team member familiar with your team's tools and APIs, It is up-to-date with the latest industry best practices, yet knows how you run things on your team. it is capable of learning and executing tasks for you, making more impact. faster.
+Meet your new AI platofrm engineering team member, it is able to work along side you on your production enviroment, executing tasks on your behalf.
+It is up-to-date with the latest industry best practices, yet knows how you run things on your team. it is capable of learning and executing tasks for you, making more impact. faster.
 <br>
 GeniA is intuitive yet powerful, a quick learner and right in your team's Slack channel.
 </p>
@@ -61,9 +62,6 @@ Deployment, troubleshooting, log summarization, build initiation, PR digesting
 
 * Deploy your k8s-based service to staging/production using Argo
 * Investigate the cause of the last Argo deployment failure
-* Summarize the recent logs from your Node.js service
-* Initiate a new Jenkins build
-* Summarize GitHub pull request along with its content
 
 #### FinOps Shift-Left
 
@@ -77,24 +75,20 @@ Reporting on unused resources, optimising cloud expenditure.
 Vulnerability checks, best practices, playbooks.
 
 * Conduct a security vulnerability analysis on your S3 buckets
-* Grant me temporary production permissions (Add me temporarily to an IAM user group with auditing)
+* Grant me temporary permissions to production
 
 #### SRE Shift-Left
 
 lower your MTTR, Service usage monitoring, service optimization.
 
-* Examine my service usage metrics for any anomalies
+* Have a virtual SRE expert team member on your side during prduction outage troubleshooting
 * Increase the memory for my Node service deployed on a k8s cluster
 
 #### DevOps Shift-Left
 
 Scaling services, managing EC2 instances and cron jobs, coding utilities.
 
-* Scale out my Node.js k8s-based service
-* Identify unlabeled EC2 instances
-* Set up a cron job to trigger a task
-* Develop code for a new utility and deploy my 'automate this task' snippet to a lambda function
-* Trigger any of my company's predefined playbooks
+* upgrade EKS or ELK cluster version on staging and then on production
 
 <br/>
 <p float="center">
