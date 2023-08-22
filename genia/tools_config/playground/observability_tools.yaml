@@ -1,9 +1,9 @@
 - tool_name: fetch_grafana_observability_metrics
   category: python
-  class: genia.tools.graphana_mock.graphana_mock_client.GraphanaMockClient
+  class: genia.tools.grafana_mock.grafana_mock_client.GraphanaMockClient
   method: get_service_metrics
 
 - tool_name: fetch_grafana_observability_metric_data
   category: python
-  class: genia.tools.graphana_mock.graphana_mock_client.GraphanaMockClient
+  class: genia.tools.grafana_mock.grafana_mock_client.GraphanaMockClient
   method: get_service_metric_data
