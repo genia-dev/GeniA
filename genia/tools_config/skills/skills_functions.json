@@ -25,5 +25,14 @@
             "properties": {},
             "required": []
         }
+    },
+    {
+        "name": "troubleshoot_notification_service",
+        "description": "troubleshoot production outage of notification service",
+        "parameters": {
+            "type": "object",
+            "properties": {},
+            "required": []
+        }
     }
 ]

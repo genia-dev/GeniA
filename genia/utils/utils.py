@@ -64,4 +64,4 @@ def load_genia_home():
     if os.environ.get("GENIA_HOME") is not None:
         return os.environ.get("GENIA_HOME")
     else:
-        return os.path.dirname(os.getcwd()) + "/"
+        return os.path.dirname(os.getcwd()) + "/GeniA/"

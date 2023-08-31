@@ -1,7 +1,9 @@
-
-- category: skill
+- tool_name: grant_production_permissions
+  category: skill
   title: grant temporary production permissions
-  tool_name: grant_production_permissions
-- category: skill
+- tool_name: revoke_production_permissions
+  category: skill
   title: revoke production permissions
-  tool_name: revoke_production_permissions
+- tool_name: troubleshoot_notification_service
+  category: skill
+  agent: SRE

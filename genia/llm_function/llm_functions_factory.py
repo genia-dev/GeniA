@@ -1,4 +1,5 @@
 import logging
+from genia.llm_function.agent_skill_function import AgentSkillFunction
 
 from genia.llm_function.llm_function import LLMFunction
 from genia.llm_function.llm_function_repository import LLMFunctionRepository
@@ -13,14 +14,17 @@ class LLMFunctionFactory:
 
     def create_function(self, category: str, function_repository: LLMFunctionRepository) -> LLMFunction:
         self.logger.debug("create_function with category: %s", category)
-        if category.lower() == "url":
+        lower_category = category.lower()
+        if lower_category == "url":
             fun = URLFunction()
-        elif category.lower() == "python":
+        elif lower_category == "python":
             fun = PythonFunction()
-        elif category.lower() == "open_api":
+        elif lower_category == "open_api":
             fun = OpenApiFunction()
-        elif category.lower() == "skill":
+        elif lower_category == "skill":
             fun = SkillFunction(function_repository)
+        elif lower_category == "agent_skill":
+            fun = AgentSkillFunction(function_repository)
         else:
             raise ValueError("category is not supported:" + category)
         return fun

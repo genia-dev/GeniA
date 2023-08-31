@@ -23,21 +23,5 @@
                 "metric_name"
             ]
         }
-    },
-    {
-        "name": "fetch_grafana_observability_metrics",
-        "description": "fetch service metrics names from graphana, useful when troubleshooting a service problem",
-        "parameters": {
-            "type": "object",
-            "properties": {
-                "service_name": {
-                    "type": "string",
-                    "description": "The name of the service"
-                }
-            },
-            "required": [
-                "service_name"
-            ]
-        }
     }
 ]
