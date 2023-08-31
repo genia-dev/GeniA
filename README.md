@@ -35,6 +35,10 @@ While ChatGPT and CoPilot have garnered significant attention for their ability 
 
 Built with love by engineers for engineers, our goal is to help teams harness the power of LLMs to boost how fast you can go!
 
+### GeniA can be expanded
+
+GeniA is designed to be a fast learner, quickly acquiring the ability to utilize your customized tools. We've streamlined the learning process to make it as straightforward as possible. You can find instructions on how to teach GeniA to use additional tools [here](https://genia-dev.github.io/GeniA/add-new-tool/).
+
 ### GeniA is Production grade
 
 we have set ourselves the goal of building a production-grade software right off the bat. Now, you can start working with GeniA in production by installing the GeniA container, integrate it into your team's Slack channel, and let it land on its feet running.
@@ -47,7 +51,7 @@ we have set ourselves the goal of building a production-grade software right off
 
 Genia can ride a bicycle.
 
-## Architecture
+### Architecture
 
 <p float="center">
    <img src="media/Genia_agents.png"/>
