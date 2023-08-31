@@ -10,7 +10,11 @@ class URLFunction(LLMFunction):
     logger = logging.getLogger(__name__)
 
     def evaluate(self, function_config: dict, parameters: dict) -> Any:
-        return requests.get(self.format_url(function_config, parameters)).json()
+        response = requests.get(self.format_url(function_config, parameters))
+        try:
+            return response.json()
+        except ValueError:
+            return response.text
 
     def format_url(self, function_config: dict, parameters: dict = {}):
         url = function_config["template"]

@@ -9,4 +9,4 @@
 
 - tool_name: fetch_k8s_service_log_data
   category: url
-  template: https://raw.githubusercontent.com/genia-dev/GeniA/main/data/demo/logs/{log_name}.log
+  template: https://raw.githubusercontent.com/genia-dev/GeniA/main/data/demo/logs/{log_name}.txt
