@@ -6,7 +6,7 @@ timeout=45
 temperature=0
 
 [chat]
-max_user_message_chain=20
+max_user_message_chain=10
 max_chat_tokens=4000
 # note the limit is in length, not number of tokens
 max_chat_function_len=4000

@@ -1,0 +1,4 @@
+August 31, 2023 1:27:12 node-01 kubelet[12345]: I0628 1:27:12.456789 node-01 kubelet[12345]: OOMKilling POD uid: "b1234c56-d78e-11e9-8a28-0242ac110002", name: "notification-service-pod", namespace: "my-namespace", container: "notification-service-container", Memory cgroup out of memory: Kill process 5678 (notification-service-container) score 1000 or sacrifice child
+August 31, 2023 1:27:12 node-01 kernel: [345678.123456] Memory cgroup out of memory: Kill process 5678 (notification-service-container) score 1000 or sacrifice child
+August 31, 2023 1:27:12 node-01 kernel: [345678.123457] Killed process 5678 (notification-service-container) total-vm:123456kB, anon-rss:12345kB, file-rss:0kB, shmem-rss:0kB
+August 31, 2023 1:27:12 node-01 kubelet[12345]: I0628 1:27:12.456799 node-01 kubelet[12345]: pod "notification-service-pod_my-namespace(b1234c56-d78e-11e9-8a28-0242ac110002)" failed due to OOM Killer.
