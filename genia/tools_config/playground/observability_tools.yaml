@@ -1,4 +1,12 @@
-- tool_name: fetch_grafana_observability_metric_data
+- tool_name: fetch_grafana_observability_metric_data_old
   category: python
   class: genia.tools.grafana_mock.grafana_mock_client.GraphanaMockClient
   method: get_service_metric_data
+
+- tool_name: fetch_grafana_observability_metric_data
+  category: url
+  template: https://raw.githubusercontent.com/genia-dev/GeniA/main/data/demo/metrics/{metric_name}.json
+
+- tool_name: fetch_k8s_service_log_data
+  category: url
+  template: https://raw.githubusercontent.com/genia-dev/GeniA/main/data/demo/logs/{log_name}.log

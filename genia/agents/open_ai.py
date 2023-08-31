@@ -12,6 +12,9 @@ from genia.settings_loader import settings
 class OpenAIAgent(Agent):
     logger = logging.getLogger(__name__)
 
+    def __init__(self, model=settings["openai"]["OPENAI_MODEL"]):
+        self._model = model
+
     @retry(
         stop=stop_after_attempt(3),
         retry=retry_if_exception_type((Timeout, TryAgain, APIError, APIConnectionError)),

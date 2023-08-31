@@ -25,7 +25,6 @@ from genia.utils.utils import safe_loads
 class OpenAIChat(OpenAIAgent):
     logger = logging.getLogger(__name__)
 
-    _model: str
     _llm_functions_repository: LLMFunctionRepository
     _llm_function_factory: LLMFunctionFactory
     _llm_conversation_service: LLMConversationService
@@ -50,7 +49,7 @@ class OpenAIChat(OpenAIAgent):
         llm_token_limiter=TokenLimiterOpenAI(),
         function_lookup_strategy: LLMFunctionLookupStrategy = None,
     ):
-        self._model = model
+        super().__init__(model)
         self._llm_function_factory = llm_function_factory
         self._llm_functions_repository = llm_functions_repository
         self._llm_conversation_service = llm_conversation_service
