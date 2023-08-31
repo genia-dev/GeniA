@@ -89,4 +89,9 @@ def slack():
 
 
 if __name__ == "__main__":
-    streamlit()
+    if settings.genia.app == "local":
+        local()
+    elif settings.genia.app == "slack":
+        slack()
+    else:
+        streamlit()

@@ -40,3 +40,6 @@ workers=4
 # tools list includes name and description which may cause token costs
 size_of_all_tools_request=12
 similarity_search_size=5
+
+[genia]
+app="streamlit"
