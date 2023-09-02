@@ -9,7 +9,7 @@ from genia.agents.agent import Agent
 from genia.settings_loader import settings
 
 
-class OpenAIAgent(Agent):
+class OpenAIToolsEmpoweredAgent(Agent):
     logger = logging.getLogger(__name__)
 
     def __init__(self, model=settings["openai"]["OPENAI_MODEL"]):

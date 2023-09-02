@@ -1,10 +1,12 @@
 import logging
 
 from traitlets import Any
-from genia.agents.open_ai import OpenAIAgent
+from genia.agents.open_ai import OpenAIToolsEmpoweredAgent
+from genia.conversation.llm_conversation import LLMConversation
 
 from genia.llm_function.llm_function import LLMFunction
 from genia.llm_function.llm_function_repository import LLMFunctionRepository
+from genia.llm_function_lookup_strategy.llm_function_lookup_strategy import LLMFunctionLookupStrategy
 from genia.settings_loader import settings
 
 
@@ -12,10 +14,21 @@ class AgentSkillFunction(LLMFunction):
     logger = logging.getLogger(__name__)
 
     _function_repository: LLMFunctionRepository
+    _llm_conversation: LLMConversation
+    _function_lookup_strategy: LLMFunctionLookupStrategy
+    _agent: OpenAIToolsEmpoweredAgent
 
-    def __init__(self, function_repository: LLMFunctionRepository):
+    def __init__(
+        self,
+        function_repository: LLMFunctionRepository,
+        llm_conversation: LLMConversation,
+        function_lookup_strategy: LLMFunctionLookupStrategy,
+        agent: OpenAIToolsEmpoweredAgent,
+    ):
         self._function_repository = function_repository
-        self._model = OpenAIAgent()
+        self._llm_conversation = llm_conversation
+        self._function_lookup_strategy = function_lookup_strategy
+        self._agent = agent
 
     def evaluate(self, function_config: dict, parameters: dict) -> Any:
         tool_name = function_config["tool_name"]
@@ -35,7 +48,5 @@ class AgentSkillFunction(LLMFunction):
             # {"role": "system", "content": planner_agent_prompt},
             {"role": "user", "content": skill},
         ]
-        llm_conversation = parameters["llm_conversation"]
-        function_lookup_strategy = parameters["function_lookup_strategy"]
-        functions = function_lookup_strategy.find_potential_tools(llm_conversation)
-        return self._model.call_model(messages, functions, "none")
+        functions = self._function_lookup_strategy.find_potential_tools(self._llm_conversation)
+        return self._agent.call_model(messages, functions, "none")

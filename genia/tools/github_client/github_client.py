@@ -4,7 +4,7 @@ from urllib.parse import urlparse
 
 from github import Github, InputGitTreeElement
 
-from genia.agents.open_ai import OpenAIAgent
+from genia.agents.open_ai import OpenAIToolsEmpoweredAgent
 from genia.settings_loader import settings
 
 
@@ -14,7 +14,7 @@ class GithubClient:
     def __init__(self, access_token=None):
         if access_token is None:
             self.access_token = os.getenv("GITHUB_PERSONAL_ACCESS_TOKEN")
-        self._model = OpenAIAgent()
+        self._model = OpenAIToolsEmpoweredAgent()
 
     def get_token(self):
         return self.access_token

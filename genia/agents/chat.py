@@ -6,10 +6,9 @@ from langchain.embeddings import OpenAIEmbeddings
 from openai.error import InvalidRequestError, RateLimitError, ServiceUnavailableError, TryAgain
 from tenacity import retry, retry_if_exception_type, stop_after_attempt, wait_random_exponential
 
-from genia.agents.open_ai import OpenAIAgent
+from genia.agents.open_ai import OpenAIToolsEmpoweredAgent
 from genia.conversation.llm_conversation import LLMConversation, LLMConversationService
 from genia.conversation.llm_conversation_in_memory_repository import LLMConversationInMemRepository
-from genia.llm_function.agent_skill_function import AgentSkillFunction
 from genia.llm_function.llm_function_repository import LLMFunctionRepository
 from genia.llm_function.llm_functions_factory import LLMFunctionFactory
 from genia.llm_function_lookup_strategy.llm_function_lookup_strategy import (
@@ -22,7 +21,7 @@ from genia.tool_validators.llm_tool_validator import LLMToolValidator
 from genia.utils.utils import safe_loads
 
 
-class OpenAIChat(OpenAIAgent):
+class OpenAIChat(OpenAIToolsEmpoweredAgent):
     logger = logging.getLogger(__name__)
 
     _llm_functions_repository: LLMFunctionRepository
@@ -43,7 +42,7 @@ class OpenAIChat(OpenAIAgent):
             ),
             FAISS,
         ),
-        llm_function_factory=LLMFunctionFactory(),
+        llm_function_factory=LLMFunctionFactory(OpenAIToolsEmpoweredAgent()),
         llm_conversation_service=LLMConversationService(LLMConversationInMemRepository()),
         llm_tools_validator=LLMToolValidator(),
         llm_token_limiter=TokenLimiterOpenAI(),
@@ -157,16 +156,16 @@ class OpenAIChat(OpenAIAgent):
                 raise TryAgain
             raise e
 
-    def _llm_function_call(self, llm_conversation, function_name, function_arguments, llm_matching_tool):
+    def _llm_function_call(self, llm_conversation: LLMConversation, function_name, function_arguments, llm_matching_tool):
         self.logger.debug("Invoking: '%s' with the arguments: %s", function_name, function_arguments)
         self._llm_conversation_service.add_assistant_function_call_message(
             llm_conversation, function_name, function_arguments
         )
         llm_function = self._llm_function_factory.create_function(
-            llm_matching_tool.get("category"), self._llm_functions_repository
+            llm_matching_tool.get("category"),
+            self._llm_functions_repository,
+            llm_conversation,
+            self._function_lookup_strategy,
         )
-        if isinstance(llm_function, AgentSkillFunction):
-            function_arguments["llm_conversation"] = llm_conversation
-            function_arguments["function_lookup_strategy"] = self._function_lookup_strategy
         function_response = str(llm_function.evaluate(llm_matching_tool, function_arguments))
         return self._llm_token_limiter.limit_function_response_tokens(function_response)
