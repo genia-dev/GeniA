@@ -5,5 +5,5 @@
   category: skill
   title: revoke production permissions
 - tool_name: troubleshoot_notification_service
-  category: skill
+  category: agent_skill
   agent: SRE
