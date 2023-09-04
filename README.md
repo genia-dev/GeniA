@@ -96,7 +96,7 @@ Scaling services, managing EC2 instances and cron jobs, coding utilities.
 
 ### Demo: GeniA troubleshoots a production incident
 
-[![Genia finds unlabelled resources](https://img.youtube.com/vi/GDqLA2WZbRA/hqdefault.jpg)](https://youtu.be/GDqLA2WZbRA)
+https://github.com/genia-dev/GeniA/assets/16246393/8928cafa-b96b-4469-b393-b37635621624
 
 ### Many more great examples [can be found here](./media/)
 
