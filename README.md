@@ -49,9 +49,8 @@ we have set ourselves the goal of building a production-grade software right off
 
 -*someone*
 
-Genia can ride a bicycle.
 
-### Architecture
+### Workflow
 
 <p float="center">
    <img src="media/Genia_agents.png"/>
