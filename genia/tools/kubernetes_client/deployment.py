@@ -28,7 +28,7 @@ class KubernetesDeployment:
         self.api_client_core = KubernetesClient().get_core_api_client()
         self.api_client_apps = KubernetesClient().get_apps_client()
 
-    def describe_deployment(self, namespace, deployment_name):
+    def describe_deployment(self, deployment_name, namespace="default"):
         deployment = self.api_client_apps.read_namespaced_deployment(name=deployment_name, namespace=namespace)
 
         name = deployment.metadata.name

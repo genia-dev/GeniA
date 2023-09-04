@@ -3,10 +3,7 @@ To troubleshoot a service in production, follow these steps:
 1. call function 'fetch_grafana_observability_metric_data' serially to fetch all the Grafana service metrics data with the problematic service name and each time with one of the following metric name: cpu, memory, cluster_size and k8s_crash_loopbacks, look at each of the data sets in each step seperately and detect anomalies by comparing the last 5 minutes to the preceding 25 minutes average and standard deviation, look for z-score greater than 3 or less than -3 for this metrics data, validate you have the right answer.
 2. the service consumes from a kafka queue, call function 'fetch_grafana_observability_metric_data' using its key metric 'kafka_lag_size' which means the number of input messages waiting in the queue to be handled by the service
 3. call function 'fetch_k8s_service_log_data' with the problematic service name and log name 'node-ui-service-k8s-logs' and look for k8s errors that might have caused the issue
-4. print your finding in 3 sections:
-Report:
-for each data collected print the name and short description of the findings
-Insights summary:
-short summary and insights of the findings
-Recommendations: 
-suggest the user what should be done next
+4. print your findings, in 3 sections below and transform epoch to time iso format:
+    a. Report: for each data collected print the name and short description of the findings
+    b. Insights summary: short summary and insights of the findings
+    c. Recommendations: suggest the user what should be done next

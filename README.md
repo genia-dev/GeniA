@@ -93,11 +93,11 @@ lower your MTTR, Service usage monitoring, service optimization.
 Scaling services, managing EC2 instances and cron jobs, coding utilities.
 
 * upgrade EKS or ELK cluster version on staging and then on production
-
 <br/>
-<p float="center">
-   <img src="media/Genia_in_a_war_room.gif"/>
-</p>
+
+### Demo: GeniA troubleshoots a production incident
+
+[![Genia finds unlabelled resources](https://img.youtube.com/vi/GDqLA2WZbRA/hqdefault.jpg)](https://youtu.be/GDqLA2WZbRA)
 
 ### Many more great examples [can be found here](./media/)
 

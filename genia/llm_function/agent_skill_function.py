@@ -58,7 +58,10 @@ class AgentSkillFunction(LLMFunction):
             new_task = tasks_list.popleft()
             # Send to execution function to complete the task based on the context
             agents_ctx.append({"role": "user", "content": new_task["task"]})
-            result = self.execution_agent(agents_ctx, agent_name)
+            if len(tasks_list) > 0:
+                result = self.execution_agent(agents_ctx, agent_name)
+            else:
+                result = self.execution_agent(agents_ctx, agent_name)
             agents_ctx.append({"role": "assistant", "content": result})
 
         return result
@@ -177,4 +180,16 @@ class AgentSkillFunction(LLMFunction):
         self.logger.debug(model_response_txt)
 
         tasks = model_response_txt.strip().split("\n")
-        return [{"task": task} for task in tasks if re.match(r"^\d+\.", task)]
+        # tasks = re.split(r'\n(?=\d+\.)', model_response_txt.strip())
+
+        final_tasks = []
+        # Iterate through the lines and append non-numbered lines to the previous line
+        for line in tasks:
+            line = line.strip()
+            if line and not line[0].isdigit():
+                if final_tasks:
+                    final_tasks[-1] += "\n" + line
+            else:
+                final_tasks.append(line)
+
+        return [{"task": task} for task in final_tasks if re.match(r"^\d+\.", task)]

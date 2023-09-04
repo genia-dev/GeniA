@@ -518,11 +518,10 @@
                 },
                 "deployment_name": {
                     "type": "string",
-                    "description": "The Kubernetes deployment name in specific namespace"
+                    "description": "The Kubernetes deployment name"
                 }
             },
             "required": [
-                "namespace",
                 "deployment_name"
             ]
         }
