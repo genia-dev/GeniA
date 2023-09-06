@@ -8,7 +8,7 @@ a playlist of videos can be found [here](https://www.youtube.com/playlist?list=P
 
 ### Imagine a virtual team member helping you with the following scenarios:
 
-R&D scenarios
+#### R&D scenarios
 
 * `rollout your k8s based service to staging/production using argo`
 * `why did my last argo deploy failed?`
@@ -26,7 +26,7 @@ R&D scenarios
 <br/>
 </p>
 
-Finops shift left
+#### Finops shift left
 
 * `generate report for unutilized cloud resources per team owner to team slack`
 * `generate usage report for AWS ECR (Amazon Elastic Container Registry) to find cost saving opportunities`
@@ -41,7 +41,7 @@ Finops shift left
 <br/>
 </p>
 
-Secops shift left
+#### Secops shift left
 
 * `look for security vulnerabilities over my s3 buckets`
 * `grant me with production permissions (temporarily add me to an IAM user group with auditing)`
@@ -56,7 +56,7 @@ Secops shift left
 <br/>
 </p>
 
-SRE shift left
+#### SRE shift left
 
 * `look at my metrics for service usage anomalies`
 * `increase the memory for my node service deployed on k8s cluster`
@@ -71,7 +71,7 @@ SRE shift left
 <br/>
 </p>
 
-Devops shift left
+#### Devops shift left
 
 * `scale out my (node.js k8s based) service`
 * `find unlabled EC2 instances`
