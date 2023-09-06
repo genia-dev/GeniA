@@ -6,6 +6,10 @@ a playlist of videos can be found [here](https://www.youtube.com/playlist?list=P
 
 [![Genia finds unlabelled resources](https://img.youtube.com/vi/n_l3by3a35c/hqdefault.jpg)](https://www.youtube.com/embed/n_l3by3a35c)
 
+### GeniA troubleshoots a production incident
+
+[![Genia finds unlabelled resources](https://img.youtube.com/vi/GDqLA2WZbRA/hqdefault.jpg)](https://youtu.be/GDqLA2WZbRA)
+
 ### Imagine a virtual team member helping you with the following scenarios:
 
 #### R&D scenarios

@@ -49,7 +49,6 @@ we have set ourselves the goal of building a production-grade software right off
 
 -*someone*
 
-
 ### Workflow
 
 <p float="center">
@@ -65,6 +64,7 @@ Deployment, troubleshooting, log summarization, build initiation, PR digesting
 
 * Deploy your k8s-based service to staging/production using Argo
 * Investigate the cause of the last Argo deployment failure
+* [Additional examples](./media/README.md#rd-scenarios)
 
 #### FinOps Shift-Left
 
@@ -72,6 +72,7 @@ Reporting on unused resources, optimising cloud expenditure.
 
 * Generate a report detailing unutilized cloud resources per team and share it on Slack
 * Create a usage report for AWS ECR (Amazon Elastic Container Registry) to identify potential cost-saving opportunities
+* [Additional examples](./media/README.md#rd-scenarios#finops-shift-left)
 
 #### SecOps Shift-Left
 
@@ -79,6 +80,7 @@ Vulnerability checks, best practices, playbooks.
 
 * Conduct a security vulnerability analysis on your S3 buckets
 * Grant me temporary permissions to production
+* [Additional examples](./media/README.md#secops-shift-left)
 
 #### SRE Shift-Left
 
@@ -86,13 +88,15 @@ lower your MTTR, Service usage monitoring, service optimization.
 
 * Have a virtual SRE expert team member on your side during prduction outage troubleshooting
 * Increase the memory for my Node service deployed on a k8s cluster
+* [Additional examples](./media/README.md#sre-shift-left)
 
 #### DevOps Shift-Left
 
 Scaling services, managing EC2 instances and cron jobs, coding utilities.
 
 * upgrade EKS or ELK cluster version on staging and then on production
-<br/>
+* [Additional examples](./media/README.md#devops-shift-left)
+  <br/>
 
 ### Demo: GeniA troubleshoots a production incident
 
