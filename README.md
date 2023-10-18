@@ -8,7 +8,7 @@
 </p>
 <br>
 <p>
-Meet your new AI platform engineering team member. It can work alongside you in your production environment, executing tasks on your behalf. While it's up-to-date with the latest industry best practices, it also understands how your team operates. Capable of learning and executing tasks, it helps you achieve greater impact, faster. GeniA is intuitive yet powerful, a quick learner, and is available right in your team's Slack channel.
+Meet your new AI platform engineering team member. It can work alongside you in your production environment, executing tasks on your behalf. While it's up-to-date with the latest industry best practices, it also understands how your team operates. Capable of learning and executing tasks, it helps you achieve greater impact, faster. <br>GeniA is intuitive yet powerful, a quick learner, and is available right in your team's Slack channel.
 </p>
 
 ## 📝 Table of Contents
