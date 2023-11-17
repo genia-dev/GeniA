@@ -8,7 +8,7 @@
 </p>
 <br>
 <p>
-Meet your new AI platofrm engineering team member, it is able to work along side you on your production enviroment, executing tasks on your behalf.
+Meet your new AI platform engineering team member, it is able to work alongside you in your production environment, executing tasks on your behalf.
 It is up-to-date with the latest industry best practices, yet knows how you run things on your team. it is capable of learning and executing tasks for you, making more impact. faster.
 <br>
 GeniA is intuitive yet powerful, a quick learner and right in your team's Slack channel.
@@ -27,7 +27,7 @@ GeniA is intuitive yet powerful, a quick learner and right in your team's Slack 
 
 ## Introduction
 
-While ChatGPT and CoPilot have garnered significant attention for their ability to assist with writing new code, as software engineers, we understand that coding is merely one aspect of our daily responsibilities and AI present many additional opportunities to minimize bolier plate, time wasters and cross team dependencies.
+While ChatGPT and CoPilot have garnered significant attention for their ability to assist with writing new code, as software engineers, we understand that coding is merely one aspect of our daily responsibilities and AI presents many additional opportunities to minimize boilerplate, time wasters and cross team dependencies.
 
 **Under the hood** GeniA is built upon the [function-calling capabilities offered by OpenAI](https://openai.com/blog/function-calling-and-other-api-updates) (OpenAI or Azure). GeniA requires OpenAI API Key, you can generate one [here](https://platform.openai.com/account/api-keys)
 
@@ -41,7 +41,7 @@ GeniA is designed to be a fast learner, quickly acquiring the ability to utilize
 
 ### GeniA is Production grade
 
-we have set ourselves the goal of building a production-grade software right off the bat. Now, you can start working with GeniA in production by installing the GeniA container, integrate it into your team's Slack channel, and let it land on its feet running.
+We have set ourselves the goal of building a production-grade software right off the bat. Now, you can start working with GeniA in production by installing the GeniA container, integrate it into your team's Slack channel, and let it land on its feet running.
 
 ### Project philosopy
 
@@ -68,7 +68,7 @@ Deployment, troubleshooting, log summarization, build initiation, PR digesting
 
 #### FinOps Shift-Left
 
-Reporting on unused resources, optimising cloud expenditure.
+Reporting on unused resources, optimizing cloud expenditure.
 
 * Generate a report detailing unutilized cloud resources per team and share it on Slack
 * Create a usage report for AWS ECR (Amazon Elastic Container Registry) to identify potential cost-saving opportunities
@@ -86,7 +86,7 @@ Vulnerability checks, best practices, playbooks.
 
 lower your MTTR, Service usage monitoring, service optimization.
 
-* Have a virtual SRE expert team member on your side during prduction outage troubleshooting
+* Have a virtual SRE expert team member on your side during production outage troubleshooting
 * Increase the memory for my Node service deployed on a k8s cluster
 * [Additional examples](./media/README.md#sre-shift-left)
 
