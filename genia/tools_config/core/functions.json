@@ -167,6 +167,43 @@
         }
     },
     {
+        "name": "list_clusters_eks",
+        "description": "Use the AWS API to list EKS clusters",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "region_name": {
+                    "type": "string",
+                    "description": "The AWS Region"
+                }
+            },
+            "required": [
+                "region_name"
+            ]
+        }
+    },
+    {
+        "name": "describe_cluster_eks",
+        "description": "Use the AWS API to describe EKS cluster",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "region_name": {
+                    "type": "string",
+                    "description": "The AWS Region"
+                },
+                "cluster_name": {
+                    "type": "string",
+                    "description": "The AWS cluster name"
+                }
+            },
+            "required": [
+                "region_name",
+                "cluster_name"
+            ]
+        }
+    },
+    {
         "name": "restart_cluster",
         "description": "Use the AWS API to restart ECS cluster services",
         "parameters": {

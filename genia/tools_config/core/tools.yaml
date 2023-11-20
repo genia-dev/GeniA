@@ -41,6 +41,16 @@
   class: genia.tools.aws_client.ecs.aws_client_ecs.AWSClientECS
   method: list_clusters
 
+- tool_name: list_clusters_eks
+  category: python
+  class: genia.tools.aws_client.eks.aws_client_eks.AWSClientEKS
+  method: list_clusters_eks
+
+- tool_name: describe_cluster_eks
+  category: python
+  class: genia.tools.aws_client.eks.aws_client_eks.AWSClientEKS
+  method: describe_cluster_eks
+
 - tool_name: restart_cluster
   category: python
   class: genia.tools.aws_client.ecs.aws_client_ecs.AWSClientECS
