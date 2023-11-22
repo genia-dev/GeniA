@@ -146,4 +146,4 @@ You can see details [here](./.github/ISSUE_TEMPLATE/submit-a-request.md).
 - RBAC Support.
 - Extending capabilities with thousands of new tools.
 
-#### Full documentation can be found [here](https://genia-dev.github.io/GeniA/)
+#### Full documentation can be found [here](https://genia-dev.github.io/GeniA/) 
